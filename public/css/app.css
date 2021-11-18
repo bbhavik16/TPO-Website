@@ -11,4 +11,9 @@ th{
 
 td{
     text-align: center;
+} 
+
+#stick {
+    position: sticky; 
+    top: 0px;
 }
