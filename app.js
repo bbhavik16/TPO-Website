@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const ejs = require('ejs');
 const ejsMate = require('ejs-mate');
 const path = require('path');
+<<<<<<< Updated upstream
 const Company = require('./models/company')
 
 mongoose.connect('mongodb://localhost:27017/tpo-website', {
@@ -18,6 +19,9 @@ db.once("open", () => {
     console.log("Database connected")
 })
 
+=======
+const ejs = require('ejs');
+>>>>>>> Stashed changes
 app.engine('ejs', ejsMate)
 app.set("views", path.join(__dirname, "views"))
 app.set("view engine", "ejs")
