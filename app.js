@@ -18,11 +18,15 @@ app.get('/', (req, res) => {
 })
 
 app.get('/home', (req, res) => {
-    res.render('/home');
+    res.render('index');
 })
 
 app.get('/students', (req, res) => {
     res.render('students/index')
+})
+
+app.get('/students/rules', (req, res) => {
+    res.render('students/rules')
 })
 
 app.listen(3000, () => { 
