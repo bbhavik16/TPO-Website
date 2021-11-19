@@ -23,6 +23,7 @@
     "ejs": "^3.1.6",
     "ejs-mate": "^3.0.0",
     "express": "^4.17.1",
+    "method-override": "^3.0.0",
     "mongoose": "^6.0.13",
     "multer-storage-cloudinary": "^4.0.0"
   }

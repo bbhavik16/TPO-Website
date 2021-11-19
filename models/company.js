@@ -1,8 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
-
-
 const ImageSchema = new Schema({
     url: String,
     filename: String
@@ -21,4 +18,4 @@ const companySchema = new Schema({
 
 const Company = mongoose.model('Company',companySchema);
 
-module.exports = Company;
+module.exports = Company; 

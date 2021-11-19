@@ -1,0 +1,11 @@
+<% layout('layouts/boilerplate')%>
+<ul>
+<li><%= company.name%></li>
+<li><%= company.ctc%></li>
+</ul>
+<form action="/companies/<%= company._id%>?_method=DELETE" method="POST">
+    <button>Delete</button>
+</form>
+<a href="/companies">Back</a>
+<a href="/companies/<%= company._id %>/edit">Edit</a>
+

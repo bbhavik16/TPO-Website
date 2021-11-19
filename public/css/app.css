@@ -21,9 +21,9 @@ td{
 
         #intro {
             background-image: url("https://media.istockphoto.com/photos/businesswoman-using-computer-in-dark-office-picture-id557608443?b=1&k=20&m=557608443&s=170667a&w=0&h=M5C8vp9R2_gkvxhoAxCovuKFIJjROylmo4tqiSdVHOQ=");
-            height: 100vh;
+            height: 50vh;
             width: 100%;
-            background-size: 100% 100%;
+            background-size: 75% 75%;
 
         }
 
@@ -33,3 +33,6 @@ td{
             }
         }
    
+/* #image{
+    border: 2px solid black;
+} */

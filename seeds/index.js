@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const Company = require('../models/company.js')
-const {name,location,branch,role} = require('./companies.js');
+const {name,location,branch,role,url} = require('./companies.js');
 mongoose.connect('mongodb://localhost:27017/tpo-website', {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -20,7 +20,7 @@ function round(value, precision) {
 
 const seedDB = async()=>{
       await Company.deleteMany({});
-      for(let i=0; i<20; i++){
+      for(let i=0; i<30; i++){
           const minCgpi=round((Math.random()*2.1)+6,1);
           const randCtc=Math.floor(Math.random()*30)+10;
           const roleRand=Math.floor(Math.random()*5)
@@ -30,7 +30,8 @@ const seedDB = async()=>{
               location:`${location[roleRand]}`,
               ctc:randCtc,
               min_cgpa:minCgpi,
-              branch: ['CS','IT',`${branch[roleRand]}`]
+              branch: ['CS','IT',`${branch[roleRand]}`],
+              logo:{url:`${url[i]}`}
           })
           await company.save();
       }

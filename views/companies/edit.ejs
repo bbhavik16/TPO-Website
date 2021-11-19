@@ -1,0 +1,18 @@
+<% layout('layouts/boilerplate')%>
+<div class='row'>
+    <h1 class="text-center">Edit Company</h1>
+    <div class="col-6 offset-3">
+<form action="/companies/<%= company._id %>?_method=PUT" method="post" >
+    <label for="name">Name</label>
+    <input type="text" name="company[name]" id="name" value="<%= company.name%>">
+    <label for="ctc">CTC</label>
+    <input type="number" name="company[ctc]" id="ctc" value="<%= company.ctc%>">
+    <label for="role">Role</label>
+    <input type="text" name="company[role]" id="role" value="<%= company.role%>">
+    <label for="location">Location</label>
+    <input type="text" name="company[location]" id="location" value="<%= company.location%>">
+    <label for="min_cgpa">Minimum Cgpa</label>
+    <input type="number" name="company[min_cgpa]" id="min_cgpa" value="<%= company.min_cgpa%>">
+    <button>Edit</button>
+</form>
+<a href="/companies/<% company._id%>">Back</a>
