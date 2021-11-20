@@ -3,51 +3,54 @@
 <div class='row'>
     <h1 class="text-center">New Company</h1>
     <div class="col-6 offset-3">
-<form  action="/companies" method="post" class="row g-3 needs-validation" novalidate>
-    <div class="mb-3">
-        <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" placeholder="Enter Company Name" name="company[name]" required>
-        <div class="valid-feedback">
-          Looks good!
-        </div>
-    </div>
-    <div class="mb-3">
-        <label for="ctc" class="form-label">CTC (Lpa)</label>
-        <input type="number" class="form-control" id="name" placeholder="Enter CTC" name="company[ctc]" required>
-        <div class="valid-feedback">
-          Looks good!
-        </div>
+    <form  action="/companies" method="post" class="row g-3 validated-form" novalidate>
+      <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter Company Name" name="company[name]" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+      </div>
+      <!-- <div class="mb-3">
+          <label for="logo" class="form-label">Image Url</label>
+          <input type="text" class="form-control" id="url" placeholder="Enter Image Url" name="company[logo[url]]" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+      </div> -->
+      <div class="mb-3">
+          <label for="ctc" class="form-label">CTC (Lpa)</label>
+          <input type="number" class="form-control" id="name" placeholder="Enter CTC" name="company[ctc]" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>  
+      </div>
+      <div class="mb-3">
+          <label for="role" class="form-label">Role</label>
+          <input type="text" class="form-control" id="role" placeholder="Enter Role" name="company[role]" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+      </div>
+      <div class="mb-3">
+          <label for="location" class="form-label">Location</label>
+          <input type="text" class="form-control" id="location" placeholder="Enter location" name="company[location]" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+      </div>
+      <div class="mb-3">
+          <label for="min_cgpa" class="form-label">Minimum Cgpa</label>
+          <input type="text" class="form-control" id="min_cgpa" placeholder="Enter Minimum Cgpa" name="company[min_cgpa]" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+      </div>
     
-    </div>
-    <div class="mb-3">
-        <label for="role" class="form-label">Role</label>
-        <input type="text" class="form-control" id="role" placeholder="Enter company Role" name="company[role]" required>
-        <div class="valid-feedback">
-          Looks good!
-        </div>
-    </div>
-    <div class="mb-3">
-        <label for="location" class="form-label">Location</label>
-        <input type="text" class="form-control" id="location" placeholder="Enter location" name="company[location]" required>
-        <div class="valid-feedback">
-          Looks good!
-        </div>
-    </div>
-    <div class="mb-3">
-        <label for="min_cgpa" class="form-label">Minimum Cgpa</label>
-        <input type="text" class="form-control" id="min_cgpa" placeholder="Enter minimum Cgpa" name="company[min_cgpa]" required>
-        <div class="valid-feedback">
-          Looks good!
-        </div>
-    </div>
-    
-    <div class="mb-3">
-        <button class="btn btn-success">Add Company</button>
-    </div>
-    <a href="/campgrounds">All Companies</a>
-</form>
+      <div class="mb-3">
+          <button class="btn btn-success">Add Company</button>
+      </div>
+      <a class="mb-3" href="/companies">All Companies</a>
+    </form>
 </div>
 </div>
-
-
-

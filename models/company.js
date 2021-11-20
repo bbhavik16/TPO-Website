@@ -14,6 +14,7 @@ const companySchema = new Schema({
     branch: {type:[String]},
     min_cgpa: Number,
     location: String
+    // add middleware for validating company login for adding/editing companies
 })
 
 const Company = mongoose.model('Company',companySchema);
