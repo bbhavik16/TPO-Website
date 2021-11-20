@@ -16,7 +16,7 @@ const passport = require('passport');
 const localStrategy = require("passport-local")
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const User = require("./models/user.js")
-// const cookieSession = require('cookie-session')
+const findOrCreate = require('mongoose-findorcreate');
 require('./passport-setup.js')
 
 mongoose.connect('mongodb://localhost:27017/tpo-website', {
@@ -44,15 +44,11 @@ const sessionConfig = {
 app.use(session(sessionConfig));
 app.use(flash());
 
-// app.use(cookieSession({
-//     name: 'TPO-Website',
-//     keys: ['key1', 'key2']
-// }))
-
 app.use(passport.initialize());
 app.use(passport.session());
 
 passport.use(new localStrategy(User.authenticate()));
+
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
@@ -73,7 +69,7 @@ app.use(methodOverride("_method"))                        //For overriding post 
 app.use(express.static(path.join(__dirname, "public")))
 
 app.get('/', (req, res) => {
-    res.render('layouts/boilerplate')
+    res.send("Hello")
 })
 
 app.get('/home', (req, res) => {
@@ -136,6 +132,7 @@ app.get('/contact', (req, res) => {
     res.render('contact')
 })
 
+
 app.get('/register',(req,res)=>{
     res.render('users/register');
 })
@@ -162,28 +159,28 @@ app.get('/login', (req, res) => {
     res.render('users/login')
 })
 
-app.post('/login', passport.authenticate('local', {failureFlash: true, failureRedirect: '/login'}), (req, res) => {
+app.post('/login', passport.authenticate(['local', 'passport-google-oauth20'], {failureFlash: true, failureRedirect: '/login'}), (req, res) => {
     req.flash('success', 'Welcome back');
-    // const redirectUrl = req.session.returnTo || '/companies';
-    // delete req.session.returnTo;
+    const redirectUrl = req.session.returnTo || '/companies';
+    delete req.session.returnTo;
     res.redirect('/companies')
 })
 
 app.get('/logout', (req, res) => {
-    req.session = null;
     req.logout();
     res.redirect('/companies')
 })
 
 app.get('/auth/google',
-  passport.authenticate('google', { scope: ['profile'] }));
+    passport.authenticate('google', { scope: ['profile', 'email'] }));
 
-app.get('/auth/google/callback', 
-  passport.authenticate('google', { failureRedirect: '/login' }),
-  function(req, res) {
+app.get('/google/callback', 
+    passport.authenticate('google', { failureRedirect: '/login' }),
+    function(req, res) {
     // Successful authentication, redirect home.
-    res.redirect('/home');
+    res.redirect('/companies');
 });
+
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found', 404))
@@ -195,7 +192,6 @@ app.use((err, req, res, next) => {
         err.message = "Oh No, Something went wrong!"
     res.status(statusCode).render('error', {err})
 })
-
 
 
 app.listen(3000, () => {
