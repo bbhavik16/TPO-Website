@@ -11,6 +11,9 @@ const ExpressError = require('./utils/ExpressError');
 const catchAsync = require('./utils/catchAsync')
 const { validateCompany } = require('./middleware.js')
 const session = require('express-session');
+const multer=require("multer")
+const {storage}=require("./cloudinary")
+const upload=multer({storage})
 const flash = require('connect-flash')
 const passport = require('passport');
 const localStrategy = require("passport-local")
@@ -103,11 +106,19 @@ app.get('/companies/:id', catchAsync(async(req,res)=>{      // showing company i
     res.render('companies/show', {company});
 }))
 
-app.post('/companies', validateCompany, catchAsync(async (req,res)=>{
-    const company = new Company(req.body.company);
-    console.log(company);
-    await company.save();
-    res.redirect(`/companies/${company._id}`)
+app.post('/companies',upload.single("image"),validateCompany,catchAsync(async (req,res)=>{
+    const company = new Company({
+        name:req.body.company.name,
+        ctc:req.body.company.ctc,
+        location:req.body.company.location,
+        min_cgpa:req.body.company.min_cgpa,
+        logo:{
+            filename:req.file.filename,
+            url:req.file.path
+        }
+     });
+     await company.save();
+     res.redirect(`/companies/${company._id}`)
 }))
 
 app.get('/companies/:id/edit', catchAsync(async (req, res) => {

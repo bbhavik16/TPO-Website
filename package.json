@@ -29,6 +29,7 @@
     "method-override": "^3.0.0",
     "mongoose": "^6.0.13",
     "mongoose-findorcreate": "^3.0.0",
+    "multer": "^1.4.3",
     "multer-storage-cloudinary": "^4.0.0",
     "passport": "^0.5.0",
     "passport-google-oauth20": "^2.0.0",

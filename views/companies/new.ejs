@@ -3,7 +3,7 @@
 <div class='row'>
     <h1 class="text-center">New Company</h1>
     <div class="col-6 offset-3">
-    <form  action="/companies" method="post" class="row g-3 validated-form" novalidate>
+    <form  action="/companies" method="post" class="row g-3 validated-form" enctype="multipart/form-data" novalidate>
       <div class="mb-3">
           <label for="name" class="form-label">Name</label>
           <input type="text" class="form-control" id="name" placeholder="Enter Company Name" name="company[name]" required>
@@ -11,13 +11,10 @@
             Looks good!
           </div>
       </div>
-      <!-- <div class="mb-3">
-          <label for="logo" class="form-label">Image Url</label>
-          <input type="text" class="form-control" id="url" placeholder="Enter Image Url" name="company[logo[url]]" required>
-          <div class="valid-feedback">
-            Looks good!
-          </div>
-      </div> -->
+      <div class="input-group mb-3">
+        <input type="file" class="form-control" id="inputGroupFile02" name="image">
+        <label class="input-group-text" for="inputGroupFile02">Upload Logo</label>
+      </div>
       <div class="mb-3">
           <label for="ctc" class="form-label">CTC (Lpa)</label>
           <input type="number" class="form-control" id="name" placeholder="Enter CTC" name="company[ctc]" required>

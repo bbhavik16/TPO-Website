@@ -7,5 +7,5 @@ module.exports.companySchema = Joi.object({
         role: Joi.string().required(),
         location: Joi.string().required(),
         min_cgpa: Joi.number().required().min(6)
-    }).required()
+    })
 })
