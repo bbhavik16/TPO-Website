@@ -87,6 +87,26 @@ app.get('/home', (req, res) => {
     res.render('index');
 })
 
+app.get('/statistics/2019-20', (req, res) => {
+    res.render('statistics/2019-20')
+})
+
+app.get('/statistics/2018-19', (req, res) => {
+    res.render('statistics/2018-19')
+})
+
+app.get('/statistics/2017-18', (req, res) => {
+    res.render('statistics/2017-18')
+})
+
+app.get('/statistics/2016-17', (req, res) => {
+    res.render('statistics/2016-17')
+})
+
+app.get('/statistics/2015-16', (req, res) => {
+    res.render('statistics/2015-16')
+})
+
 app.get('/contact', (req, res) => {
     res.render('contact')
 })

@@ -1,0 +1,47 @@
+<% layout('layouts/boilerplate')%>
+<div class='d-flex row'>
+    <div class=" col-6 chartBox img-fluid">
+        <canvas id="barchart"></canvas>
+    </div>
+    <script>
+        const data = [12.7, 12.1, 9.62, 7.64, 6.9, 6.2, 4.84, 6.2, 6.2] 
+    </script>
+    <script src="/javascripts/barchart.js"></script>
+
+    <div class="col-6 chartBox ">
+   
+        <canvas id="PieChart"></canvas>
+    </div>
+</div>
+    <script>
+        var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+        var yValues = [55, 49, 44, 24, 15];
+        var barColors = [
+          "#b91d47",
+          "#00aba9",
+          "#2b5797",
+          "#e8c3b9",
+          "#1e7145"
+        ];
+        
+        new Chart("PieChart", {
+          theme: "light2",
+          type: "pie",
+          data: {
+            labels: xValues,
+            datasets: [{
+              backgroundColor: barColors,
+              data: yValues
+            }]
+          },
+          options: {
+            // responsive: true,
+            maintainAspectRatio: false,
+            animationEnabled: true,
+            title: {
+              display: true,
+              text: "World Wide Wine Production 2018"
+            }
+          }
+        });
+        </script>

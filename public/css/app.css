@@ -19,20 +19,26 @@ td{
 }
 
 
-        #intro {
-            background-image: url("https://media.istockphoto.com/photos/businesswoman-using-computer-in-dark-office-picture-id557608443?b=1&k=20&m=557608443&s=170667a&w=0&h=M5C8vp9R2_gkvxhoAxCovuKFIJjROylmo4tqiSdVHOQ=");
-            height: 50vh;
-            width: 100%;
-            background-size: 75% 75%;
+#intro {
+    background-image: url("https://res.cloudinary.com/djhcnbsvg/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1637673508/TPO-Website/BussinessWomen_efwjte.jpg");
+    height: 50vh;
+    width: 100%;
+    background-size: 75% 75%;
 
-        }
+}
 
-        @media (min-width: 992px) {
-            #intro {
-                margin-top: -58.59px;
-            }
-        }
-   
-/* #image{
-    border: 2px solid black;
-} */
+@media (min-width: 992px) {
+    #intro {
+        margin-top: -58.59px;
+    }
+}
+
+.chartBox{
+    height: 400px;
+    width: 48%;
+    display: inline-block;
+}
+
+#barchart{
+    display: inline-block;
+}

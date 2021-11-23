@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/bbhavik16/TPO-Website#readme",
   "dependencies": {
+    "chart.js": "^3.6.0",
     "cloudinary": "^1.27.1",
     "connect-flash": "^0.1.1",
     "dotenv": "^10.0.0",
