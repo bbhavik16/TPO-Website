@@ -1,8 +1,117 @@
 <% layout('layouts/boilerplate')%>
-    <div class="chartBox img-fluid">
-        <canvas id="myChart"></canvas>
-    </div>
-    <script>
+  <div class="container">
+    <div class="row ">
+      <div class="col col-12 col-xl-6 chartBox  mb-3 pr-4">
+        <canvas id="barchart"></canvas>
+      </div>
+      <script>
         const data = [8.6, 7.1, 5.3, 5.2, 4.1, 3.9, 4.0, 3.7, 3.2]
-    </script>
-    <script src="/javascripts/barchart.js"></script>
+      </script>
+      <script src="/javascripts/barchart.js"></script>
+      <div class="col-6 mb-4">
+        <canvas id="PieChart"></canvas>
+        <script> const piedata = [71, 73, 67, 71, 42, 62, 59, 43, 40]</script>
+        <script src="/javascripts/piechart.js">
+        </script>
+      </div>
+    </div>
+
+<div class="row">
+      <div class="col justify-content-center mb-3">
+        <table class="table table-bordered table-striped">
+      <tr>
+        <th>Sr.No</th>
+        <th>Branch</th>
+        <th>Enrolled to TPO</th>
+        <th>Eligible</th>
+        <th>Total Selected</th>
+        <th>% Eligible Placed</th>
+        <th>Average CTC</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>COMPS</td>
+        <td>73</td>
+        <td>73</td>
+        <td>71</td>
+        <td>97.26</td>
+        <td>8.6</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>IT</td>
+        <td>76</td>
+        <td>74</td>
+        <td>73</td>
+        <td>98.64</td>
+        <td>7.1</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>EXTC</td>
+        <td>75</td>
+        <td>68</td>
+        <td>67</td>
+        <td>98.52</td>
+        <td>5.3</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>EX</td>
+        <td>74</td>
+        <td>72</td>
+        <td>71</td>
+        <td>98.61</td>
+        <td>5.2</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>ELECT</td>
+        <td>75</td>
+        <td>63</td>
+        <td>42</td>
+        <td>66.66</td>
+        <td>4.1</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>MECH</td>
+        <td>72</td>
+        <td>67</td>
+        <td>62</td>
+        <td>92.53</td>
+        <td>3.9</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>CIVIL</td>
+        <td>76</td>
+        <td>72</td>
+        <td>59</td>
+        <td>81.94</td>
+        <td>4.0</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>PROD</td>
+        <td>74</td>
+        <td>56</td>
+        <td>43</td>
+        <td>76.78</td>
+        <td>3.7</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>TEXT</td>
+        <td>77</td>
+        <td>55</td>
+        <td>40</td>
+        <td>72.72</td>
+        <td>3.2</td>
+      </tr>
+    </table>
+        </div>
+    </div>
+
+   
+  </div>

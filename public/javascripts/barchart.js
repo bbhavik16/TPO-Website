@@ -1,16 +1,4 @@
-// (function () {
-
-//     var charts = document.querySelectorAll('#myChart')
-
-//     // Loop over them and prevent submission
-//     Array.from(charts)
-//         .forEach(function (chart) {
-//             chart.data.datasets[0].backgroundColor = ['red', 'blue', 'green', 'yellow', 'pink', 'violet'];
-//         })
-// })() 
 const ctx = document.getElementById('barchart')
-
-
 const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
@@ -24,7 +12,7 @@ const myChart = new Chart(ctx, {
                 'rgba(255, 206, 86, 0.6)',
                 'rgba(75, 192, 192, 0.6)',
                 'rgba(153, 102, 255, 0.6)',
-                'rgba(255, 159, 64, 0.6)'
+                'rgba(255, 159, 64, 0.6)',
 
             ],
             borderColor: [

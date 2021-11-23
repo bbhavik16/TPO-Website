@@ -1,8 +1,113 @@
 <% layout('layouts/boilerplate')%>
-    <div class="chartBox img-fluid">
-        <canvas id="myChart"></canvas>
+    <div class="container">
+        <div class="row">
+            <div class="col col-12 col-xl-6 chartBox  mb-3 pr-4">
+                <canvas id="barchart"></canvas>
+            </div>
+            <script>
+                const data = [9.5, 7.6, 6.1, 6.1, 4.9, 4.7, 4.9, 4.5, 3.2]
+            </script>
+            <script src="/javascripts/barchart.js"></script>
+
+            <div class="col-6 chartBox">
+                <canvas id="PieChart"></canvas>
+                <script> const piedata = [65, 66, 61, 54, 63, 60, 33, 54, 19]</script>
+                <script src="/javascripts/piechart.js">
+                </script>
+            </div>
+        </div>
+        <div class="row justify-content-evenly mb-3">
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th>Sr.No</th>
+                    <th>Branch</th>
+                    <th>Enrolled to TPO</th>
+                    <th>Eligible</th>
+                    <th>Total Selected</th>
+                    <th>% Eligible Placed</th>
+                    <th>Average CTC</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>COMPS</td>
+                    <td>72</td>
+                    <td>65</td>
+                    <td>65</td>
+                    <td>100</td>
+                    <td>9.5</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>IT</td>
+                    <td>71</td>
+                    <td>67</td>
+                    <td>66</td>
+                    <td>98.50</td>
+                    <td>7.6</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>EXTC</td>
+                    <td>73</td>
+                    <td>64</td>
+                    <td>61</td>
+                    <td>95.31</td>
+                    <td>6.1</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>EX</td>
+                    <td>74</td>
+                    <td>62</td>
+                    <td>54</td>
+                    <td>87.09</td>
+                    <td>6.1</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>ELECT</td>
+                    <td>71</td>
+                    <td>64</td>
+                    <td>63</td>
+                    <td>98.43</td>
+                    <td>4.9</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>MECH</td>
+                    <td>73</td>
+                    <td>65</td>
+                    <td>60</td>
+                    <td>92.30</td>
+                    <td>4.7</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>CIVIL</td>
+                    <td>70</td>
+                    <td>55</td>
+                    <td>33</td>
+                    <td>60</td>
+                    <td>4.9</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>PROD</td>
+                    <td>75</td>
+                    <td>63</td>
+                    <td>54</td>
+                    <td>85.71</td>
+                    <td>4.5</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>TEXT</td>
+                    <td>69</td>
+                    <td>39</td>
+                    <td>19</td>
+                    <td>48.71</td>
+                    <td>3.2</td>
+                </tr>
+            </table>
+        </div>
     </div>
-    <script>
-        const data = [9.5, 7.6, 6.1, 6.1, 4.9, 4.7, 4.9, 4.5, 3.2]
-    </script>
-    <script src="/javascripts/barchart.js"></script>

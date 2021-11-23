@@ -1,37 +1,112 @@
 <% layout('layouts/boilerplate')%>
-    <div class="chartBox img-fluid">
-        <canvas id="myChart"></canvas>
-    </div>
-    <script>
-        const data = [10.33, 8.09, 6.13, 6.25, 5.4, 5.41, 4.93, 4.27, 5.13]
-    </script>
-    <script src="/javascripts/barchart.js"></script>
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col col-12 col-xl-6 chartBox  mb-3 pr-4">
+                <canvas id="barchart"></canvas>
+            </div>
+            <script>
+                const data = [10.33, 8.09, 6.13, 6.25, 5.4, 5.41, 4.93, 4.27, 5.13]
+            </script>
+            <script src="/javascripts/barchart.js"></script>
 
-    <table class="table table-bordered table-striped">
-        <tr>
-            <th>Sr.No</th>
-            <th>Branch</th>
-            <th>Enrolled to TPO</th>
-            <th>Eligible</th>
-            <th>Total Selected</th>
-            <th>% Eligible Placed</th>
-            <th>Average CTC</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>COMPS</td>
-            <td>71</td>
-            <td>69</td>
-            <td>69</td>
-            <td>100</td>
-            <td>12.70</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>IT</td>
-        </tr>
-        <tr>
-            <td>Super-Dream</td>
-            <td>&#8805 40 lakhs</td>
-        </tr>
-    </table>
+            <div class="col-6 chartBox mb-3">
+                <canvas id="PieChart"></canvas>
+                <script> const piedata = [68, 67, 59, 59, 57, 61, 59, 33, 56]</script>
+                <script src="/javascripts/piechart.js"></script>
+            </div>
+        </div>
+        <div class="row justify-content-evenly mb-3">
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th>Sr.No</th>
+                    <th>Branch</th>
+                    <th>Enrolled to TPO</th>
+                    <th>Eligible</th>
+                    <th>Total Selected</th>
+                    <th>% Eligible Placed</th>
+                    <th>Average CTC</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>COMPS</td>
+                    <td>74</td>
+                    <td>72</td>
+                    <td>68</td>
+                    <td>94.44</td>
+                    <td>10.33</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>IT</td>
+                    <td>80</td>
+                    <td>70</td>
+                    <td>67</td>
+                    <td>95.71</td>
+                    <td>8.09</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>EXTC</td>
+                    <td>72</td>
+                    <td>64</td>
+                    <td>59</td>
+                    <td>92.18</td>
+                    <td>6.13</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>EX</td>
+                    <td>71</td>
+                    <td>65</td>
+                    <td>59</td>
+                    <td>90.76</td>
+                    <td>6.25</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>ELECT</td>
+                    <td>73</td>
+                    <td>65</td>
+                    <td>57</td>
+                    <td>87.69</td>
+                    <td>5.4</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>MECH</td>
+                    <td>71</td>
+                    <td>69</td>
+                    <td>61</td>
+                    <td>88.40</td>
+                    <td>5.41</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>CIVIL</td>
+                    <td>73</td>
+                    <td>67</td>
+                    <td>59</td>
+                    <td>88.05</td>
+                    <td>4.93</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>PROD</td>
+                    <td>80</td>
+                    <td>63</td>
+                    <td>33</td>
+                    <td>52.38</td>
+                    <td>4.27</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>TEXT</td>
+                    <td>77</td>
+                    <td>58</td>
+                    <td>56</td>
+                    <td>96.55</td>
+                    <td>4.93</td>
+                </tr>
+            </table>
+        </div>
+    </div>
