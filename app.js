@@ -23,6 +23,7 @@ require('./passport-setup.js')
 const companyRoutes = require('./routes/company');
 const studentRoutes = require('./routes/student');
 const userRoutes = require('./routes/users')
+const statisticsRoutes = require('./routes/statistics')
 
 mongoose.connect('mongodb://localhost:27017/tpo-website', {
     useNewUrlParser: true,
@@ -78,6 +79,7 @@ app.use((req, res, next) => {
 app.use('/companies', companyRoutes);
 app.use('/students', studentRoutes);
 app.use('/', userRoutes);
+app.use('/statistics', statisticsRoutes);
 
 app.get('/', (req, res) => {
     res.send("Hello")
@@ -87,25 +89,6 @@ app.get('/home', (req, res) => {
     res.render('index');
 })
 
-app.get('/statistics/2019-20', (req, res) => {
-    res.render('statistics/2019-20')
-})
-
-app.get('/statistics/2018-19', (req, res) => {
-    res.render('statistics/2018-19')
-})
-
-app.get('/statistics/2017-18', (req, res) => {
-    res.render('statistics/2017-18')
-})
-
-app.get('/statistics/2016-17', (req, res) => {
-    res.render('statistics/2016-17')
-})
-
-app.get('/statistics/2015-16', (req, res) => {
-    res.render('statistics/2015-16')
-})
 
 app.get('/contact', (req, res) => {
     res.render('contact')

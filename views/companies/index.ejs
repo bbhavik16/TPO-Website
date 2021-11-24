@@ -1,13 +1,17 @@
 <% layout('layouts/boilerplate')%>
-
-<ul>
+<h2 class="text-center">Past Recruiters</h2>
+<div class="mb-3">
 <% for (let company of companies){ %>
-<li><a href="/companies/<%= company._id%>"><%= company.name%></a></li>
-<img src="<%= company.logo.url %>" alt=""> 
-<% } %>  
-</ul>
+<a href="/companies/<%= company._id%>"><img  src="<%= company.logo.url %>" alt=""></a>
+<% } %> 
+</div>
 
 
+
+
+
+
+  
 
 
 
