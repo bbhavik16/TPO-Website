@@ -42,3 +42,14 @@ td{
 #barchart{
     display: inline-block;
 }
+
+.carousel .item {
+    height: 420px;
+  }
+  
+  .item img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-height: 300px;
+  }
