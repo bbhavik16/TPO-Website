@@ -24,12 +24,13 @@ td{
     height: 50vh;
     width: 100%;
     background-size: 75% 75%;
-
+    z-index:1;
 }
 
 @media (min-width: 992px) {
     #intro {
-        margin-top: -58.59px;
+        margin-top: -58.59px; 
+       
     }
 }
 
@@ -43,20 +44,29 @@ td{
     display: inline-block;
 }
 
-.carousel .item {
-    height: 420px;
-  }
-  
-  .item img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      min-height: 300px;
+ 
+ .carousel .item {
+    height: 400px;
+    position: relative;
+    width:100%;
+    overflow:hidden;
+    z-index:1;
   }
 
+  .carousel-inner>.carousel-item>img, .carousel-inner>.item>button>img {
+    display: block;
+    position: absolute;
+    height: 100%;
+    max-height:100%;
+    max-width: 100%;
+    margin:auto;
+    /* width: 100%; */
+}
+  
+   
+     
 header{
     min-height: 15% !important;
-    
 }
 @media only screen and (max-width : 770px) {
     #marathi{
