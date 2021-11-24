@@ -31,6 +31,7 @@ const myChart = new Chart(ctx, {
     options: {
         responsive: true,
         maintainAspectRatio: false,
+
         animations: {
             backgroundColor: {
                 type: 'color',
@@ -48,7 +49,12 @@ const myChart = new Chart(ctx, {
                 text: 'BRANCH-WISE PLACEMENT',
                 padding: {
                     top: 10,
-                    bottom: 10
+                    bottom: 5
+                }
+            },
+            legend: {
+                labels: {
+                    boxWidth: 0
                 }
             }
         },
