@@ -3,8 +3,8 @@
     <div class='row'>
         <h1 class="text-center">Create Resume</h1>
         <div class="col-6 offset-3">
-            <form action="/students/resume" method="post" class="row g-3 validated-form">
-                <div class="tab">
+            <form action="/students/resume" method="post" novalidate class="validated-form">
+                <div novalidate class="tab ">
                     <div class="mb-3">
                         <label for="firstName" class="form-label">First Name</label>
                         <input type="text" class="form-control" id="firstName" placeholder="Enter first name"
@@ -55,8 +55,8 @@
                     </div>
                 </div>
 
-                ///////educational details
-                <div class="tab">
+
+                <div class="tab ">
                     <div class="mb-3">
                         <h3>ENTER DEGREE COLLEGE INFORMATION</h3>
                         <label for="degreeCollege" class="form-label">College Name</label>
@@ -107,8 +107,8 @@
                         </div>
                     </div>
                 </div>
-                    // junior cojunior
-                <div class="tab">
+
+                <div class="tab ">
                     <div class="mb-3">
                         <h3>ENTER JUNIOR COLLEGE INFORMATION</h3>
                         <label for="juniorCollege" class="form-label">College Name</label>
@@ -168,7 +168,7 @@
                     </div>
                 </div>
 
-                <div class="tab">
+                <div class="tab ">
                     <div class="mb-3">
                         <h3>ENTER SCHOOL INFORMATION</h3>
                         <label for="school" class="form-label">School Name</label>
@@ -212,17 +212,17 @@
                     </div>
                 </div>
 
-                /////// Projects
                 <div>
                     <button>
-                        
+
                     </button>
                 </div>
 
-                /////// Step Buttons
+
                 <div style="overflow:auto;">
                     <div style="float:right;">
-                        <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="btn-secondary">Previous</button>
+                        <button type="button" id="prevBtn" onclick="nextPrev(-1)"
+                            class="btn-secondary">Previous</button>
                         <button type="button" id="nextBtn" onclick="nextPrev(1)" class="btn-success">Next</button>
                     </div>
                 </div>
@@ -234,7 +234,7 @@
                     <span class="step"></span>
                     <span class="step"></span>
                 </div>
-                
+
             </form>
         </div>
     </div>

@@ -1,33 +1,38 @@
 <% layout('layouts/boilerplate')%>
 
-<div class="row">
-    <div class="col-6 offset-3">
-        <div class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title"><%= company.name%></h5>
-              
+    <div class="row ">
+        <div class="col-6 offset-3 ">
+            <div class="card mb-3 ">
+                <div class="card-body border border-dark rounded">
+                    <h5 class="card-title d-flex justify-content-center">
+                        <%= company.name%>
+                    </h5>
+                </div>
+                <ul class="list-group list-group-flush border border-dark rounded">
+                    <li class="list-group-item d-flex justify-content-center border-dark"><img
+                            src="<%= company.logo.url%>" class="img-thumbnail">
+                    </li>
+                    <li class="list-group-item border-dark">CTC offered: <%= company.ctc%>
+                    </li>
+                    <li class="list-group-item border-dark">Role: <%= company.role%>
+                    </li>
+                    <li class="list-group-item border-dark">Location: <%= company.location%>
+                    </li>
+                    <li class="list-group-item border-dark">Minimum Cgpa Required: <%= company.min_cgpa%>
+                    </li>
+                </ul>
+
             </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item"><img src="<%= company.logo.url%>"></li>
-                <li class="list-group-item">CTC offered: <%= company.ctc%></li>
-                <li class="list-group-item">Role: <%= company.role%></li>
-                <li class="list-group-item">Location: <%= company.location%></li>
-                <li class="list-group-item">Minimum Cgpa Required: <%= company.min_cgpa%></li>
-            </ul>
-           
         </div>
     </div>
-</div> 
-
-<div class="row">
-    <div class="col-6 offset-3">
-        <div>
-            <a class="card-link btn btn-info" href="/companies/<%=company._id%>/edit">Edit</a>
-            <form class="d-inline" action="/companies/<%=company._id%>?_method=DELETE" method="POST">
-                <button class="btn btn-danger">Delete</button>
-            </form>
-        </div>      
-        <div class="mb-3"><a  href="/companies">Back</a></div>
-        
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div>
+                <a class="card-link btn btn-info" href="/companies/<%=company._id%>/edit">Edit</a>
+                <form class="d-inline" action="/companies/<%=company._id%>?_method=DELETE" method="POST">
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+            <div class="mb-3"><a href="/companies">Back</a></div>
+        </div>
     </div>
-</div>

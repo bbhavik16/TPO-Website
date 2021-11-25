@@ -18,11 +18,11 @@ td{
     top: 0px;
 }
 
-
 #intro {
     background-image: url("https://res.cloudinary.com/djhcnbsvg/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1637673508/TPO-Website/BussinessWomen_efwjte.jpg");
     height: 50vh;
     width: 100%;
+    object-fit:cover;
     background-size: 75% 75%;
     z-index:1;
 }
@@ -57,6 +57,7 @@ td{
     display: block;
     position: absolute;
     height: 100%;
+    object-fit: fill;
     max-height:100%;
     max-width: 100%;
     margin:auto;
@@ -113,3 +114,11 @@ input {
 input.invalid {
     background-color: #ffdddd;
 }
+  
+
+  
+ 
+  
+  
+ 
+  
