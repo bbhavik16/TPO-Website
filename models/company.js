@@ -5,18 +5,22 @@ const ImageSchema = new Schema({
     filename: String
 })
 
+ImageSchema.virtual('thumbnail').get(function () {
+    return this.url.replace('/upload', '/upload/w_241/h_164')
+});
+
 const companySchema = new Schema({
     name: String,
     logo: ImageSchema,
     role: String,
     ctc: Number,
     website: String,
-    branch: {type:[String]},
+    branch: { type: [String] },
     min_cgpa: Number,
     location: String
     // add middleware for validating company login for adding/editing companies
 })
 
-const Company = mongoose.model('Company',companySchema);
+const Company = mongoose.model('Company', companySchema);
 
-module.exports = Company; 
+module.exports = Company;
