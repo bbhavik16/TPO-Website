@@ -65,7 +65,6 @@ passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-
 app.use((req, res, next) => {
     if(!['/login', '/register'].includes(req.originalUrl)) {
         req.session.returnTo = req.originalUrl;
@@ -89,9 +88,16 @@ app.get('/home', (req, res) => {
     res.render('index');
 })
 
-
 app.get('/contact', (req, res) => {
     res.render('contact')
+})
+
+app.get('/students/resume',(req,res)=>{
+    res.render('students/resume');
+})
+
+app.get('/students/tp', (req, res) => {
+    res.render('students/tp')
 })
 
 app.all('*', (req, res, next) => {

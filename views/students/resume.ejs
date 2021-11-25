@@ -1,0 +1,242 @@
+<% layout('layouts/boilerplate')%>
+
+    <div class='row'>
+        <h1 class="text-center">Create Resume</h1>
+        <div class="col-6 offset-3">
+            <form action="/students/resume" method="post" class="row g-3 validated-form">
+                <div class="tab">
+                    <div class="mb-3">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="Enter first name"
+                            name="resume[personal[firstName]]" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="Enter last name"
+                            name="resume[personal[lastName]]" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="mobile" class="form-label">Mobile No.</label>
+                        <input type="text" class="form-control" id="mobile" placeholder="Enter mobile no"
+                            name="resume[personal[mobile]]">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter Email"
+                            name="resume[personal[mobile]]" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="github" class="form-label">Github</label>
+                        <input type="url" class="form-control" id="github" placeholder="Enter github link"
+                            name="resume[personal[github]]">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="linkedin" class="form-label">LinkedIn</label>
+                        <input type="text" class="form-control" id="linkedin" placeholder="Enter LinkedIn link"
+                            name="resume[personal[linkedin]]" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                </div>
+
+                ///////educational details
+                <div class="tab">
+                    <div class="mb-3">
+                        <h3>ENTER DEGREE COLLEGE INFORMATION</h3>
+                        <label for="degreeCollege" class="form-label">College Name</label>
+                        <input type="text" class="form-control" id="degreeCollege" placeholder="Enter college name"
+                            name="resume[education[degreeCollege]]" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="location" class="form-label">College Location</label>
+                        <input type="text" class="form-control" id="location" placeholder="Enter college location"
+                            name="resume[education[degreeCollegeLocation]]" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="degree" class="form-label">Degree</label>
+                        <input type="text" class="form-control" id="degree" placeholder="Enter degree"
+                            name="resume[education[degree]]" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="branch" class="form-label">Branch</label>
+                        <input type="text" class="form-control" id="branch" placeholder="Enter Branch"
+                            name="resume[education[branch]]" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cgpa" class="form-label">Cgpa</label>
+                        <input type="number" class="form-control" id="cgpa" placeholder="Enter Cgpa"
+                            name="resume[education[cgpa]]">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="year" class="form-label">Year</label>
+                        <input type="text" class="form-control" id="year" placeholder="Enter year"
+                            name="resume[education[year]]" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                </div>
+                    // junior cojunior
+                <div class="tab">
+                    <div class="mb-3">
+                        <h3>ENTER JUNIOR COLLEGE INFORMATION</h3>
+                        <label for="juniorCollege" class="form-label">College Name</label>
+                        <input type="text" class="form-control" id="juniorCollege" placeholder="Enter college name"
+                            name="resume[education[juniorCollege]]" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="location" class="form-label">College Location</label>
+                        <input type="text" class="form-control" id="location" placeholder="Enter college location"
+                            name="resume[education[juniorCollegeLocation]]" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="board" class="form-label">Board</label>
+                        <input type="text" class="form-control" id="board" placeholder="Enter board"
+                            name="resume[education[board]]" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="percentage" class="form-label">Percentage</label>
+                        <input type="number" class="form-control" id="percentage" placeholder="Enter Percentage"
+                            name="resume[education[percentage]]">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="year" class="form-label">Year</label>
+                        <input type="text" class="form-control" id="year" placeholder="Enter year"
+                            name="resume[education[year]]" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="jee" class="form-label">JEE Score</label>
+                        <input type="number" class="form-control" id="jee" placeholder="Enter Jee Score"
+                            name="resume[education[jee]]">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cet" class="form-label">MHT-CET</label>
+                        <input type="number" class="form-control" id="cet" placeholder="Enter MHT-CET Score"
+                            name="resume[education[cet]]">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab">
+                    <div class="mb-3">
+                        <h3>ENTER SCHOOL INFORMATION</h3>
+                        <label for="school" class="form-label">School Name</label>
+                        <input type="text" class="form-control" id="school" placeholder="Enter school name"
+                            name="resume[education[school]]" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="location" class="form-label">School Location</label>
+                        <input type="text" class="form-control" id="location" placeholder="Enter School location"
+                            name="resume[education[schoolLocation]]" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="board" class="form-label">Board</label>
+                        <input type="text" class="form-control" id="board" placeholder="Enter board"
+                            name="resume[education[board]]" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="percentage" class="form-label">Percentage</label>
+                        <input type="number" class="form-control" id="percentage" placeholder="Enter Percentage"
+                            name="resume[education[percentage]]">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="year" class="form-label">Year</label>
+                        <input type="text" class="form-control" id="year" placeholder="Enter year"
+                            name="resume[education[year]]" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                </div>
+
+                /////// Projects
+                <div>
+                    <button>
+                        
+                    </button>
+                </div>
+
+                /////// Step Buttons
+                <div style="overflow:auto;">
+                    <div style="float:right;">
+                        <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="btn-secondary">Previous</button>
+                        <button type="button" id="nextBtn" onclick="nextPrev(1)" class="btn-success">Next</button>
+                    </div>
+                </div>
+
+                <!-- Circles which indicates the steps of the form: -->
+                <div style="text-align:center;margin-top:40px;">
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+
+    <script src="/javascripts/tabs.js"></script>
