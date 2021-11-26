@@ -96,6 +96,11 @@ app.get('/students/resume',(req,res)=>{
     res.render('students/resume');
 })
 
+app.post('/students/resume',(req,res)=>{   
+    console.log(req.body)
+    res.send('ok');
+})
+
 app.get('/students/tp', (req, res) => {
     res.render('students/tp')
 })

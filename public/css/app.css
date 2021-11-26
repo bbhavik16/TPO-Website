@@ -111,10 +111,14 @@ input {
 }
 
 /* Mark input boxes that gets an error on validation: */
-input.invalid {
-    background-color: #ffdddd;
+
+  input.invalid {
+    background-color:white;
 }
+
   
+  
+
 
   
  

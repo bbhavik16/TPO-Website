@@ -20,7 +20,7 @@ function addSkill() {
     var skill = document.createElement("INPUT");
     skill.setAttribute("type", "text");
     skill.setAttribute("class","form-control mb-2")
-    skill.setAttribute("name","resume[skills]")
+    skill.setAttribute("name","skills")
     document.getElementById(`Skill${skillCount}`).appendChild(skill);
 
   const Delete=document.createElement("button")
@@ -49,6 +49,7 @@ function addAchive() {
     var titleField = document.createElement("INPUT");
     titleField.setAttribute("id", "Title")
     titleField.setAttribute("type", "text");
+    titleField.setAttribute("name","achievements[][title]")
     titleField.setAttribute("class","form-control")
     document.getElementById(`Achive${achiveCount}`).appendChild(titleField);
     
@@ -67,6 +68,7 @@ function addAchive() {
     var DescField = document.createElement("Textarea");
     DescField.setAttribute("id", "Description")
     DescField.setAttribute("class","form-control mb-4")
+    DescField.setAttribute("name","achievements[][description]")
     document.getElementById(`Achive${achiveCount}`).appendChild(DescField);
 
 
@@ -96,6 +98,7 @@ function addProject() {
     titleField.setAttribute("id", "Title")
     titleField.setAttribute("type", "text");
     titleField.setAttribute("class","form-control")
+    titleField.setAttribute("name","projects[][title]")
     document.getElementById(`Project${projectCount}`).appendChild(titleField);
     
     
@@ -110,9 +113,10 @@ function addProject() {
 
 
     var StackField = document.createElement("INPUT");
-    StackField.setAttribute("id", "Satck")
+    StackField.setAttribute("id", "Stack")
     StackField.setAttribute("type", "text");
     StackField.setAttribute("class","form-control")
+    StackField.setAttribute("name","projects[][stack]")
     document.getElementById(`Project${projectCount}`).appendChild(StackField);
 
 
@@ -130,6 +134,7 @@ function addProject() {
     var DescField = document.createElement("Textarea");
     DescField.setAttribute("id", "Description")
     DescField.setAttribute("class","form-control mb-4")
+    DescField.setAttribute("name", "projects[][description]")
     document.getElementById(`Project${projectCount}`).appendChild(DescField);
 
 
