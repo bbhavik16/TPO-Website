@@ -4,7 +4,6 @@
         <h1 class="text-center">Create Resume</h1>
         <div class="col-6 offset-3">
             <form action="/students/resume" method="post" novalidate class="validated-form">
-                <div novalidate class="tab ">
                     <div class="mb-3">
                         <label for="firstName" class="form-label">First Name</label>
                         <input type="text" class="form-control" id="firstName" placeholder="Enter first name"
@@ -53,10 +52,8 @@
                             Looks good!
                         </div>
                     </div>
-                </div>
 
 
-                <div class="tab ">
                     <div class="mb-3">
                         <h3>ENTER DEGREE COLLEGE INFORMATION</h3>
                         <label for="degreeCollege" class="form-label">College Name</label>
@@ -106,9 +103,9 @@
                             Looks good!
                         </div>
                     </div>
-                </div>
 
-                <div class="tab ">
+
+
                     <div class="mb-3">
                         <h3>ENTER JUNIOR COLLEGE INFORMATION</h3>
                         <label for="juniorCollege" class="form-label">College Name</label>
@@ -166,9 +163,8 @@
                             Looks good!
                         </div>
                     </div>
-                </div>
 
-                <div class="tab ">
+
                     <div class="mb-3">
                         <h3>ENTER SCHOOL INFORMATION</h3>
                         <label for="school" class="form-label">School Name</label>
@@ -210,13 +206,27 @@
                             Looks good!
                         </div>
                     </div>
-                </div>
 
-                <div>
-                    <button>
 
-                    </button>
-                </div>
+
+                    <div id="Skill">
+                        <button onclick="addSkill()" id="AddSkill" class="mb-4 btn btn-primary">Add Skill</button>
+                        <div id="Skill1">
+                        </div>
+                    </div>
+                    <br>
+                    <div id="Project">
+                        <button onclick="addProject()" id="AddAchive" class="mb-4 btn btn-primary">Add Project</button>
+                        <div id="Project1">
+                        </div>
+                    </div>
+                    <br>
+                    <div id="Achive">
+                        <button onclick="addAchive()" id="AddAchive" class="mb-4 btn btn-primary">Add Achivements</button>
+                        <div id="Achive1">
+                        </div>
+                    </div>
+                    <script src="/javascripts/dynamic.js"></script>
 
 
                 <div style="overflow:auto;">
