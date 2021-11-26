@@ -11,9 +11,9 @@ const ExpressError = require('./utils/ExpressError');
 const catchAsync = require('./utils/catchAsync')
 const { validateCompany } = require('./middleware.js')
 const session = require('express-session');
-const multer=require("multer")
-const {storage}=require("./cloudinary")
-const upload=multer({storage})
+const multer = require("multer")
+const { storage } = require("./cloudinary")
+const upload = multer({ storage })
 const flash = require('connect-flash')
 const passport = require('passport');
 const localStrategy = require("passport-local")
@@ -66,7 +66,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
-    if(!['/login', '/register'].includes(req.originalUrl)) {
+    if (!['/login', '/register'].includes(req.originalUrl)) {
         req.session.returnTo = req.originalUrl;
     }
     res.locals.currentUser = req.user;
@@ -92,12 +92,14 @@ app.get('/contact', (req, res) => {
     res.render('contact')
 })
 
-app.get('/students/resume',(req,res)=>{
+app.get('/students/resume', (req, res) => {
     res.render('students/resume');
 })
 
-app.post('/students/resume',(req,res)=>{   
-    console.log(req.body)
+app.post('/students/resume', (req, res) => {
+    console.log(req.body.achievements[0])
+    console.log(req.body.achievements[1])
+    console.log(req.body.achievements[2])
     res.send('ok');
 })
 
@@ -110,10 +112,10 @@ app.all('*', (req, res, next) => {
 })
 
 app.use((err, req, res, next) => {
-    const {statusCode = 500} = err;
-    if(!err.message)
+    const { statusCode = 500 } = err;
+    if (!err.message)
         err.message = "Oh No, Something went wrong!"
-    res.status(statusCode).render('error', {err})
+    res.status(statusCode).render('error', { err })
 })
 
 app.listen(3000, () => {
