@@ -20,6 +20,7 @@ function addSkill() {
     var skill = document.createElement("INPUT");
     skill.setAttribute("type", "text");
     skill.setAttribute("class","form-control mb-2")
+    skill.setAttribute("name","resume[skills]")
     document.getElementById(`Skill${skillCount}`).appendChild(skill);
 
   const Delete=document.createElement("button")
