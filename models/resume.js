@@ -1,18 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
-const projectSchema = new Schema({
-    title: String,
-    description: String,
-    stack:String,
-    year: String
-})
-
-const achievementSchema = new Schema({
-    title: String,
-    description: String,
-})
-
 const resumeSchema = new Schema({
     personal: {
         firstName: String,
@@ -49,8 +37,16 @@ const resumeSchema = new Schema({
         }
     },
     skills: [String],
-    projects: projectSchema,
-    achievements: [achievementSchema],
+    projects: [{
+        title: String,
+        description: String,
+        stack: String,
+        year: String
+    }],
+    achievements: [{
+        title: String,
+        description: String,
+    }],
     hobbies: [String]
 })
 
