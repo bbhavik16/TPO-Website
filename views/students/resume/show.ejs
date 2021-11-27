@@ -1,0 +1,10 @@
+<% layout('layouts/boilerplate')%>
+<ul>
+    <li><%= resume.personal.firstName%></li>
+    <li><%= resume.personal.lastName%></li>
+    <li><%= resume.juniorCollege.name%></li>
+    <li><%= resume.school.name%></li>
+    <li><%= resume.projects.title%></li>
+    <li><%= resume.projects.description%></li>
+</ul>
+<a href="/students/resume/<%= resume._id%>/edit">Edit</a>

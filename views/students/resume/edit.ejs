@@ -1,0 +1,254 @@
+<% layout('layouts/boilerplate')%>
+
+    <div class='row'>
+        <h1 class="text-center">Create Resume</h1>
+        <div class="col-6 offset-3">
+            <form id="regForm" action="/students/resume" method="post" class="row g-3 validated-form">
+                <div class="tab">
+                    <div class="mb-3">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="Enter first name"
+                            name="personal[firstName]" value="<%= resume.personal.firstName%>">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="Enter last name"
+                            name="personal[lastName]" value="<%= resume.personal.lastName%>">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="mobile" class="form-label">Mobile No.</label>
+                        <input type="text" class="form-control" id="mobile" placeholder="Enter mobile no"
+                            name="personal[mobile]" value="<%= resume.personal.mobile%>">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter Email"
+                            name="personal[email]" value="<%= resume.personal.email%> ">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="github" class="form-label">Github</label>
+                        <input type="url" class="form-control" id="github" placeholder="Enter github link"
+                            name="personal[github]" value="<% resume.personal.github%>">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="linkedin" class="form-label">LinkedIn</label>
+                        <input type="url" class="form-control" id="linkedin" placeholder="Enter LinkedIn link"
+                            name="personal[linkedin]" value="<%= resume.personal.linkedin%>">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                </div>
+
+                ///////educational details
+                <div class="tab">
+                    <div class="mb-3">
+                        <h3>ENTER DEGREE COLLEGE INFORMATION</h3>
+                        <label for="degreeCollege" class="form-label">College Name</label>
+                        <input type="text" class="form-control" id="degreeCollege" placeholder="Enter college name"
+                            name="degreeCollege[name]" value="<%= resume.degreeCollege.name %>">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="location" class="form-label">College Location</label>
+                        <input type="text" class="form-control" id="location" placeholder="Enter college location"
+                            name="degreeCollege[location]" value="<%= resume.degreeCollege.location %>">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="degree" class="form-label">Degree</label>
+                        <input type="text" class="form-control" id="degree" placeholder="Enter degree"
+                            name="degreeCollege[degree]" value="<%= resume.degreeCollege.degree %>">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="branch" class="form-label">Branch</label>
+                        <input type="text" class="form-control" id="branch" placeholder="Enter Branch"
+                            name="degreeCollege[branch]" value="<%= resume.degreeCollege.branch %>">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cgpa" class="form-label">Cgpa</label>
+                        <input type="number" class="form-control" id="cgpa" placeholder="Enter Cgpa"
+                            name="degreeCollege[cgpa]" value="<%= resume.degreeCollege.cgpa %>">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="year" class="form-label">Year</label>
+                        <input type="text" class="form-control" id="year" placeholder="Enter year"
+                            name="degreeCollege[year]" value="<%= resume.degreeCollege.year %>">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+
+                    // junior cojunior
+                    <div class="mb-3">
+                        <h3>ENTER JUNIOR COLLEGE INFORMATION</h3>
+                        <label for="juniorCollege" class="form-label">College Name</label>
+                        <input type="text" class="form-control" id="juniorCollege" placeholder="Enter college name"
+                            name="juniorCollege[name]" value="<%= resume.juniorCollege.name %> ">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="location" class="form-label">College Location</label>
+                        <input type="text" class="form-control" id="location" placeholder="Enter college location"
+                            name="juniorCollege[location]" value="<%= resume.juniorCollege.location %> ">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="board" class="form-label">Board</label>
+                        <input type="text" class="form-control" id="board" placeholder="Enter board"
+                            name="juniorCollege[board]" value="<%= resume.juniorCollege.board %> ">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="percentage" class="form-label">Percentage</label>
+                        <input type="number" class="form-control" id="percentage" placeholder="Enter Percentage"
+                            name="juniorCollege[percentage]" value="<%= resume.juniorCollege.percentage %> ">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="year" class="form-label">Year</label>
+                        <input type="text" class="form-control" id="year" placeholder="Enter year"
+                            name="juniorCollege[year]" value="<%= resume.juniorCollege.year %> ">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="jee" class="form-label">JEE Score</label>
+                        <input type="number" class="form-control" id="jee" placeholder="Enter Jee Score"
+                            name="juniorCollege[jee]" value="<%= resume.juniorCollege.jee %> ">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cet" class="form-label">MHT-CET</label>
+                        <input type="number" class="form-control" id="cet" placeholder="Enter MHT-CET Score"
+                            name="juniorCollege[cet]" value="<%= resume.juniorCollege.cet %> ">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+
+                    ///////// SCHOOL INFORMATION
+                    <div class="mb-3">
+                        <h3>ENTER SCHOOL INFORMATION</h3>
+                        <label for="school" class="form-label">School Name</label>
+                        <input type="text" class="form-control" id="school" placeholder="Enter school name"
+                            name="school[name]" value="<%= resume.school.name %>">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="location" class="form-label">School Location</label>
+                        <input type="text" class="form-control" id="location" placeholder="Enter School location"
+                            name="school[location]" value="<%= resume.school.location %>">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="board" class="form-label">Board</label>
+                        <input type="text" class="form-control" id="board" placeholder="Enter board"
+                            name="school[board]" value="<%= resume.school.board %>">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="percentage" class="form-label">Percentage</label>
+                        <input type="number" class="form-control" id="percentage" placeholder="Enter Percentage"
+                            name="school[percentage]" value="<%= resume.school.percentage %>">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="year" class="form-label">Year</label>
+                        <input type="text" class="form-control" id="year" placeholder="Enter year" name="school[year]" value="<%= resume.school.year %>">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab">
+                    <div id="Skill">
+                        <button type='button' onclick="addSkill()" id="AddSkill" class="mb-4 btn btn-primary">Add
+                            Skill</button>
+                        <div id="Skill1">
+                        </div>
+                        
+                    </div>
+                    <br>
+                    <div id="Project">
+                        <button type='button' onclick="addProject()" id="AddProject" class="mb-4 btn btn-primary">Add
+                            Project</button>
+                        <div id="Project1">
+                        </div>
+                    </div>
+                    <br>
+                    <div id="Achive">
+                        <button type='button' onclick="addAchive()" id="AddAchive" class="mb-4 btn btn-primary">Add
+                            Achievements</button>
+                        <div id="Achive1">
+                        </div>
+                    </div>
+                </div>
+
+                <div style="overflow:auto;">
+                    <div style="float:right;">
+                        <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                        <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                    </div>
+                </div>
+
+                <div style="text-align:center;margin-top:40px;">
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <script src="/javascripts/tabs.js"></script>
+    <script src="/javascripts/dynamic.js"></script>

@@ -93,12 +93,19 @@ app.get('/contact', (req, res) => {
     res.render('contact')
 })
 
-app.get('/students/resume', (req, res) => {
-    res.render('students/resume');
+app.get('/students/resume', async(req, res) => {
+    const resumes=await Resume.find({})
+    res.render('students/resume/index', { resumes });
 })
 
 app.get('/students/resume/new', (req, res) => {
     res.render('students/resume/new')
+})
+
+app.get('/students/resume/:id', async(req, res) => {
+    const {id} = req.params;
+    const resume = await Resume.findById(id);
+    res.render('students/resume/show', {resume})
 })
 
 app.post('/students/resume', async(req, res) => {
@@ -113,24 +120,24 @@ app.post('/students/resume', async(req, res) => {
         achievements
     });
     await newResume.save(); 
-    res.redirect('/students/resume');
+    console.log(newResume)
+    res.redirect(`/students/resume/${newResume._id}`);
 })
 
-// app.get('/students/resume/:id/edit',(req,res)=>{
-  
 
 
-// })
+app.get('/students/resume/:id/edit', async(req,res)=>{
+    const {id} = req.params;
+    const resume = await Resume.findById(id);
+    res.render("students/resume/edit", {resume})
+})
 
-
-
-// resume routes
-
-  
-//  get/patch students/resume/:id/edit ->edit.ejs 
-//  get/     students/resume/:id  ->show.ejs
-
- 
+app.put('/students/resume/:id', async(req,res)=>{
+    const {id}=req.params;
+    const updateResume= await Resume.findByIdAndUpdate(id,{...req.body});
+    await updateResume.save();
+    res.redirect(`/students/resume/${id}`);
+})
 
 
 app.all('*', (req, res, next) => {

@@ -82,10 +82,33 @@ input {
     font-family: Raleway;
     border: 1px solid #aaaaaa;
   }
-
-/* Hide all steps by default: */
-.tab {
+  
+  /* Mark input boxes that gets an error on validation: */
+  input.invalid {
+    background-color: #ffdddd;
+  }
+  
+  /* Hide all steps by default: */
+  .tab {
     display: none;
+  }
+  
+  button {
+    background-color: #04AA6D;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-family: Raleway;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  #prevBtn {
+    background-color: #bbbbbb;
   }
   
   /* Make circles that indicate the steps of the form: */
@@ -94,35 +117,17 @@ input {
     width: 15px;
     margin: 0 2px;
     background-color: #bbbbbb;
-    border: none;
+    border: none;  
     border-radius: 50%;
     display: inline-block;
     opacity: 0.5;
   }
   
-  /* Mark the active step: */
   .step.active {
     opacity: 1;
   }
   
   /* Mark the steps that are finished and valid: */
   .step.finish {
-    background-color: #03f89e;
-}
-
-/* Mark input boxes that gets an error on validation: */
-
-  input.invalid {
-    background-color:white;
-}
-
-  
-  
-
-
-  
- 
-  
-  
- 
-  
+    background-color: #04AA6D;
+  } 

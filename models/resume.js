@@ -10,31 +10,29 @@ const resumeSchema = new Schema({
         github: String,
         linkedin: String
     },
-    education: {
-        degreeCollege: {
-            collegeName: String,
-            location: String,
-            degree: String,
-            branch: String,
-            cgpa: Number,
-            year: String
-        },
-        juniorCollege: {
-            collegeName: String,
-            location: String,
-            board: String,
-            percentage: Number,
-            year: String,
-            jee: Number,
-            cet: Number
-        },
-        school: {
-            schoolName: String,
-            location: String,
-            Board: String,
-            percentage: Number,
-            year: String,
-        }
+    degreeCollege: {
+        name: String,
+        location: String,
+        degree: String,
+        branch: String,
+        cgpa: Number,
+        year: String
+    },
+    juniorCollege: {
+        name: String,
+        location: String,
+        board: String,
+        percentage: Number,
+        year: String,
+        jee: Number,
+        cet: Number
+    },
+    school: {
+        name: String,
+        location: String,
+        board: String,
+        percentage: Number,
+        year: String,
     },
     skills: [String],
     projects: [{

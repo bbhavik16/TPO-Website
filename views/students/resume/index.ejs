@@ -1,0 +1,6 @@
+<% layout('layouts/boilerplate')%>
+<ul>
+<% for(let resume of resumes){%>
+    <li><a href="/students/resume/<%= resume._id %>"><%= resume._id%></a></li>
+    <% } %> 
+</ul>
