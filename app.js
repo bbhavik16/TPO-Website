@@ -24,6 +24,7 @@ const companyRoutes = require('./routes/company');
 const studentRoutes = require('./routes/student');
 const userRoutes = require('./routes/users')
 const statisticsRoutes = require('./routes/statistics')
+const Resume = require('./models/resume');
 
 mongoose.connect('mongodb://localhost:27017/tpo-website', {
     useNewUrlParser: true,
@@ -96,16 +97,41 @@ app.get('/students/resume', (req, res) => {
     res.render('students/resume');
 })
 
-app.post('/students/resume', (req, res) => {
-    console.log(req.body.achievements[0])
-    console.log(req.body.achievements[1])
-    console.log(req.body.achievements[2])
-    res.send('ok');
+app.get('/students/resume/new', (req, res) => {
+    res.render('students/resume/new')
 })
 
-app.get('/students/tp', (req, res) => {
-    res.render('students/tp')
+app.post('/students/resume', async(req, res) => {
+    const {personal,degreeCollege,juniorCollege,school,skills,projects,achievements} = req.body; 
+    const newResume= new Resume({
+        personal,
+        degreeCollege,
+        juniorCollege,
+        school,
+        skills,
+        projects,
+        achievements
+    });
+    await newResume.save(); 
+    res.redirect('/students/resume');
 })
+
+// app.get('/students/resume/:id/edit',(req,res)=>{
+  
+
+
+// })
+
+
+
+// resume routes
+
+  
+//  get/patch students/resume/:id/edit ->edit.ejs 
+//  get/     students/resume/:id  ->show.ejs
+
+ 
+
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found', 404))
