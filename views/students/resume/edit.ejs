@@ -1,5 +1,10 @@
 <% layout('layouts/boilerplate')%>
-
+<script src="/javascripts/dynamic.js"></script>
+<script>
+    const renderedSkills=<%- JSON.stringify(resume.skills) %>
+    const renderedProjects=<%- JSON.stringify(resume.projects) %>
+    const renderedAchievements=<%- JSON.stringify(resume.achievements) %>
+</script>
     <div class='row'>
         <h1 class="text-center">Create Resume</h1>
         <div class="col-6 offset-3">
@@ -202,7 +207,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="year" class="form-label">Year</label>
-                        <input type="text" class="form-control" id="year" placeholder="Enter year" name="school[year]" value="<%= resume.school.year %>">
+                        <input type="text" class="form-control" id="year" placeholder="Enter year" name="school[year]"
+                            value="<%= resume.school.year %>">
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -213,9 +219,8 @@
                     <div id="Skill">
                         <button type='button' onclick="addSkill()" id="AddSkill" class="mb-4 btn btn-primary">Add
                             Skill</button>
-                        <div id="Skill1">
-                        </div>
-                        
+                            <div id="Skill1">
+                            </div>
                     </div>
                     <br>
                     <div id="Project">
@@ -249,6 +254,5 @@
             </form>
         </div>
     </div>
-
     <script src="/javascripts/tabs.js"></script>
-    <script src="/javascripts/dynamic.js"></script>
+    <script src="/javascripts/dynamicedit.js"></script>
