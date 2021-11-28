@@ -5,207 +5,136 @@
         <div class="col-6 offset-3">
             <form id="regForm" action="/students/resume" method="post" class="row g-3 validated-form">
                 <div class="tab">
+                    <h5>PERSONAL DETAILS</h5>
                     <div class="mb-3">
                         <label for="firstName" class="form-label">First Name</label>
                         <input type="text" class="form-control" id="firstName" placeholder="Enter first name"
-                            name="personal[firstName]">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                            name="personal[firstName]" required> 
                     </div>
                     <div class="mb-3">
                         <label for="lastName" class="form-label">Last Name</label>
                         <input type="text" class="form-control" id="lastName" placeholder="Enter last name"
-                            name="personal[lastName]">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                            name="personal[lastName]" required>
                     </div>
                     <div class="mb-3">
                         <label for="mobile" class="form-label">Mobile No.</label>
-                        <input type="text" class="form-control" id="mobile" placeholder="Enter mobile no"
-                            name="personal[mobile]">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                        <input type="tel" class="form-control" id="mobile" placeholder="Enter mobile no"
+                            name="personal[mobile]" required>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control" id="email" placeholder="Enter Email"
-                            name="personal[email]">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                            name="personal[email]" required>
                     </div>
                     <div class="mb-3">
-                        <label for="github" class="form-label">Github</label>
+                        <label for="github" class="form-label">Github Link</label>
                         <input type="url" class="form-control" id="github" placeholder="Enter github link"
                             name="personal[github]">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
                     </div>
                     <div class="mb-3">
-                        <label for="linkedin" class="form-label">LinkedIn</label>
+                        <label for="linkedin" class="form-label">LinkedIn Link</label>
                         <input type="url" class="form-control" id="linkedin" placeholder="Enter LinkedIn link"
                             name="personal[linkedin]">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
                     </div>
                 </div>
 
-                ///////educational details
                 <div class="tab">
+                    <h5>EDUCATION DETAILS</h5>
                     <div class="mb-3">
                         <h3>ENTER DEGREE COLLEGE INFORMATION</h3>
                         <label for="degreeCollege" class="form-label">College Name</label>
                         <input type="text" class="form-control" id="degreeCollege" placeholder="Enter college name"
-                            name="degreeCollege[name]">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                            name="degreeCollege[name]" required>
                     </div>
                     <div class="mb-3">
                         <label for="location" class="form-label">College Location</label>
                         <input type="text" class="form-control" id="location" placeholder="Enter college location"
-                            name="degreeCollege[location]">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                            name="degreeCollege[location]" required>
                     </div>
                     <div class="mb-3">
                         <label for="degree" class="form-label">Degree</label>
                         <input type="text" class="form-control" id="degree" placeholder="Enter degree"
-                            name="degreeCollege[degree]">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                            name="degreeCollege[degree]" required>
                     </div>
                     <div class="mb-3">
                         <label for="branch" class="form-label">Branch</label>
                         <input type="text" class="form-control" id="branch" placeholder="Enter Branch"
-                            name="degreeCollege[branch]">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                            name="degreeCollege[branch]" required>
                     </div>
                     <div class="mb-3">
                         <label for="cgpa" class="form-label">Cgpa</label>
                         <input type="number" class="form-control" id="cgpa" placeholder="Enter Cgpa"
-                            name="degreeCollege[cgpa]">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                            name="degreeCollege[cgpa]" required>
                     </div>
                     <div class="mb-3">
                         <label for="year" class="form-label">Year</label>
                         <input type="text" class="form-control" id="year" placeholder="Enter year"
-                            name="degreeCollege[year]">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                            name="degreeCollege[year]"required>
                     </div>
 
-                    // junior cojunior
+                    
                     <div class="mb-3">
                         <h3>ENTER JUNIOR COLLEGE INFORMATION</h3>
                         <label for="juniorCollege" class="form-label">College Name</label>
                         <input type="text" class="form-control" id="juniorCollege" placeholder="Enter college name"
-                            name="juniorCollege[name]">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                            name="juniorCollege[name]" required>
+                        
                     </div>
                     <div class="mb-3">
                         <label for="location" class="form-label">College Location</label>
                         <input type="text" class="form-control" id="location" placeholder="Enter college location"
-                            name="juniorCollege[location]">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                            name="juniorCollege[location]" required>
                     </div>
                     <div class="mb-3">
                         <label for="board" class="form-label">Board</label>
                         <input type="text" class="form-control" id="board" placeholder="Enter board"
-                            name="juniorCollege[board]">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                            name="juniorCollege[board]" required>
                     </div>
                     <div class="mb-3">
                         <label for="percentage" class="form-label">Percentage</label>
                         <input type="number" class="form-control" id="percentage" placeholder="Enter Percentage"
-                            name="juniorCollege[percentage]">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                            name="juniorCollege[percentage]" required>
                     </div>
                     <div class="mb-3">
                         <label for="year" class="form-label">Year</label>
                         <input type="text" class="form-control" id="year" placeholder="Enter year"
-                            name="juniorCollege[year]">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                            name="juniorCollege[year]" required>
                     </div>
                     <div class="mb-3">
                         <label for="jee" class="form-label">JEE Score</label>
                         <input type="number" class="form-control" id="jee" placeholder="Enter Jee Score"
                             name="juniorCollege[jee]">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
                     </div>
                     <div class="mb-3">
                         <label for="cet" class="form-label">MHT-CET</label>
                         <input type="number" class="form-control" id="cet" placeholder="Enter MHT-CET Score"
                             name="juniorCollege[cet]">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
                     </div>
 
-                    ///////// SCHOOL INFORMATION
                     <div class="mb-3">
                         <h3>ENTER SCHOOL INFORMATION</h3>
                         <label for="school" class="form-label">School Name</label>
                         <input type="text" class="form-control" id="school" placeholder="Enter school name"
-                            name="school[name]">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                            name="school[name]" required>
                     </div>
                     <div class="mb-3">
                         <label for="location" class="form-label">School Location</label>
                         <input type="text" class="form-control" id="location" placeholder="Enter School location"
-                            name="school[location]">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                            name="school[location]" required>
                     </div>
                     <div class="mb-3">
                         <label for="board" class="form-label">Board</label>
                         <input type="text" class="form-control" id="board" placeholder="Enter board"
-                            name="school[board]">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                            name="school[board]" required>
                     </div>
                     <div class="mb-3">
                         <label for="percentage" class="form-label">Percentage</label>
                         <input type="number" class="form-control" id="percentage" placeholder="Enter Percentage"
-                            name="school[percentage]">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                            name="school[percentage]" required>
                     </div>
                     <div class="mb-3">
                         <label for="year" class="form-label">Year</label>
-                        <input type="text" class="form-control" id="year" placeholder="Enter year" name="school[year]">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                        <input type="text" class="form-control" id="year" placeholder="Enter year" name="school[year]" required>
                     </div>
                 </div>
 
@@ -213,22 +142,19 @@
                     <div id="Skill">
                         <button type='button' onclick="addSkill()" id="AddSkill" class="mb-4 btn btn-primary">Add
                             Skill</button>
-                        <div id="Skill1">
-                        </div>
+                        <div id="Skill1"></div>
                     </div>
                     <br>
                     <div id="Project">
                         <button type='button' onclick="addProject()" id="AddProject" class="mb-4 btn btn-primary">Add
                             Project</button>
-                        <div id="Project1">
-                        </div>
+                        <div id="Project1"></div>
                     </div>
                     <br>
                     <div id="Achive">
                         <button type='button' onclick="addAchive()" id="AddAchive" class="mb-4 btn btn-primary">Add
                             Achievements</button>
-                        <div id="Achive1">
-                        </div>
+                        <div id="Achive1"></div>
                     </div>
                 </div>
 
@@ -239,7 +165,7 @@
                     </div>
                 </div>
 
-                <div style="text-align:center;margin-top:40px;">
+                <div style="text-align:center;margin-top:40px;" class="mb-3">
                     <span class="step"></span>
                     <span class="step"></span>
                     <span class="step"></span>

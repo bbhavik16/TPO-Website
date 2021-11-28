@@ -45,7 +45,11 @@ const resumeSchema = new Schema({
         title: String,
         description: String,
     }],
-    hobbies: [String]
+    
+    author: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
 })
 
 
