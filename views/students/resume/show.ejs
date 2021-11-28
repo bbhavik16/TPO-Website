@@ -5,15 +5,19 @@
     <div class="border border-dark p-3 mb-3 " id="resume" >
         <div class="row mb-2">
             <div class="col-6">
-                <h2 class="mb-0">
+                <h2 class="mb-0 mx-2">
                     <%= resume.personal.firstName%>
                     <%= resume.personal.lastName%>
                 </h2>
-                <div class="d-inline-block px-2">
-                    Linkedin: <a href="<%= resume.personal.linkedin%>"></a>
-                    <%= resume.personal.linkedin%><br>
+                <div class="d-inline-block px-2 mt-2">
+                    <%  if( resume.personal.linkedin ){ %> 
+                    Linkedin: <a href="<%= resume.personal.linkedin%>"><%= resume.personal.linkedin%></a>
+                    <% } %> 
+                    <br>
+                    <%  if( resume.personal.github ){ %> 
                     Github&nbsp;&nbsp;: <a href="<%= resume.personal.github%>">
                     <%= resume.personal.github%>
+                    <% } %> 
                     </a>
                 </div>
             </div>

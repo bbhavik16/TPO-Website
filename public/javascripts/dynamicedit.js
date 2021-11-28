@@ -118,7 +118,6 @@ function removeAchive(num) {
     getAchive.remove()
 }
 function addAchieve(titlePassed,descPassed) {
-    console.log(descPassed);
 
     const titleLabel = document.createElement("label")
     titleLabel.innerHTML = "Title"

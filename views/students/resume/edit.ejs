@@ -8,7 +8,7 @@
     <div class='row'>
         <h1 class="text-center">Create Resume</h1>
         <div class="col-6 offset-3">
-            <form id="regForm" action="/students/resume" method="post" class="row g-3 validated-form">
+            <form id="regForm" action="/students/resume/<%= resume._id %>?_method=PUT" method="post" class="row g-3 validated-form">
                 <div class="tab">
                     <div class="mb-3">
                         <label for="firstName" class="form-label">First Name</label>
@@ -45,7 +45,7 @@
                     <div class="mb-3">
                         <label for="github" class="form-label">Github</label>
                         <input type="url" class="form-control" id="github" placeholder="Enter github link"
-                            name="personal[github]" value="<% resume.personal.github%>">
+                            name="personal[github]" value="<%= resume.personal.github%>">
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -117,7 +117,7 @@
                         <h3>ENTER JUNIOR COLLEGE INFORMATION</h3>
                         <label for="juniorCollege" class="form-label">College Name</label>
                         <input type="text" class="form-control" id="juniorCollege" placeholder="Enter college name"
-                            name="juniorCollege[name]" value="<%= resume.juniorCollege.name %> ">
+                            name="juniorCollege[name]" value="<%= resume.juniorCollege.name %>">
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -125,7 +125,7 @@
                     <div class="mb-3">
                         <label for="location" class="form-label">College Location</label>
                         <input type="text" class="form-control" id="location" placeholder="Enter college location"
-                            name="juniorCollege[location]" value="<%= resume.juniorCollege.location %> ">
+                            name="juniorCollege[location]" value="<%= resume.juniorCollege.location %>">
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -133,7 +133,7 @@
                     <div class="mb-3">
                         <label for="board" class="form-label">Board</label>
                         <input type="text" class="form-control" id="board" placeholder="Enter board"
-                            name="juniorCollege[board]" value="<%= resume.juniorCollege.board %> ">
+                            name="juniorCollege[board]" value="<%= resume.juniorCollege.board %>">
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -141,7 +141,7 @@
                     <div class="mb-3">
                         <label for="percentage" class="form-label">Percentage</label>
                         <input type="number" class="form-control" id="percentage" placeholder="Enter Percentage"
-                            name="juniorCollege[percentage]" value="<%= resume.juniorCollege.percentage %> ">
+                            name="juniorCollege[percentage]" value="<%= resume.juniorCollege.percentage %>">
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -149,7 +149,7 @@
                     <div class="mb-3">
                         <label for="year" class="form-label">Year</label>
                         <input type="text" class="form-control" id="year" placeholder="Enter year"
-                            name="juniorCollege[year]" value="<%= resume.juniorCollege.year %> ">
+                            name="juniorCollege[year]" value="<%= resume.juniorCollege.year %>">
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -157,7 +157,7 @@
                     <div class="mb-3">
                         <label for="jee" class="form-label">JEE Score</label>
                         <input type="number" class="form-control" id="jee" placeholder="Enter Jee Score"
-                            name="juniorCollege[jee]" value="<%= resume.juniorCollege.jee %> ">
+                            name="juniorCollege[jee]" value="<%= resume.juniorCollege.jee %>">
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -165,7 +165,7 @@
                     <div class="mb-3">
                         <label for="cet" class="form-label">MHT-CET</label>
                         <input type="number" class="form-control" id="cet" placeholder="Enter MHT-CET Score"
-                            name="juniorCollege[cet]" value="<%= resume.juniorCollege.cet %> ">
+                            name="juniorCollege[cet]" value="<%= resume.juniorCollege.cet %>">
                         <div class="valid-feedback">
                             Looks good!
                         </div>
