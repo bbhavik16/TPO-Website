@@ -2,10 +2,11 @@
 
     <div class="container d-flex justify-content-center mt-4">
         <div class="row">
-            <div class="col-6">
-                <div class="card" style="width:25rem; height:11rem">
+            <div class="col-6 mb-3">
+                <div class="card" style="width:25rem; ">
                     <div class="card-body">
-                        <h5 class="card-title text-center">Hello,<%= currentUser.username%></h5>
+                        <h5 class="card-title text-center">Hello,<%= currentUser.username%>
+                        </h5>
                         <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
                         <p class="card-text">Your first impression is often your RESUME.<br>
                             Create your resume now...
@@ -18,28 +19,15 @@
             </div>
 
             <div class="col-6 mb-3">
-                <div class="card" style="width:25rem;">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">My Resumes</h5>
-                        <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-                        <!-- <p class="card-text">Your first impression is often your RESUME.<br>
-                            Create your resume now...
-                        </p> -->
-                        <!-- <a href="#" class="card-link"></a>
-                        <a href="#" class="card-link">Another link</a> -->
-                        <ul>
-                            
-                            <% resumes.forEach((resume, i)=>{ %>
-                              
-                                <li><a href="/students/resume/<%= resume._id %>">
-                                        Resume Version <%= i%>
-                                    </a></li>
-                                   
-                                <% })%> 
-                                
-                        </ul>
-                    </div>
-                </div>
+                <% for(let resume of resumes){%>
+                    <ul>
+                        <% if(currentUser && resume.author.equals(currentUser._id)){%>
+                            <li><a href="/students/resume/<%= resume._id %>">
+                                    <%= resume._id%>
+                                </a></li>
+                            <% } %>
+                    </ul>
+                    <% }%>
             </div>
 
         </div>

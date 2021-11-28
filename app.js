@@ -9,7 +9,7 @@ const path = require('path');
 const Company = require('./models/company')
 const ExpressError = require('./utils/ExpressError');
 const catchAsync = require('./utils/catchAsync')
-const { validateCompany ,isAuthor,isLoggedIn,validateResume} = require('./middleware.js')
+const { validateCompany, Author, isLoggedIn, validateResume } = require('./middleware.js')
 const session = require('express-session');
 const multer = require("multer")
 const { storage } = require("./cloudinary")
@@ -93,24 +93,29 @@ app.get('/contact', (req, res) => {
     res.render('contact')
 })
 
-app.get('/students/resume',isLoggedIn, catchAsync(async(req, res) => {
-    const resumes=await Resume.find({})
+app.get('/students/resume', isLoggedIn, catchAsync(async (req, res) => {
+    const resumes = await Resume.find({})
     res.render('students/resume/index', { resumes });
 }))
 
-app.get('/students/resume/new',isLoggedIn, (req, res) => {
+
+app.get('/students/resume/new', isLoggedIn, (req, res) => {
     res.render('students/resume/new')
 })
 
-app.get('/students/resume/:id',isLoggedIn, catchAsync(async(req, res) => {
-    const {id} = req.params;
+app.get('/students/resume/:id', isLoggedIn, catchAsync(async (req, res) => {
+    const { id } = req.params;
     const resume = await Resume.findById(id);
-    res.render('students/resume/show', {resume})
+    if (!resume) {
+        req.flash('error', 'Cannot find that resume!');
+        return res.redirect('/students/resume');
+    }
+    res.render('students/resume/show', { resume })
 }))
 
-app.post('/students/resume',isLoggedIn,catchAsync(async(req, res) => {
-    const {personal,degreeCollege,juniorCollege,school,skills,projects,achievements} = req.body; 
-    const newResume= new Resume({
+app.post('/students/resume', isLoggedIn, catchAsync(async (req, res) => {
+    const { personal, degreeCollege, juniorCollege, school, skills, projects, achievements } = req.body;
+    const newResume = new Resume({
         personal,
         degreeCollege,
         juniorCollege,
@@ -119,31 +124,50 @@ app.post('/students/resume',isLoggedIn,catchAsync(async(req, res) => {
         projects,
         achievements
     });
-   
-    await newResume.save(); 
-    // await user.save();
+    const user = await User.findById(req.user._id);
+    if (!user.resumes) {
+        user.resumes.push(newResume._id)
+    } else {
+        user.resumes.push(newResume._id)
+    }
+    newResume.author = req.user._id;
+    await newResume.save();
+    await user.save();
+    console.log(user);
+    console.log(newResume)
+    req.flash('success', 'new resume made!!!!!')
     res.redirect(`/students/resume/${newResume._id}`);
 }))
 
+app.get('/students/resume/:id/edit', isLoggedIn, catchAsync(async (req, res) => {
 
-
-app.get('/students/resume/:id/edit',isLoggedIn, catchAsync(async(req,res)=>{
-    const {id} = req.params;
+    const { id } = req.params;
     const resume = await Resume.findById(id);
-    res.render("students/resume/edit", {resume})
+    if (!resume) {
+        req.flash('error', 'Cannot find that resume!');
+        return res.redirect('/students/resume');
+    } else if (resume.author) {
+        res.render("students/resume/edit", { resume })
+    }
 }))
 
-app.put('/students/resume/:id',isLoggedIn, catchAsync(async(req,res)=>{
-    const {id}=req.params;
-    const updateResume= await Resume.findByIdAndUpdate(id,{...req.body});
-    await updateResume.save();
-    res.redirect(`/students/resume/${id}`);
+app.put('/students/resume/:id', isLoggedIn, catchAsync(async (req, res) => {
+    const { id } = req.params;
+    const updateResume = await Resume.findByIdAndUpdate(id, { ...req.body });
+    if (updateResumeresume.author) {
+        await updateResume.save();
+        req.flash('success', 'YOour Resume Updated')
+        res.redirect(`/students/resume/${id}`);
+    }
 }))
 
-app.delete('/students/resume/:id',isLoggedIn, catchAsync(async(req,res)=>{
-     const {id} =req.params;
-     const deleteResume=await Resume.findByIdAndDelete(id);
-     res.redirect('/students/resume');
+app.delete('/students/resume/:id', isLoggedIn, catchAsync(async (req, res) => {
+    const { id } = req.params;
+    if (Resume.findById(id).author) {
+        const deleteResume = await Resume.findByIdAndDelete(id);
+        req.flash('success', 'Your Resume Deleted')
+        res.redirect('/students/resume');
+    }
 }))
 
 app.all('*', (req, res, next) => {
