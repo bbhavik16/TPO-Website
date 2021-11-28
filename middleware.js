@@ -1,6 +1,8 @@
 const Company = require('./models/company');
+const Resume= require('./models/resume');
 const ExpressError = require('./utils/expressError');
 const { companySchema } = require('./schemas.js');
+const {resumeSchema}=require('./schemas.js');
 
 module.exports.validateCompany = (req, res, next)=>{
     const {error} = companySchema.validate(req.body);
@@ -35,4 +37,25 @@ module.exports.isValidUser = (req, res, next) =>{
         req.flash('error','NOT A VALID VJTI STUDENT');
         res.redirect('/register');
     }
+}
+
+
+module.exports.validateResume = (req, res, next) => {
+    const { error } = resumeSchema.validate(req.body)
+    if (error) {
+        const msg = error.details.map(el => el.message).join(',')
+        throw new ExpressError(msg, 400)
+    } else {
+        next();
+    }
+}
+
+module.exports.isAuthor = async (req, res, next) => {
+    const { id } = req.params;
+    const resume = await Resume.findById(id);
+    if (!resume.author.equals(req.user._id)) {
+        req.flash('error', 'You dont have permission to do that');
+        return res.redirect(`/campgrounds/${id}`);
+    }
+    next();
 }
