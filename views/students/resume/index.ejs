@@ -5,8 +5,11 @@
             <div class="col-6 mb-3">
                 <div class="card" style="width:25rem; ">
                     <div class="card-body">
+
                         <h5 class="card-title text-center">Hello,<%= currentUser.username%>
                         </h5>
+
+
                         <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
                         <p class="card-text">Your first impression is often your RESUME.<br>
                             Create your resume now...
@@ -24,11 +27,11 @@
                     <ul>
                         <% if(currentUser && resume.author.equals(currentUser._id)){%>
                             <li><a href="/students/resume/<%= resume._id %>">
-                                <%= resume._id%>
-                            </a></li>
-                        <% } %>
+                                    <%= resume._id%>
+                                </a></li>
+                            <% } %>
                     </ul>
-                <% } %>
+                    <% } %>
             </div>
 
         </div>

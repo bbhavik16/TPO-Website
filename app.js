@@ -127,7 +127,6 @@ app.post('/students/resume', isLoggedIn, catchAsync(async (req, res) => {
     newResume.author = req.user._id;
     const user = await User.findById(req.user._id);
     user.resumes.push(newResume);
-    
     await newResume.save();
     await user.save();
     req.flash('success', 'new resume made!!!!!')
