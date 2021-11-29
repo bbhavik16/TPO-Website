@@ -18,7 +18,7 @@ router.get('/material', isLoggedIn, (req, res) => {
     res.render('students/material')
 })
 
-router.get('/transcripts', isLoggedIn, (req, res) => {
+router.get('/transcripts', (req, res) => {
     res.render('students/transcripts')
 })
 

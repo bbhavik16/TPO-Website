@@ -7,9 +7,14 @@ passport.use(new GoogleStrategy({
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         callbackURL: process.env.GOOGLE_CALLBACK_URL
     },
-    function(accessToken, refreshToken, profile, done) {
-        User.findOrCreate({ googleId: profile.id }, function (err, user) {
-        return done(err, user);
+    async function(accessToken, refreshToken, profile, done) {
+        await User.findOrCreate({ googleId: profile.id }, function (err, user) {
+            console.log(user)
+            return done(err, user);
         });
     }
 ));
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+

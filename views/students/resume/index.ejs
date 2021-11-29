@@ -18,16 +18,17 @@
                 </div>
             </div>
 
+            <script src="/javascripts/googlelogin.js"></script>
             <div class="col-6 mb-3">
                 <% for(let resume of resumes){%>
                     <ul>
                         <% if(currentUser && resume.author.equals(currentUser._id)){%>
                             <li><a href="/students/resume/<%= resume._id %>">
-                                    <%= resume._id%>
-                                </a></li>
-                            <% } %>
+                                <%= resume._id%>
+                            </a></li>
+                        <% } %>
                     </ul>
-                    <% }%>
+                <% } %>
             </div>
 
         </div>

@@ -37,6 +37,7 @@ router.post('/login', passport.authenticate(['local', 'passport-google-oauth20']
     req.flash('success', 'Welcome back');
     const redirectUrl = req.session.returnTo || '/home';
     delete req.session.returnTo;
+    console.log(req.user);
     res.redirect(redirectUrl)
 })
 

@@ -50,10 +50,9 @@ module.exports.validateResume = (req, res, next) => {
     }
 }
 
-module.exports.Author = async (req, res, next) => {
+module.exports.isAuthor = async (req, res, next) => {
     const { id } = req.params;
     const resume = await Resume.findById(id);
-    console.log(resume)
     if (!resume.author.equals(req.user._id)) {
         req.flash('error', 'You dont have permission to do that');
         return res.redirect("/students/resume");
