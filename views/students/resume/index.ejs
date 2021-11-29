@@ -1,14 +1,13 @@
 <% layout('layouts/boilerplate')%>
 
     <div class="container d-flex justify-content-center mt-4">
-        <div class="row">
+        <div class="row mb-3">
             <div class="col-6 mb-3">
                 <div class="card" style="width:25rem; ">
                     <div class="card-body">
 
                         <h5 class="card-title text-center">Hello,<%= currentUser.username%>
                         </h5>
-
 
                         <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
                         <p class="card-text">Your first impression is often your RESUME.<br>
@@ -22,16 +21,30 @@
             </div>
 
             <script src="/javascripts/googlelogin.js"></script>
+
             <div class="col-6 mb-3">
-                <% for(let resume of resumes){%>
-                    <ul>
-                        <% if(currentUser && resume.author.equals(currentUser._id)){%>
-                            <li><a href="/students/resume/<%= resume._id %>">
-                                    <%= resume._id%>
-                                </a></li>
-                            <% } %>
-                    </ul>
-                    <% } %>
+                <div class="card" style="width:25rem;">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">My Resumes</h5>
+                        <% i=1%>
+                            <% for(let resume of resumes){%>
+
+                                <ul>
+                                    <% if(currentUser && resume.author.equals(currentUser._id)){%>
+                                        <li><a href="/students/resume/<%= resume._id %>">
+                                                Resume Version<%= i++%>
+                                            </a></li>
+                                        <% } %>
+                                </ul>
+                                <% } %>
+                                    <% if(i===1){%>
+                                        <div class="text-muted">
+                                            You don't have any resumes. Make one now!
+                                        </div>
+                                        <% }%>
+
+                    </div>
+                </div>
             </div>
 
         </div>

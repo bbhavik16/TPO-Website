@@ -1,11 +1,11 @@
 const express = require('express');
-const router = express.Router(); 
+const router = express.Router();
 const catchAsync = require('../utils/catchAsync');
 const passport = require('passport');
 const User = require("../models/user.js")
 const { isValidUser } = require('../middleware');
 
-router.get('/register',(req,res)=>{
+router.get('/register', (req, res) => {
     res.render('users/register');
 })
 
@@ -33,7 +33,7 @@ router.get('/login', (req, res) => {
     res.render('users/login')
 })
 
-router.post('/login', passport.authenticate(['local', 'passport-google-oauth20'], {failureFlash: true, failureRedirect: '/login'}), (req, res) => {
+router.post('/login', passport.authenticate(['local', 'passport-google-oauth20'], { failureFlash: true, failureRedirect: '/login' }), (req, res) => {
     req.flash('success', 'Welcome back');
     const redirectUrl = req.session.returnTo || '/home';
     delete req.session.returnTo;
@@ -49,10 +49,10 @@ router.get('/logout', (req, res) => {
 router.get('/auth/google',
     passport.authenticate('google', { scope: ['profile', 'email'] }));
 
-router.get('/google/callback', 
+router.get('/google/callback',
     passport.authenticate('google', { failureRedirect: '/login' }),
-    function(req, res) {
-    res.redirect('/students')
-});
+    function (req, res) {
+        res.redirect('/home')
+    });
 
 module.exports = router;
