@@ -12,7 +12,10 @@ const UserSchema = new Schema({
     resumes: [{
         type: Schema.Types.ObjectId,
         ref: 'Resume'
-    }]
+    }],
+    googleId: {
+        type: String
+    }
 });
 
 UserSchema.plugin(passportLocalMongoose);
