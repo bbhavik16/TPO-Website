@@ -84,7 +84,9 @@ app.use('/statistics', statisticsRoutes);
 app.get('/', (req, res) => {
     res.send("Hello")
 })
-
+app.get('/students/material', (req, res) => {
+    res.render('studnets/material/material')
+})
 app.get('/home', (req, res) => {
     res.render('index');
 })
