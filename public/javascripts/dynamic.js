@@ -1,8 +1,6 @@
 let skillCount = 1
 let achiveCount = 1
 let projectCount = 1
-
-
 function removeSkill(num) {
   let getSkill = document.getElementById(`Skill${num}`)
   getSkill.remove()

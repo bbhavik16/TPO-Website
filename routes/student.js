@@ -3,6 +3,7 @@ const router = express.Router();
 const { isLoggedIn, isAuthor } = require('../middleware')
 const catchAsync = require('../utils/catchAsync')
 const Resume = require('../models/resume');
+const User = require('../models/user');
 
 router.get('/', (req, res) => {
     res.render('students/index')
