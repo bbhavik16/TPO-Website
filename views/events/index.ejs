@@ -1,0 +1,7 @@
+<% layout('layouts/boilerplate')%>
+
+<ul>
+    <% for(let event of events){ %>
+    <li><a href="/events/<%= event._id %>"><%= event.name%></a></li>
+    <% } %>  
+</ul>

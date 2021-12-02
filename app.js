@@ -25,6 +25,7 @@ const studentRoutes = require('./routes/student');
 const userRoutes = require('./routes/users')
 const statisticsRoutes = require('./routes/statistics')
 const Resume = require('./models/resume');
+const Event = require('./models/events');
 
 mongoose.connect('mongodb://localhost:27017/tpo-website', {
     useNewUrlParser: true,
@@ -90,6 +91,44 @@ app.get('/students/material', (req, res) => {
 app.get('/home', (req, res) => {
     res.render('index');
 })
+
+app.get('/events', async(req,res)=>{
+    const events = await Event.find({});
+    res.render('events/index',{events});
+})
+
+app.get('/events/new', (req, res) => {
+     res.render('events/new');
+})
+
+app.get('/events/:id', async(req, res) => {
+    const {id} = req.params;
+    const event = await Event.findById(id);
+    res.render('events/show', { event })
+})
+
+app.post('/events',async (req,res)=>{
+    const event = new Event(req.body.event);
+    await event.save();
+    res.redirect(`/events`);
+})
+
+app.get('/events/:id/edit', async(req, res) => {
+    const {id} = req.params;
+    const event = await Event.findById(id);
+    res.render('events/edit', {event})
+})
+
+// app.put('/events/:id', (req, res) => {
+//     const {id} = req.params;
+//     const event = Event.findById(id);
+// })
+
+// app.delete('/events/:id',async(req,res)=>{
+//       const {id}=req.params;
+//       await Event.findByIdAndDelete(id);
+//       res.redirect('/events');
+// })
 
 app.get('/contact', (req, res) => {
     res.render('contact')
