@@ -26,6 +26,9 @@ const userRoutes = require('./routes/users')
 const statisticsRoutes = require('./routes/statistics')
 const Resume = require('./models/resume');
 const Event = require('./models/events');
+const nodemailer = require('nodemailer');
+var CronJob = require('cron').CronJob;
+const sendMail = require('./public/javascripts/neweventmail')
 
 mongoose.connect('mongodb://localhost:27017/tpo-website', {
     useNewUrlParser: true,
@@ -82,6 +85,14 @@ app.use('/students', studentRoutes);
 app.use('/', userRoutes);
 app.use('/statistics', statisticsRoutes);
 
+
+// var job = new CronJob('37 18 * * *', function() {
+//   console.log('You will see this message every second');
+// }, null, true, 'Asia/Kolkata');
+
+
+// job.start();
+
 app.get('/', (req, res) => {
     res.send("Hello")
 })
@@ -109,10 +120,18 @@ app.get('/events/:id', async(req, res) => {
 
 app.post('/events',async (req,res)=>{
     const event = new Event(req.body.event);
-    await event.save();
+    const dateFormat=event.date.split("-");
+    const year=dateFormat[0];
+    const month=dateFormat[1];
+    const day=dateFormat[2];
+    const output=`
+         <h1>name: ${event.name}</h1>
+         companyName: ${event.companyName},
+         date:${day}-${month}-${year},
+         time:${event.time}`
+         sendMail(output);
     res.redirect(`/events`);
 })
-
 app.get('/events/:id/edit', async(req, res) => {
     const {id} = req.params;
     const event = await Event.findById(id);
