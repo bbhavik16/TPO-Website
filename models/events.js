@@ -10,7 +10,8 @@ const eventSchema= new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     }],
-    reminderSent: Boolean
+    reminderSent: Boolean,
+    description: String
 })
 
 const events = mongoose.model("Event", eventSchema)

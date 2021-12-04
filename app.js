@@ -103,37 +103,46 @@ app.get('/home', (req, res) => {
     res.render('index');
 })
 
-app.get('/events', async(req,res)=>{
+app.get('/events', isLoggedIn, async(req,res)=>{
     const events = await Event.find({});
     res.render('events/index',{events});
 })
 
-app.get('/events/new', (req, res) => {
+app.get('/events/new', isLoggedIn, (req, res) => {
      res.render('events/new');
 })
+app.post('/events/:id/register', isLoggedIn, async(req, res) => {
+    const {id} = req.params;
+    const event = await Event.findById(id);
+    event.registeredUsers.push(req.user._id);
+    await event.save();
+    res.redirect("/events");
+})
 
-app.get('/events/:id', async(req, res) => {
+app.get('/events/:id',isLoggedIn, async(req, res) => {
     const {id} = req.params;
     const event = await Event.findById(id);
     res.render('events/show', { event })
 })
 
-app.post('/events',async (req,res)=>{
+app.post('/events',isLoggedIn,async (req,res)=>{
     const event = new Event(req.body.event);
     const dateFormat=event.date.split("-");
-    const year=dateFormat[0];
+    const year=dateFormat[0]
     const month=dateFormat[1];
     const day=dateFormat[2];
-    const output=`
-         <h1>name: ${event.name}</h1>
-         companyName: ${event.companyName},
-         date:${day}-${month}-${year},
-         time:${event.time}`
-mailIt.sendMail(output)
-await event.save()
-res.redirect(`/events`);
+    const output = await ejs.renderFile(__dirname + "/views/events/eventmail.ejs", { name: 'Stranger' });
+    // const output=`
+    //      <h1>name: ${event.name}</h1>
+    //      companyName: ${event.companyName},
+    //      date:${day}-${month}-${year},
+    //      time:${event.time}`
+    mailIt.sendMail(output)
+    await event.save()
+    res.redirect(`/events`);
 })
-app.get('/events/:id/edit', async(req, res) => {
+
+app.get('/events/:id/edit',isLoggedIn,async(req, res) => {
     const {id} = req.params;
     const event = await Event.findById(id);
     res.render('events/edit', {event})
