@@ -28,7 +28,7 @@ const Resume = require('./models/resume');
 const Event = require('./models/events');
 const nodemailer = require('nodemailer');
 var CronJob = require('cron').CronJob;
-const sendMail = require('./public/javascripts/neweventmail')
+const mailIt = require('./public/javascripts/neweventmail')
 
 mongoose.connect('mongodb://localhost:27017/tpo-website', {
     useNewUrlParser: true,
@@ -129,8 +129,9 @@ app.post('/events',async (req,res)=>{
          companyName: ${event.companyName},
          date:${day}-${month}-${year},
          time:${event.time}`
-         sendMail(output);
-    res.redirect(`/events`);
+mailIt.sendMail(output)
+await event.save()
+res.redirect(`/events`);
 })
 app.get('/events/:id/edit', async(req, res) => {
     const {id} = req.params;
