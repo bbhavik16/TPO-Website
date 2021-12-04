@@ -10,7 +10,7 @@ module.exports.sendMail = function(output)
       })
       const mailOptions={
         from: 'tpowebsite2021@gmail.com', // sender address
-          to: ["patilnishant0311@gmail.com","dhrumilraigagla@gmail.com","bindroosatyam@gmail.com","bhavik.bharambe02@gmail.com"], // list of receivers
+          to: ["patilnishant0311@gmail.com"], // list of receivers
           subject: "New Event:TPO-VJTI", // Subject line
         //   text: "AA jaana Bhai bhul mat jaana", // plain text body
           html:output
