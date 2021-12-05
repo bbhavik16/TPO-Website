@@ -86,12 +86,39 @@ app.use('/', userRoutes);
 app.use('/statistics', statisticsRoutes);
 
 
-// var job = new CronJob('37 18 * * *', function() {
-//   console.log('You will see this message every second');
-// }, null, true, 'Asia/Kolkata');
+var job = new CronJob('00 14 13 * * *', async function() {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    
+    const events = await Event.find({});
+    for(let event of events)
+    {
+        const output = await ejs.renderFile(__dirname + "/views/events/eventmail.ejs", 
+        { 
+            name: event.name,
+            companyName : event.companyName,
+            date : event.date,
+            time : event.time,
+            description : event.description
+        });
+        const allUsers = [];
+        for(let id of event.registeredUsers)
+        {
+            const user = await User.findById(id);
+            allUsers.push(user.email)
+        }
 
+        if(event.date.slice(0,4) == yyyy && event.date.slice(5,7) == mm && Number(event.date.slice(8,10)) - Number(dd) == 1){
+            mailIt.sendMail(output, allUsers)
+            console.log('Event reminder sent!');
+        }     
+    }
+}, null, true, 'Asia/Kolkata');
 
-// job.start();
+job.start();
+
 
 app.get('/', (req, res) => {
     res.send("Hello")
@@ -125,19 +152,22 @@ app.get('/events/:id',isLoggedIn, async(req, res) => {
     res.render('events/show', { event })
 })
 
-app.post('/events',isLoggedIn,async (req,res)=>{
+app.post('/events', isLoggedIn, async(req,res)=>{
     const event = new Event(req.body.event);
-    const dateFormat=event.date.split("-");
-    const year=dateFormat[0]
-    const month=dateFormat[1];
-    const day=dateFormat[2];
-    const output = await ejs.renderFile(__dirname + "/views/events/eventmail.ejs", { name: 'Stranger' });
-    // const output=`
-    //      <h1>name: ${event.name}</h1>
-    //      companyName: ${event.companyName},
-    //      date:${day}-${month}-${year},
-    //      time:${event.time}`
-    mailIt.sendMail(output)
+    const output = await ejs.renderFile(__dirname + "/views/events/eventmail.ejs", 
+    { name: event.name,
+      companyName : event.companyName,
+      date : event.date,
+      time : event.time,
+      description : event.description
+    });
+
+    const allUsers = [];
+    const users = await User.find({});
+    for(let user of users){
+        allUsers.push(user.email);
+    }
+    mailIt.sendMail(output, allUsers)
     await event.save()
     res.redirect(`/events`);
 })
@@ -148,21 +178,38 @@ app.get('/events/:id/edit',isLoggedIn,async(req, res) => {
     res.render('events/edit', {event})
 })
 
-// app.put('/events/:id', (req, res) => {
-//     const {id} = req.params;
-//     const event = Event.findById(id);
-// })
+app.put('/events/:id', async(req, res) => {
+    const {id} = req.params;
+    const {name,companyName,date,time,description}=req.body.event;
+    const event = await Event.findByIdAndUpdate(id,{name,companyName,date,time,description});
+    const output = await ejs.renderFile(__dirname + "/views/events/eventmail.ejs", 
+    { name,
+      companyName,
+      date,
+      time,
+      description
+    });
+    // console.log(event)
+    const allUsers = [];
+    for(let userId of event.registeredUsers)
+    {
+        const user = await User.findById(userId);
+        allUsers.push(user.email)
+    }
+    mailIt.sendMail(output,allUsers);
+    console.log('Event update sent!')
+    res.redirect('/events');
+})
 
-// app.delete('/events/:id',async(req,res)=>{
-//       const {id}=req.params;
-//       await Event.findByIdAndDelete(id);
-//       res.redirect('/events');
-// })
+app.delete('/events/:id',async(req,res)=>{
+      const {id}=req.params;
+      await Event.findByIdAndDelete(id);
+      res.redirect('/events');
+})
 
 app.get('/contact', (req, res) => {
     res.render('contact')
 })
-
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found', 404))

@@ -2,7 +2,7 @@
     <div class='row'>
         <h1 class="text-center">Edit Company</h1>
         <div class="col-6 offset-3">
-            <form action="/companies/<%=company._id%>?_method=PUt" method="post" novalidate class="validated-form">
+            <form action="/companies/<%=company._id%>?_method=PUT" method="post" novalidate class="validated-form">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
                     <input type="text" name="company[name]" id="name" class="form-control" value="<%= company.name%>"

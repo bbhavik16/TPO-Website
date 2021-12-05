@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer');
 
-module.exports.sendMail = async function(output)
+module.exports.sendMail = async function(output,allUsers)
 {
     let transporter = nodemailer.createTransport({
         service:"gmail",
@@ -12,7 +12,7 @@ module.exports.sendMail = async function(output)
       
       const mailOptions={
         from: 'tpowebsite2021@gmail.com', // sender address
-          to: ["patilnishant0311@gmail.com","dhrumilraigagla@gmail.com","bindroosatyam@gmail.com","bhavik.bharambe02@gmail.com"], // list of receivers
+          to: allUsers, // list of receivers
           subject: "New Event:TPO-VJTI", // Subject line
         //   text: "AA jaana Bhai bhul mat jaana", // plain text body
           html:output
