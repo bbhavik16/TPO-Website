@@ -4,12 +4,14 @@ const { isLoggedIn, isAuthor } = require('../middleware')
 const catchAsync = require('../utils/catchAsync')
 const User = require("../models/user.js")
 const Resume = require('../models/resume');
+const { valid } = require('joi');
+const { validateResume } = require('../middleware.js')
 
 router.get('/', (req, res) => {
     res.render('students/index')
 })
 
-router.get('/process', (req, res) => { 
+router.get('/process', (req, res) => {
     res.render('students/process')
 })
 
@@ -51,7 +53,7 @@ router.get('/resume/:id', isLoggedIn, catchAsync(async (req, res) => {
     res.render('students/resume/show', { resume })
 }))
 
-router.post('/resume', isLoggedIn, catchAsync(async (req, res) => {
+router.post('/resume', isLoggedIn, validateResume, catchAsync(async (req, res) => {
     const { personal, degreeCollege, juniorCollege, school, skills, projects, achievements } = req.body;
     const newResume = new Resume({
         personal,
@@ -65,7 +67,7 @@ router.post('/resume', isLoggedIn, catchAsync(async (req, res) => {
     newResume.author = req.user._id;
     const user = await User.findById(req.user._id);
     user.resumes.push(newResume);
-    
+
     await newResume.save();
     await user.save();
     req.flash('success', 'new resume made!!!!!')
@@ -83,7 +85,7 @@ router.get('/resume/:id/edit', isLoggedIn, catchAsync(async (req, res) => {
     }
 }))
 
-router.put('/resume/:id', isLoggedIn, isAuthor, catchAsync(async (req, res) => {
+router.put('/resume/:id', isLoggedIn, isAuthor, validateResume, catchAsync(async (req, res) => {
     const { id } = req.params;
     const resume = await Resume.findByIdAndUpdate(id, { ...req.body });
     req.flash('success', 'YOour Resume Updated')

@@ -24,6 +24,7 @@ const companyRoutes = require('./routes/company');
 const studentRoutes = require('./routes/student');
 const userRoutes = require('./routes/users')
 const statisticsRoutes = require('./routes/statistics')
+const eventsRoutes = require('./routes/events');
 const Resume = require('./models/resume');
 const Event = require('./models/events');
 const nodemailer = require('nodemailer');
@@ -84,127 +85,48 @@ app.use('/companies', companyRoutes);
 app.use('/students', studentRoutes);
 app.use('/', userRoutes);
 app.use('/statistics', statisticsRoutes);
+app.use('/events', eventsRoutes);
 
-
-var job = new CronJob('00 14 13 * * *', async function() {
+var job = new CronJob('00 12 19 * * *', async function () {
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = today.getFullYear();
-    
+    console.log("hello")
     const events = await Event.find({});
-    for(let event of events)
-    {
-        const output = await ejs.renderFile(__dirname + "/views/events/eventmail.ejs", 
-        { 
-            name: event.name,
-            companyName : event.companyName,
-            date : event.date,
-            time : event.time,
-            description : event.description
-        });
+    for (let event of events) {
+        const output = await ejs.renderFile(__dirname + "/views/events/eventmail.ejs",
+            {
+                name: event.name,
+                companyName: event.companyName,
+                date: event.date,
+                time: event.time,
+                description: event.description
+            });
+
         const allUsers = [];
-        for(let id of event.registeredUsers)
-        {
+        for (let id of event.registeredUsers) {
             const user = await User.findById(id);
             allUsers.push(user.email)
         }
 
-        if(event.date.slice(0,4) == yyyy && event.date.slice(5,7) == mm && Number(event.date.slice(8,10)) - Number(dd) == 1){
+        if (event.date.slice(0, 4) == yyyy && event.date.slice(5, 7) == mm && Number(event.date.slice(8, 10)) - Number(dd) == 1) {
             mailIt.sendMail(output, allUsers)
             console.log('Event reminder sent!');
-        }     
+        }
     }
 }, null, true, 'Asia/Kolkata');
 
 job.start();
 
-
 app.get('/', (req, res) => {
     res.send("Hello")
 })
 app.get('/students/material', (req, res) => {
-    res.render('studnets/material/material')
+    res.render('students/material/material')
 })
 app.get('/home', (req, res) => {
     res.render('index');
-})
-
-app.get('/events', isLoggedIn, async(req,res)=>{
-    const events = await Event.find({});
-    res.render('events/index',{events});
-})
-
-app.get('/events/new', isLoggedIn, (req, res) => {
-     res.render('events/new');
-})
-app.post('/events/:id/register', isLoggedIn, async(req, res) => {
-    const {id} = req.params;
-    const event = await Event.findById(id);
-    event.registeredUsers.push(req.user._id);
-    await event.save();
-    res.redirect("/events");
-})
-
-app.get('/events/:id',isLoggedIn, async(req, res) => {
-    const {id} = req.params;
-    const event = await Event.findById(id);
-    res.render('events/show', { event })
-})
-
-app.post('/events', isLoggedIn, async(req,res)=>{
-    const event = new Event(req.body.event);
-    const output = await ejs.renderFile(__dirname + "/views/events/eventmail.ejs", 
-    { name: event.name,
-      companyName : event.companyName,
-      date : event.date,
-      time : event.time,
-      description : event.description
-    });
-
-    const allUsers = [];
-    const users = await User.find({});
-    for(let user of users){
-        allUsers.push(user.email);
-    }
-    mailIt.sendMail(output, allUsers)
-    await event.save()
-    res.redirect(`/events`);
-})
-
-app.get('/events/:id/edit',isLoggedIn,async(req, res) => {
-    const {id} = req.params;
-    const event = await Event.findById(id);
-    res.render('events/edit', {event})
-})
-
-app.put('/events/:id', async(req, res) => {
-    const {id} = req.params;
-    const {name,companyName,date,time,description}=req.body.event;
-    const event = await Event.findByIdAndUpdate(id,{name,companyName,date,time,description});
-    const output = await ejs.renderFile(__dirname + "/views/events/eventmail.ejs", 
-    { name,
-      companyName,
-      date,
-      time,
-      description
-    });
-    // console.log(event)
-    const allUsers = [];
-    for(let userId of event.registeredUsers)
-    {
-        const user = await User.findById(userId);
-        allUsers.push(user.email)
-    }
-    mailIt.sendMail(output,allUsers);
-    console.log('Event update sent!')
-    res.redirect('/events');
-})
-
-app.delete('/events/:id',async(req,res)=>{
-      const {id}=req.params;
-      await Event.findByIdAndDelete(id);
-      res.redirect('/events');
 })
 
 app.get('/contact', (req, res) => {
