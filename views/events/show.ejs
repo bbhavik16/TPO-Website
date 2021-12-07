@@ -1,8 +1,23 @@
 <% layout('layouts/boilerplate')%>
 
 <div>
-    <h3><%= event.name %></h3>
-    <div>
-        <p><%= event. %> </p>
-    </div>
+    <ul>
+        <li><%= event.name %> </li>
+        <li><%= event.companyName %></li>
+        <li><%= event.date %></li>
+        <li><%= event.time %></li>
+        <li><%= event.description %></li>
+        <% var foundUser=0 %> 
+        <% for(let user of event.registeredUsers){ %>
+            <% if(user==currentUser._id) { %>
+                <% foundUser=1 %>
+                <% break %> 
+            <% } %>
+        <% } %>
+        <% if(!foundUser){ %>
+            <form action="/events/<%=event._id%>/register" method="post">
+                <button>Register</button>
+            </form> 
+        <% } %>  
+    </ul>
 </div>

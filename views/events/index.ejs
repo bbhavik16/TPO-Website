@@ -1,28 +1,9 @@
 <% layout('layouts/boilerplate')%>
-
-    <ul>
-        <% for(let event of events){ %>
-            <% var foundUser=0 %> 
-            <li><a href="/events/<%= event._id %>"><%= event.name%></a>
-                <% for(let user of event.registeredUsers){ %>
-                    <% if(user==currentUser._id) { %>
-                        <% foundUser=1 %>
-                        <% break %> 
-                    <% } %>
-                <% } %>
-                <% if(!foundUser){ %>
-                    <form action="/events/<%=event._id%>/register" method="post">
-                        <button>Register</button>
-                    </form> 
-                <% } %>  
-            </li>                
-        <% } %>
-    </ul> 
-
-
-
-    
-
-    
-    
-     
+<link rel="stylesheet" href="/css/calendar.css">
+<script>
+    const events=<%- JSON.stringify(events) %>
+</script> 
+    <div id="calendar"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="/javascripts/calendar.js"></script>
+   
