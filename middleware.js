@@ -59,3 +59,12 @@ module.exports.isAuthor = async (req, res, next) => {
     }
     next();
 }
+
+module.exports.isAdmin = async (req, res, next) => {
+    if (!(req.user.email === 'sbindroo_b20@ce.vjti.ac.in' || req.user.email === 'dgraigagla_b20@it.vjti.ac.in' || req.user.email === 'bcbharambe_b20@it.vjti.ac.in')) {
+        next();
+    } else {
+        req.flash('error', 'You are not an admin');
+        return res.redirect("/home");
+    }
+}

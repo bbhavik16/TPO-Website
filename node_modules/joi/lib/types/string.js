@@ -28,7 +28,7 @@ const internals = {
     },
     dataUriRegex: /^data:[\w+.-]+\/[\w+.-]+;((charset=[\w-]+|base64),)?(.*)$/,
     hexRegex: /^[a-f0-9]+$/i,
-    ipRegex: Ip.regex().regex,
+    ipRegex: Ip.regex({ cidr: 'forbidden' }).regex,
     isoDurationRegex: /^P(?!$)(\d+Y)?(\d+M)?(\d+W)?(\d+D)?(T(?=\d)(\d+H)?(\d+M)?(\d+S)?)?$/,
 
     guidBrackets: {
@@ -123,13 +123,20 @@ module.exports = Any.extend({
         }
     },
 
-    validate(value, { error }) {
+    validate(value, { schema, error }) {
 
         if (typeof value !== 'string') {
             return { value, errors: error('string.base') };
         }
 
         if (value === '') {
+            const min = schema.$_getRule('min');
+            if (min &&
+                min.args.limit === 0) {
+
+                return;
+            }
+
             return { value, errors: error('string.empty') };
         }
     },
@@ -257,7 +264,7 @@ module.exports = Any.extend({
             method(options) {
 
                 if (options) {
-                    Common.assertOptions(options, ['allowUnicode', 'maxDomainSegments', 'minDomainSegments', 'tlds']);
+                    Common.assertOptions(options, ['allowFullyQualified', 'allowUnicode', 'maxDomainSegments', 'minDomainSegments', 'tlds']);
                 }
 
                 const address = internals.addressOptions(options);
@@ -276,7 +283,7 @@ module.exports = Any.extend({
         email: {
             method(options = {}) {
 
-                Common.assertOptions(options, ['allowUnicode', 'ignoreLength', 'maxDomainSegments', 'minDomainSegments', 'multiple', 'separator', 'tlds']);
+                Common.assertOptions(options, ['allowFullyQualified', 'allowUnicode', 'ignoreLength', 'maxDomainSegments', 'minDomainSegments', 'multiple', 'separator', 'tlds']);
                 Assert(options.multiple === undefined || typeof options.multiple === 'boolean', 'multiple option must be an boolean');
 
                 const address = internals.addressOptions(options);
@@ -632,7 +639,7 @@ module.exports = Any.extend({
                 Common.assertOptions(options, ['allowRelative', 'allowQuerySquareBrackets', 'domain', 'relativeOnly', 'scheme']);
 
                 if (options.domain) {
-                    Common.assertOptions(options.domain, ['allowUnicode', 'maxDomainSegments', 'minDomainSegments', 'tlds']);
+                    Common.assertOptions(options.domain, ['allowFullyQualified', 'allowUnicode', 'maxDomainSegments', 'minDomainSegments', 'tlds']);
                 }
 
                 const { regex, scheme } = Uri.regex(options);

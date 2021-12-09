@@ -77,11 +77,18 @@ declare namespace Joi {
             label?: string | false,
 
             /**
-             * the characters used around array avlues. Defaults to `'[]'`
+             * the characters used around array values. Defaults to `'[]'`
              *
              * @default '[]'
              */
             array?: string | false
+
+            /**
+             * the characters used around array string values. Defaults to no wrapping.
+             *
+             * @default false
+             */
+            string?: string | false
         };
     }
 
@@ -251,6 +258,12 @@ declare namespace Joi {
 
     interface EmailOptions {
         /**
+         * if `true`, domains ending with a `.` character are permitted
+         *
+         * @default false
+         */
+        allowFullyQualified?: boolean;
+        /**
          * If `true`, Unicode characters are permitted
          *
          * @default true
@@ -289,6 +302,12 @@ declare namespace Joi {
     }
 
     interface DomainOptions {
+        /**
+         * if `true`, domains ending with a `.` character are permitted
+         *
+         * @default false
+         */
+        allowFullyQualified?: boolean;
         /**
          * If `true`, Unicode characters are permitted
          *
@@ -642,10 +661,14 @@ declare namespace Joi {
 
     type ValidationErrorFunction = (errors: ErrorReport[]) => string | ValidationErrorItem | Error;
 
-    interface ValidationResult {
-        error?: ValidationError;
+    type ValidationResult<TSchema = any> = {
+        error: undefined;
         warning?: ValidationError;
-        value: any;
+        value: TSchema;
+    } | {
+        error: ValidationError;
+        warning?: ValidationError;
+        value: undefined;
     }
 
     interface CreateErrorOptions {
@@ -681,7 +704,11 @@ declare namespace Joi {
 
     type CustomValidator<V = any> = (value: V, helpers: CustomHelpers) => V | ErrorReport;
 
-    type ExternalValidationFunction = (value: any) => any;
+    interface ExternalHelpers {
+        prefs: ValidationOptions;
+    }
+
+    type ExternalValidationFunction<V = any> = (value: V, helpers: ExternalHelpers) => V | undefined;
 
     type SchemaLikeWithoutArray = string | number | boolean | null | Schema | SchemaMap;
     type SchemaLike = SchemaLikeWithoutArray | object;
@@ -697,6 +724,8 @@ declare namespace Joi {
         ? Joi.NumberSchema
         : T extends NullableType<boolean>
         ? Joi.BooleanSchema
+        : T extends NullableType<Date>
+        ? Joi.DateSchema
         : T extends NullableType<Array<any>>
         ? Joi.ArraySchema
         : T extends NullableType<object>
@@ -828,7 +857,7 @@ declare namespace Joi {
         $_validate(value: any, state: State, prefs: ValidationOptions): ValidationResult;
     }
 
-    interface AnySchema extends SchemaInternals {
+    interface AnySchema<TSchema = any> extends SchemaInternals {
         /**
          * Flags of current schema.
          */
@@ -1151,7 +1180,7 @@ declare namespace Joi {
         /**
          * Validates a value using the schema and options.
          */
-        validate(value: any, options?: ValidationOptions): ValidationResult;
+        validate(value: any, options?: ValidationOptions): ValidationResult<TSchema>;
 
         /**
          * Validates a value using the schema and options.
@@ -1571,7 +1600,7 @@ declare namespace Joi {
         matches: SchemaLike | Reference;
     }
 
-    interface ObjectSchema<TSchema = any> extends AnySchema {
+    interface ObjectSchema<TSchema = any> extends AnySchema<TSchema> {
         /**
          * Defines an all-or-nothing relationship between keys where if one of the peers is present, all of them are required as well.
          *

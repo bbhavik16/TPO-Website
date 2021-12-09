@@ -178,9 +178,43 @@ input {
     line-height: 42px;
     text-transform: uppercase;
     text-shadow: 0 2px white, 0 3px #777;
-  } 
+  }
 
+  .card-design {
+    background-color: rgb(172, 172, 219);
+    border-radius: 25px;
+    /* color: white; */
+  }
 
+  #rules {
+    text-align: center;
+  }
+
+  .heading {
+    /* background: 50% 100% / 50% 50% no-repeat
+                radial-gradient(ellipse at bottom, #fff, transparent, transparent); */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: black;
+    background-color: #333641;
+    font-size: 10vw;
+    animation: reveal 3000ms ease-in-out forwards 200ms,
+               glow 2500ms linear infinite 2000ms;
+  
+    @keyframes reveal {
+      80%{
+        letter-spacing: 8px;
+      }
+      100% {
+        background-size: 50% 50%;
+      }
+    }
+    @keyframes glow {
+      40% {
+        text-shadow: 0 0 8px #fff;
+      }
+    }
+  }  
 
 
   

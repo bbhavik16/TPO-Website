@@ -3,10 +3,10 @@ const Joi = require('joi');
 module.exports.companySchema = Joi.object({
     company: Joi.object({
         name: Joi.string().required(),
-        ctc: Joi.number().required().min(0),
+        ctc: Joi.string().required(),
         role: Joi.string().required(),
         location: Joi.string().required(),
-        min_cgpa: Joi.number().required().min(6)
+        min_cgpa: Joi.string().required()
     })
 })
 
@@ -16,15 +16,15 @@ module.exports.resumeSchema = Joi.object().keys({
         lastName: Joi.string().required(),
         mobile: Joi.number().required(),
         email: Joi.string().required(),
-        github: Joi.string(),
-        linkedin: Joi.string()
+        github: Joi.string().optional().allow(''),
+        linkedin: Joi.string().optional().allow('')
     }),
     degreeCollege: Joi.object({
         name: Joi.string().required(),
         location: Joi.string().required(),
         degree: Joi.string().required(),
         branch: Joi.string().required(),
-        cgpa: Joi.number().required().min(0),
+        cgpa: Joi.string().optional().allow(''),
         year: Joi.string().required(),
     }),
     juniorCollege: Joi.object({
@@ -33,8 +33,8 @@ module.exports.resumeSchema = Joi.object().keys({
         board: Joi.string().required(),
         percentage: Joi.number().required().min(0),
         year: Joi.string().required(),
-        jee: Joi.number().min(0),
-        cet: Joi.number().min(0),
+        jee: Joi.string().optional().allow(''),
+        cet: Joi.string().optional().allow('')
     }),
     school: Joi.object({
         name: Joi.string().required(),
@@ -43,8 +43,7 @@ module.exports.resumeSchema = Joi.object().keys({
         percentage: Joi.number().required().min(0),
         year: Joi.string().required(),
     }),
-
+    skills: Joi.array(),
+    projects: Joi.array(),
+    achievements: Joi.array()
 })
-
-
-

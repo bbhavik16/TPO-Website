@@ -28,7 +28,7 @@
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "fs": "0.0.1-security",
-    "joi": "^17.4.2",
+    "joi": "^17.5.0",
     "method-override": "^3.0.0",
     "mongoose": "^6.0.13",
     "mongoose-findorcreate": "^3.0.0",

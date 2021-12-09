@@ -46,6 +46,7 @@ module.exports = Any.extend({
 
         if (schema._flags.match) {
             const matched = [];
+            const failed = [];
 
             for (let i = 0; i < schema.$_terms.matches.length; ++i) {
                 const item = schema.$_terms.matches[i];
@@ -57,24 +58,45 @@ module.exports = Any.extend({
                     matched.push(result.value);
                 }
                 else {
+                    failed.push(result.errors);
                     localState.restore();
                 }
             }
 
             if (matched.length === 0) {
-                return { errors: error('alternatives.any') };
+                const context = {
+                    details: failed.map((f) => Errors.details(f, { override: false }))
+                };
+
+                return { errors: error('alternatives.any', context) };
             }
+
+            // Match one
 
             if (schema._flags.match === 'one') {
                 return matched.length === 1 ? { value: matched[0] } : { errors: error('alternatives.one') };
             }
 
+            // Match all
+
             if (matched.length !== schema.$_terms.matches.length) {
-                return { errors: error('alternatives.all') };
+                const context = {
+                    details: failed.map((f) => Errors.details(f, { override: false }))
+                };
+
+                return { errors: error('alternatives.all', context) };
             }
 
-            const allobj = schema.$_terms.matches.reduce((acc, v) => acc && v.schema.type === 'object', true);
-            return allobj ? { value: matched.reduce((acc, v) => Merge(acc, v, { mergeArrays: false })) } : { value: matched[matched.length - 1] };
+            const isAnyObj = (alternative) => {
+
+                return alternative.$_terms.matches.some((v) => {
+
+                    return v.schema.type === 'object' ||
+                        (v.schema.type === 'alternatives' && isAnyObj(v.schema));
+                });
+            };
+
+            return isAnyObj(schema) ? { value: matched.reduce((acc, v) => Merge(acc, v, { mergeArrays: false })) } : { value: matched[matched.length - 1] };
         }
 
         // Match any
