@@ -1,9 +1,32 @@
 <% layout('layouts/boilerplate')%>
 <link rel="stylesheet" href="/css/calendar.css">
+<style>
+    .blob-btn{
+        color: rgb(11, 11, 138);
+    }
+    .blob-btn:before{
+        border-color: rgb(11, 11, 138);
+    }
+    .blob-btn__blob{
+        background: rgb(11, 11, 138);
+    }
+</style>
 <script>
     const events=<%- JSON.stringify(events) %>
 </script> 
     <div id="calendar" class="mb-5"></div>
+    <div class="d-flex justify-content-center buttons mt-2 mb-5">
+        <a href="/events/new" class="blob-btn" style="text-decoration: none;" >
+            Add New Event
+            <span class="blob-btn__inner">
+                <span class="blob-btn__blobs">
+                    <span class="blob-btn__blob"></span>
+                    <span class="blob-btn__blob"></span>
+                    <span class="blob-btn__blob"></span>
+                    <span class="blob-btn__blob"></span>
+                </span>
+            </span>
+        </a>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="/javascripts/calendar.js"></script>
-   

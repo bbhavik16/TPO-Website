@@ -10,48 +10,46 @@
   .nav-link:hover{
     border-bottom-color:rgba(255,255,255,0.5);
   }
-  </style>
-
-
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid" style="height:45px">
-    <a class="navbar-brand" href="#"></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <div class="navbar-nav">
-
-        <a class="nav-link" aria-current="page" href="/home">Home</a>
-        <a class="nav-link " href="/students">Students</a>
-        <a class="nav-link " href="/companies">Companies</a>
-        <li class="nav-item dropdown">
-          <a class="nav-link  dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Statistics
-          </a> 
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/statistics/2019-20">2019-20</a></li>
-            <li><a class="dropdown-item" href="/statistics/2018-19">2018-19</a></li>
-            <li><a class="dropdown-item" href="/statistics/2017-18">2017-18</a></li>
-            <li><a class="dropdown-item" href="/statistics/2016-17">2016-17</a></li>
-            <li><a class="dropdown-item" href="/statistics/2015-16">2015-16</a></li>
-          </ul>
-        </li>
-        <a class="nav-link" href="/events">Events</a>
-        <a class="nav-link " href="/contact">Contact Us</a>
+</style>
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="navbar-nav">
+  
+          <a class="nav-link" aria-current="page" href="/home">Home</a>
+          <a class="nav-link " href="/students">Students</a>
+          <a class="nav-link " href="/companies">Companies</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link  dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Statistics
+            </a> 
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/statistics/2019-20">2019-20</a></li>
+              <li><a class="dropdown-item" href="/statistics/2018-19">2018-19</a></li>
+              <li><a class="dropdown-item" href="/statistics/2017-18">2017-18</a></li>
+              <li><a class="dropdown-item" href="/statistics/2016-17">2016-17</a></li>
+              <li><a class="dropdown-item" href="/statistics/2015-16">2015-16</a></li>
+            </ul>
+          </li>
+          <a class="nav-link" href="/events">Events</a>
+          <a class="nav-link " href="/contact">Contact Us</a>
+        </div>
+        <div class="navbar-nav ms-auto"> 
+          <% if(!currentUser){ %> 
+            <a class="nav-link" href="/login">Login</a>
+            <a class="nav-link" href="/register">Register</a>
+          <% } else{ %> 
+            <a class="nav-link" href="/logout">Logout</a>
+          <% } %> 
+         </div>
       </div>
-      <div class="navbar-nav ms-auto"> -->
-        <% if(!currentUser){ %> 
-          <a class="nav-link" href="/login">Login</a>
-          <a class="nav-link" href="/register">Register</a>
-        <% } else{ %> 
-          <a class="nav-link" href="/logout">Logout</a> -->
-        <% } %> 
-       </div>
     </div>
-  </div>
-</nav>  
+  </nav>  
 
 
 

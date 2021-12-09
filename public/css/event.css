@@ -1,0 +1,52 @@
+  .card {
+    background-color: #fff;
+    max-width: 800px;
+    box-shadow: 2px 2px 5px #9E9E9E, -1px -1px 5px #9E9E9E;
+    border-radius: 5px;
+    display: grid;
+    grid-template-column: repeat(5, 1fr);
+  }
+  .card .img-container {
+    width: 230px;
+    height: 100%;
+    grid-column: 2;
+    background-color: #c1b7b4;
+    background-image: url('https://images.unsplash.com/photo-1529070538774-1843cb3265df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+    background-size: cover;
+    background-position: center center;
+  }
+  .card-content {
+    grid-column: 3 / 5;
+    padding: 10px 30px;
+    border-left: 1px solid #ccc;
+  }
+  h2 {
+    text-transform: uppercase;
+    color: #555;
+  }
+  h1 {
+    margin-bottom: 0;
+  }
+  .card-content .author {
+    border-top: 1px solid #cdcdcd;
+    font-weight: 700;
+    margin-top: 25px;
+    padding: 25px 0 10px 0;
+    color: #555;
+  }
+  
+  @media only screen and (max-width:600px) {
+    .card {
+      display: block;
+    }
+    .card .img-container {
+      height: 250px;
+      width: 100%;
+    }
+    .card-content {
+      border: 0;
+      border-top: 1px solid #ccc;
+    }
+  }
+  .img-container
+  {border-radius:5px 0px 0px 5px ;}

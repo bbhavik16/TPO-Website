@@ -1,23 +1,64 @@
 <% layout('layouts/boilerplate')%>
-
-<div>
-    <ul>
-        <li><%= event.name %> </li>
-        <li><%= event.companyName %></li>
-        <li><%= event.date %></li>
-        <li><%= event.time %></li>
-        <li><%= event.description %></li>
-        <% var foundUser=0 %> 
-        <% for(let user of event.registeredUsers){ %>
-            <% if(user==currentUser._id) { %>
-                <% foundUser=1 %>
-                <% break %> 
-            <% } %>
-        <% } %>
-        <% if(!foundUser){ %>
-            <form action="/events/<%=event._id%>/register" method="post">
-                <button>Register</button>
-            </form> 
-        <% } %>  
-    </ul>
-</div>
+    <link rel="stylesheet" href="/css/event.css">
+    <div class="row">
+        <div class="col d-flex justify-content-center ms-sm-3">
+            <div class="card mb-5">
+                <div class="img-container"></div>
+                <div class="card-content">
+                    <h1>
+                        <%= event.name %>
+                    </h1>
+                    <h2>
+                        <%= event.companyName %>
+                    </h2>
+                    <p class="excerpt">
+                        <%= event.description %>
+                    </p>
+                    <p class="author">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-calendar mb-1 me-2" viewBox="0 0 16 16">
+                            <path
+                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                        </svg>
+                        <%= event.date %>
+                    </p>
+                    <p class="author">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-watch mb-1 me-2" viewBox="0 0 16 16">
+                            <path d="M8.5 5a.5.5 0 0 0-1 0v2.5H6a.5.5 0 0 0 0 1h2a.5.5 0 0 0 .5-.5V5z" />
+                            <path
+                                d="M5.667 16C4.747 16 4 15.254 4 14.333v-1.86A5.985 5.985 0 0 1 2 8c0-1.777.772-3.374 2-4.472V1.667C4 .747 4.746 0 5.667 0h4.666C11.253 0 12 .746 12 1.667v1.86a5.99 5.99 0 0 1 1.918 3.48.502.502 0 0 1 .582.493v1a.5.5 0 0 1-.582.493A5.99 5.99 0 0 1 12 12.473v1.86c0 .92-.746 1.667-1.667 1.667H5.667zM13 8A5 5 0 1 0 3 8a5 5 0 0 0 10 0z" />
+                        </svg>
+                        <%= event.time %>
+                    </p>
+    
+                    <% var foundUser=0 %>
+                        <% for(let user of event.registeredUsers){ %>
+                            <% if(user==currentUser._id) { %>
+                                <% foundUser=1 %>
+                                    <% break %>
+                                        <% } %>
+                                            <% } %>
+                                                <% if(!foundUser){ %>
+                                                    <p>
+                                                    <form action="/events/<%=event._id%>/register" method="post">
+                                                        <div class="buttons mt-2">
+                                                            <button class="blob-btn">
+                                                                Register
+                                                                <span class="blob-btn__inner">
+                                                                    <span class="blob-btn__blobs">
+                                                                        <span class="blob-btn__blob"></span>
+                                                                        <span class="blob-btn__blob"></span>
+                                                                        <span class="blob-btn__blob"></span>
+                                                                        <span class="blob-btn__blob"></span>
+                                                                    </span>
+                                                                </span>
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                    </p>
+                                                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>

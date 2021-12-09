@@ -2,39 +2,32 @@
     <div class='row'>
         <h1 class="text-center">Edit Company</h1>
         <div class="col-6 offset-3">
-            <form action="/companies/<%=company._id%>?_method=PUT" method="post" novalidate class="validated-form">
+            <form action="/companies/<%=company._id%>?_method=PUT" method="post">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
-                    <input type="text" name="company[name]" id="name" class="form-control" value="<%= company.name%>"
-                        required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
+                    <input type="text" name="company[name]" id="name" class="form-control" value="<%= company.name%>">
                 </div>
                 <div class="mb-3">
                     <label for="ctc" class="form-label">CTC</label>
-                    <input type="number" name="company[ctc]" id="ctc" class="form-control" value="<%= company.ctc%>" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
+                    <input type="number" name="company[ctc]" id="ctc" class="form-control" value="<%= company.ctc%>">
                 </div>
                 <div class="mb-3">
                     <label for="role" class="form-label">Role</label>
-                    <input type="text" name="company[role]" id="role" class="form-control" value="<%= company.role%>" required>
+                    <input type="text" name="company[role]" id="role" class="form-control" value="<%= company.role%>">
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="location" class="form-label">Location</label>
-                    <input type="text" name="company[location]" id="location" class="form-control" value="<%= company.location%>" required>
+                    <input type="text" name="company[location]" id="location" class="form-control" value="<%= company.location%>">
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="min_cgpa" class="form-label">Minimum Cgpa</label>
-                    <input type="number" name="company[min_cgpa]" id="min_cgpa" class="form-control" value="<%= company.min_cgpa%>" required>
+                    <input type="number" name="company[min_cgpa]" id="min_cgpa" class="form-control" value="<%= company.min_cgpa%>">
                     <div class="valid-feedback">
                         Looks good!
                     </div>

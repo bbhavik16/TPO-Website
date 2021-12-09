@@ -1,5 +1,4 @@
-const Joi = require('joi');
-
+const Joi = require("joi");
 module.exports.companySchema = Joi.object({
     company: Joi.object({
         name: Joi.string().required(),

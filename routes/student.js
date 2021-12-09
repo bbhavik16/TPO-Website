@@ -88,7 +88,8 @@ router.get('/resume/:id/edit', isLoggedIn, catchAsync(async (req, res) => {
 router.put('/resume/:id', isLoggedIn, isAuthor, validateResume, catchAsync(async (req, res) => {
     const { id } = req.params;
     const resume = await Resume.findByIdAndUpdate(id, { ...req.body });
-    req.flash('success', 'YOour Resume Updated')
+    
+    req.flash('success', 'Your Resume Updated')
     res.redirect(`/students/resume/${resume.id}`);
 }))
 
