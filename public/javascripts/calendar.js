@@ -299,7 +299,6 @@
 		var wrapper = createElement('div', 'events in' + (currentWrapper ? ' new' : ''));
 
 		events.forEach(function (ev) {
-			console.log(ev);
 			var div = createElement('div', 'event');
 			var square = createElement('div', 'event-category ' + ev.color);
 			var span = createElement('span', '', ev.eventName);
