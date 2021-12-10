@@ -1,8 +1,6 @@
-const Company = require('./models/company');
 const Resume = require('./models/resume');
 const ExpressError = require('./utils/expressError');
-const { companySchema } = require('./schemas.js');
-const { resumeSchema } = require('./schemas.js');
+const { companySchema, resumeSchema } = require('./schemas.js');
 
 module.exports.validateCompany = (req, res, next) => {
     const { error } = companySchema.validate(req.body);
@@ -61,10 +59,15 @@ module.exports.isAuthor = async (req, res, next) => {
 }
 
 module.exports.isAdmin = async (req, res, next) => {
-    if (!(req.user.email === 'sbindroo_b20@ce.vjti.ac.in' || req.user.email === 'dgraigagla_b20@it.vjti.ac.in' || req.user.email === 'bcbharambe_b20@it.vjti.ac.in')) {
+    if (req.user.email === 'tpowebsite2021@gmail.com') {
         next();
     } else {
         req.flash('error', 'You are not an admin');
-        return res.redirect("/home");
+        const redirectUrl = req.session.returnTo;
+        if(redirectUrl[1]==="c"){
+            return res.redirect('/companies');
+        }else if(redirectUrl[1]==="e"){
+            return res.redirect("/events");
+        }
     }
 }

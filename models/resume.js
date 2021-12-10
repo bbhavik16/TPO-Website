@@ -54,5 +54,4 @@ const resumeSchema = new Schema({
 
 
 const Resume = mongoose.model('Resume', resumeSchema);
-
 module.exports = Resume;

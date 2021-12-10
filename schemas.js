@@ -1,4 +1,5 @@
 const Joi = require("joi");
+
 module.exports.companySchema = Joi.object({
     company: Joi.object({
         name: Joi.string().required(),
@@ -42,7 +43,7 @@ module.exports.resumeSchema = Joi.object().keys({
         percentage: Joi.number().required().min(0),
         year: Joi.string().required(),
     }),
-    skills: Joi.array(),
+    skills: [Joi.string().optional().allow(''), Joi.array().items(Joi.string().allow(''))],
     projects: Joi.array(),
     achievements: Joi.array()
 })

@@ -25,15 +25,16 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row mb-5">
         <div class="col-6 offset-3">
-
+            <% if(currentUser.email==='sbindroo_b20@ce.vjti.ac.in' || currentUser.email === 'dgraigagla_b20@it.vjti.ac.in' || currentUser.email === 'bcbharambe_b20@it.vjti.ac.in') {%> 
             <div>
                 <a class="card-link btn btn-info" href="/companies/<%=company._id%>/edit">Edit</a>
                 <form class="d-inline" action="/companies/<%=company._id%>?_method=DELETE" method="POST">
                     <button class="btn btn-danger">Delete</button>
                 </form>
             </div>
-            <div class="mb-3"><a href="/companies">Back</a></div>
+            <% }%> 
+            
         </div>
     </div>

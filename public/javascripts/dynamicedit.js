@@ -26,7 +26,6 @@ function addSkill(skillPassed) {
     document.getElementById("Skill").appendChild(newDiv)
 
 }
-console.log("heyyyyy");
 for(let skill of renderedSkills)
 {addSkill(skill)
 }

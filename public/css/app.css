@@ -122,7 +122,7 @@ input {
     display: none;
   }
   
-  button {
+  /* button {
     background-color: #04AA6D;
     color: #ffffff;
     border: none;
@@ -134,11 +134,11 @@ input {
   
   button:hover {
     opacity: 0.8;
-  }
+  } */
   
-  #prevBtn {
+  /* #prevBtn {
     background-color: #bbbbbb;
-  }
+  } */
   
   /* Make circles that indicate the steps of the form: */
   .step {

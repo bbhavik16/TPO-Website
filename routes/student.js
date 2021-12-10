@@ -4,7 +4,6 @@ const { isLoggedIn, isAuthor } = require('../middleware')
 const catchAsync = require('../utils/catchAsync')
 const User = require("../models/user.js")
 const Resume = require('../models/resume');
-const { valid } = require('joi');
 const { validateResume } = require('../middleware.js')
 
 router.get('/', (req, res) => {
@@ -87,8 +86,22 @@ router.get('/resume/:id/edit', isLoggedIn, catchAsync(async (req, res) => {
 
 router.put('/resume/:id', isLoggedIn, isAuthor, validateResume, catchAsync(async (req, res) => {
     const { id } = req.params;
-    const resume = await Resume.findByIdAndUpdate(id, { ...req.body });
-    
+    let resume;
+    if(!req.body.skills){
+        resume = await Resume.findByIdAndUpdate(id, { ...req.body, skills:[] });
+    } else {
+        resume = await Resume.findByIdAndUpdate(id, { ...req.body });
+    }
+    if(!req.body.projects){
+        resume = await Resume.findByIdAndUpdate(id, { ...req.body, projects:[] });
+    } else {
+        resume = await Resume.findByIdAndUpdate(id, { ...req.body });
+    }
+    if(!req.body.achievements){
+        resume = await Resume.findByIdAndUpdate(id, { ...req.body, achievements:[] });
+    } else {
+        resume = await Resume.findByIdAndUpdate(id, { ...req.body });
+    }
     req.flash('success', 'Your Resume Updated')
     res.redirect(`/students/resume/${resume.id}`);
 }))
