@@ -6,7 +6,7 @@ const ImageSchema = new Schema({
 })
 
 ImageSchema.virtual('thumbnail').get(function () {
-    return this.url.replace('/upload', '/upload/w_241/h_164')
+    return this.url.replace('/upload', '/upload/w_50/h_50')
 });
 
 const companySchema = new Schema({

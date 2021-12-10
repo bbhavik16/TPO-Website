@@ -1,37 +1,44 @@
 <% layout('layouts/boilerplate')%>
-<link rel="stylesheet" href="/css/calendar.css">
-<style>
-    .blob-btn{
-        color: rgb(11, 11, 138);
-    }
-    .blob-btn:before{
-        border-color: rgb(11, 11, 138);
-    }
-    .blob-btn__blob{
-        background: rgb(11, 11, 138);
-    }
-    #calendarimg{
-   
-    background-size:cover;
-    background-position: center;
-    }
-</style>
-<script>
-    const events=<%- JSON.stringify(events) %>
-</script> 
-   
-    <div id="calendar" class="mb-5 w-100"></div>
-        <a href="/events/new" class="blob-btn" style="text-decoration: none;" >
-            Add New Event
-            <span class="blob-btn__inner">
-                <span class="blob-btn__blobs">
-                    <span class="blob-btn__blob"></span>
-                    <span class="blob-btn__blob"></span>
-                    <span class="blob-btn__blob"></span>
-                    <span class="blob-btn__blob"></span>
+    <link rel="stylesheet" href="/css/calendar.css">
+    <style>
+        .blob-btn {
+            color: rgb(68, 138, 11);
+            opacity: 0.8;
+        }
+
+        .blob-btn:before {
+            border-color: rgb(68, 138, 11);
+            opacity: 0.8;
+        }
+
+        .blob-btn__blob {
+            background: rgb(68, 138, 11);
+        }
+
+        main {
+            background-image: url("https://images.pexels.com/photos/956999/milky-way-starry-sky-night-sky-star-956999.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+        }
+    </style>
+    <script>
+        const events =<%- JSON.stringify(events) %>;
+        const main = document.getElementsByClassName("container mt-5");
+        main[0].setAttribute("class", "");
+    </script>
+    <div class="container">
+        <div id="calendar" class="mb-5 mt-5"></div>
+        <div class="d-flex justify-content-center buttons mt-2 mb-5">
+            <a href="/events/new" class="blob-btn" style="text-decoration: none;">
+                Add New Event
+                <span class="blob-btn__inner">
+                    <span class="blob-btn__blobs">
+                        <span class="blob-btn__blob"></span>
+                        <span class="blob-btn__blob"></span>
+                        <span class="blob-btn__blob"></span>
+                        <span class="blob-btn__blob"></span>
+                    </span>
                 </span>
-            </span>
-        </a>
+            </a>
+        </div>
     </div>
   
     
