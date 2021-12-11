@@ -3,7 +3,7 @@
 <div class='row'>
     <h1 class="text-center">New Company</h1>
     <div class="col-6 offset-3">
-    <form  action="/companies" method="post" class="row g-3 validated-form" enctype="multipart/form-data" novalidate>
+    <form  action="/companies" method="post" novalidate class="row g-3 validated-form" enctype="multipart/form-data">
       <div class="mb-3">
           <label for="name" class="form-label">Name</label>
           <input type="text" class="form-control" id="name" placeholder="Enter Company Name" name="company[name]" required>
@@ -17,7 +17,7 @@
       </div>
       <div class="mb-3">
           <label for="ctc" class="form-label">CTC (Lpa)</label>
-          <input type="number" class="form-control" id="name" placeholder="Enter CTC" name="company[ctc]" required>
+          <input type="number" step="0.01" class="form-control" id="name" placeholder="Enter CTC" name="company[ctc]" required>
           <div class="valid-feedback">
             Looks good!
           </div>  
@@ -38,16 +38,14 @@
       </div>
       <div class="mb-3">
           <label for="min_cgpa" class="form-label">Minimum Cgpa</label>
-          <input type="text" class="form-control" id="min_cgpa" placeholder="Enter Minimum Cgpa" name="company[min_cgpa]" required>
+          <input type="number" step="0.01" class="form-control" id="min_cgpa" placeholder="Enter Minimum Cgpa" name="company[min_cgpa]">
           <div class="valid-feedback">
             Looks good!
           </div>
       </div>
-      <button class="btn btn-success">Add Company</button>
-      <div class="mb-3">
-        <span>To view all companies</span> <a class="mb-3 btn btn-primary" href="/companies">All Companies</a>
-      </div>
-      
+      <div class="d-flex justify-content-center mb-5">
+        <button class="btn btn-success">Add Company</button> 
+      </div>    
     </form>
 </div>
 </div>

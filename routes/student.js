@@ -69,7 +69,7 @@ router.post('/resume', isLoggedIn, validateResume, catchAsync(async (req, res) =
 
     await newResume.save();
     await user.save();
-    req.flash('success', 'new resume made!!!!!')
+    req.flash('success', 'New resume made!!!!!')
     res.redirect(`/students/resume/${newResume._id}`);
 }))
 

@@ -2,14 +2,14 @@
     <div class='row'>
         <h1 class="text-center">Edit Company</h1>
         <div class="col-6 offset-3">
-            <form action="/companies/<%=company._id%>?_method=PUT" method="post" class="validated-form" novalidate>
+            <form action="/companies/<%=company._id%>?_method=PUT" method="post" novalidate class="validated-form">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
                     <input type="text" name="company[name]" id="name" class="form-control" value="<%= company.name%>">
                 </div>
                 <div class="mb-3">
                     <label for="ctc" class="form-label">CTC</label>
-                    <input type="number" name="company[ctc]" id="ctc" class="form-control" value="<%= company.ctc%>">
+                    <input type="number" step="0.01" name="company[ctc]" id="ctc" class="form-control" value="<%= company.ctc%>">
                 </div>
                 <div class="mb-3">
                     <label for="role" class="form-label">Role</label>
@@ -27,18 +27,14 @@
                 </div>
                 <div class="mb-3">
                     <label for="min_cgpa" class="form-label">Minimum Cgpa</label>
-                    <input type="number" name="company[min_cgpa]" id="min_cgpa" class="form-control" value="<%= company.min_cgpa%>">
+                    <input type="number" step="0.01" name="company[min_cgpa]" id="min_cgpa" class="form-control" value="<%= company.min_cgpa%>" required>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                 </div>
-                <div class="mb-3">
+                <div class="d-flex justify-content-center mb-5">
                     <button class="btn btn-info">Update Company</button>
                 </div>
             </form> 
-            <div class="mb-3">
-            <a class="mb-3" href="/companies/<%= company._id%>">Back</a>
         </div>
-        </div>
-
     </div>

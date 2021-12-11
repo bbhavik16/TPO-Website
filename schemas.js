@@ -3,10 +3,10 @@ const Joi = require("joi");
 module.exports.companySchema = Joi.object({
     company: Joi.object({
         name: Joi.string().required(),
-        ctc: Joi.string().required(),
+        ctc: Joi.number().required(),
         role: Joi.string().required(),
         location: Joi.string().required(),
-        min_cgpa: Joi.string().required()
+        min_cgpa: Joi.number().required()
     })
 })
 

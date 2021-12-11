@@ -1,8 +1,8 @@
 <% layout('layouts/boilerplate')%>
     <link rel="stylesheet" href="/css/event.css">
     <div class="row">
-        <div class="col d-flex justify-content-center ms-sm-3">
-            <div class="card mb-5">
+        <div class="col d-flex justify-content-center ms-sm-4">
+            <div class="card mb-3">
                 <div class="img-container"></div>
                 <div class="card-content">
                     <h1>
@@ -33,32 +33,44 @@
                     </p>
     
                     <% var foundUser=0 %>
-                        <% for(let user of event.registeredUsers){ %>
-                            <% if(user==currentUser._id) { %>
-                                <% foundUser=1 %>
-                                    <% break %>
-                                        <% } %>
-                                            <% } %>
-                                                <% if(!foundUser){ %>
-                                                    <p>
-                                                    <form action="/events/<%=event._id%>/register" method="post">
-                                                        <div class="buttons mt-2">
-                                                            <button class="blob-btn">
-                                                                Register
-                                                                <span class="blob-btn__inner">
-                                                                    <span class="blob-btn__blobs">
-                                                                        <span class="blob-btn__blob"></span>
-                                                                        <span class="blob-btn__blob"></span>
-                                                                        <span class="blob-btn__blob"></span>
-                                                                        <span class="blob-btn__blob"></span>
-                                                                    </span>
-                                                                </span>
-                                                            </button>
-                                                        </div>
-                                                    </form>
-                                                    </p>
-                                                    <% } %>
+                    <% for(let user of event.registeredUsers){ %>
+                        <% if(user==currentUser._id) { %>
+                            <% foundUser=1 %>
+                            <% break %>
+                        <% } %>
+                    <% } %>
+                    <% if(!foundUser){ %>
+                        <p>
+                            <form action="/events/<%=event._id%>/register" method="post">
+                                <div class="buttons mt-2">
+                                    <button class="blob-btn">
+                                        Register
+                                        <span class="blob-btn__inner">
+                                            <span class="blob-btn__blobs">
+                                                <span class="blob-btn__blob"></span>
+                                                <span class="blob-btn__blob"></span>
+                                                <span class="blob-btn__blob"></span>
+                                                <span class="blob-btn__blob"></span>
+                                            </span>
+                                        </span>
+                                    </button>
+                                </div>
+                            </form>
+                        </p>
+                    <% } %>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-6 offset-3">
+            <% if(currentUser.email==='tpowebsite2021@gmail.com') {%> 
+            <div class="d-flex justify-content-center">
+                <a href="/events/<%= event._id %>/edit" class="card-link btn btn-info me-2">Edit</a>
+                <form class="d-inline" action="/events/<%= event._id %>?_method=DELETE" method="POST">
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+            <% }%>
         </div>
     </div>

@@ -1,9 +1,9 @@
 <% layout('layouts/boilerplate')%>
     <script src="/javascripts/dynamic.js"></script>
     <script>
-        const renderedSkills =<% - JSON.stringify(resume.skills) %>
-    const renderedProjects =<% - JSON.stringify(resume.projects) %>
-    const renderedAchievements =<% - JSON.stringify(resume.achievements) %>
+    const renderedSkills =<%- JSON.stringify(resume.skills) %>
+    const renderedProjects =<%- JSON.stringify(resume.projects) %>
+    const renderedAchievements =<%- JSON.stringify(resume.achievements) %>
     </script>
     <div class='row'>
         <h1 class="text-center mb-3">Edit Resume</h1>
@@ -259,7 +259,7 @@
                 <!-- <div style="overflow:auto;">
                     <div class="d-flex justify-content-center">
                         <div class="buttons mt-2">
-                            <button class="blob-btn mt-2" type="button" id="prevBtn" onclick="nextPrev(-1)">
+                            <button type="button" id="prevBtn" class="blob-btn mt-2" onclick="nextPrev(-1)">
                                 Previous
                                 <span class="blob-btn__inner">
                                     <span class="blob-btn__blobs">
@@ -267,15 +267,15 @@
                                         <span class="blob-btn__blob"></span>
                                         <span class="blob-btn__blob"></span>
                                         <span class="blob-btn__blob"></span>
-                                        <span class="blob-btn__blob"></span>
                                     </span>
                                 </span>
                             </button>
-                            <button class="blob-btn mt-2" type="button" id="nextBtn" onclick="nextPrev(1)">
+                        </div>
+                        <div class="buttons mt-2">
+                            <button type="button" id="nextBtn" class="blob-btn mt-2" onclick="nextPrev(1)">
                                 Next
                                 <span class="blob-btn__inner">
                                     <span class="blob-btn__blobs">
-                                        <span class="blob-btn__blob"></span>
                                         <span class="blob-btn__blob"></span>
                                         <span class="blob-btn__blob"></span>
                                         <span class="blob-btn__blob"></span>
@@ -294,18 +294,15 @@
                     </div>
                 </div>
 
-                    </div>
+                <div style="text-align:center;margin-top:40px;" class="mb-3">
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
                 </div>
-        </div>
 
-        <div style="text-align:center;margin-top:40px;" class="mb-3">
-            <span class="step"></span>
-            <span class="step"></span>
-            <span class="step"></span>
+            </form>
         </div>
+    </div>
 
-        </form>
-    </div>
-    </div>
     <script src="/javascripts/tabs.js"></script>
     <script src="/javascripts/dynamicedit.js"></script>

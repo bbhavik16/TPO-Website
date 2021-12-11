@@ -1,16 +1,16 @@
 <% layout('layouts/boilerplate')%>
+
 <h2 class="text-center">Past Recruiters</h2>
-<div class="mb-3 ">
-<% for (let company of companies){ %>
-<a href="/companies/<%= company._id%>"><img  src="<%= company.logo.url %>" alt=""></a>
-<% } %> 
+<div class="mb-4">
+    <% for (let company of companies){ %>
+    <a href="/companies/<%= company._id%>"><img  src="<%= company.logo.url %>" alt=""></a>
+    <% } %> 
 </div>
 
-
-
-
-
-  
-
-
-
+<% if(currentUser && currentUser.email === 'tpowebsite2021@gmail.com'){ %> 
+<div class="d-flex justify-content-center mb-5">
+    <form action="/companies/new">
+        <button class="btn btn-info">Add New Company</button>
+    </form>
+</div>
+<% } %>

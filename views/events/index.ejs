@@ -27,6 +27,7 @@
     <div class="container">
         <div id="calendar" class="mb-5 mt-5"></div>
         <div class="d-flex justify-content-center buttons mt-2 mb-5">
+            <% if(currentUser.email === 'tpowebsite2021@gmail.com'){ %> 
             <a href="/events/new" class="blob-btn" style="text-decoration: none;">
                 Add New Event
                 <span class="blob-btn__inner">
@@ -38,11 +39,9 @@
                     </span>
                 </span>
             </a>
+            <% } %> 
         </div>
     </div>
-  
-    
-   
->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="/javascripts/calendar.js"></script>

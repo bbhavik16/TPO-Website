@@ -9,7 +9,7 @@ const ejs = require('ejs');
 const mailIt = require('../public/javascripts/neweventmail')
 
 
-router.get('/', catchAsync(async (req, res) => {
+router.get('/', isLoggedIn, catchAsync(async (req, res) => {
     const events = await Event.find({});
     res.render('events/index', { events });
 }))
@@ -64,20 +64,22 @@ router.put('/:id', isAdmin, catchAsync(async (req, res) => {
     const { name, companyName, date, time, description } = req.body.event;
     const event = await Event.findByIdAndUpdate(id, { name, companyName, date, time, description });
     const output = await ejs.renderFile(process.cwd() + "/views/events/eventmail.ejs",
-        {
-            name,
-            companyName,
-            date,
-            time,
-            description
-        });
+    {
+        name,
+        companyName,
+        date,
+        time,
+        description
+    });
 
-    const allUsers = [];
-    for (let userId of event.registeredUsers) {
-        const user = await User.findById(userId);
-        allUsers.push(user.email)
+    if(event.registeredUsers.length !== 0){
+        const allUsers = [];
+        for (let userId of event.registeredUsers) {
+            const user = await User.findById(userId);
+            allUsers.push(user.email)
+        }
+        mailIt.sendMail(output, allUsers);
     }
-    mailIt.sendMail(output, allUsers);
     res.redirect('/events');
 }))
 

@@ -1,6 +1,6 @@
 <% layout('layouts/boilerplate')%>
 
-<form action="/events/<%= event._id%>?_method=PUT"  method="POST" class="validated-form mb-3" >
+<form action="/events/<%= event._id%>?_method=PUT"  method="POST" class="validated-form mb-3" novalidate>
     <h1>Add New Event</h1>
     <div class="mb-3">
         <label class="form-label" for="name">Event Name</label>
@@ -22,9 +22,5 @@
         <input class="form-control" type="time" id="time" name="event[time]" value="<%= event.time%>">   
     </div>
     
-    <button class="btn btn-success">Edit Event</button>
-    <a href="/events" class="btn btn-secondary">Back</a>
-    <div class="mb-3">
-      <span>To view all Events</span> <a class="mb-3 btn btn-primary" href="/events">All Events</a>
-    </div>
+    <button class="btn btn-success mb-4">Update Event</button>
 </form>
