@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const Company = require('../models/company.js')
-const {name,location,branch,role,url} = require('./companies.js');
+const {name,location,branch,role,url,filename} = require('./companies.js');
 mongoose.connect('mongodb://localhost:27017/tpo-website', {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -31,7 +31,7 @@ const seedDB = async()=>{
               ctc:randCtc,
               min_cgpa:minCgpi,
               branch: ['CS','IT',`${branch[roleRand]}`],
-              logo:{url:`${url[i]}`}
+              logo:{url:`${url[i]}`,filename:`${filename[i]}`}
           })
           await company.save();
       }
