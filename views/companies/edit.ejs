@@ -2,7 +2,7 @@
     <div class='row'>
         <h1 class="text-center">Edit Company</h1>
         <div class="col-6 offset-3">
-            <form action="/companies/<%=company._id%>?_method=PUT" method="post" novalidate class="validated-form">
+            <form action="/companies/<%=company._id%>?_method=PUT" method="post" class="validated-form" novalidate enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
                     <input type="text" name="company[name]" id="name" class="form-control" value="<%= company.name%>">
@@ -10,6 +10,10 @@
                 <div class="mb-3">
                     <label for="ctc" class="form-label">CTC</label>
                     <input type="number" step="0.01" name="company[ctc]" id="ctc" class="form-control" value="<%= company.ctc%>">
+                </div>
+                <div class="input-group mb-3">
+                    <input type="file" class="form-control" id="inputGroupFile02" name="image">
+                    <label class="input-group-text" for="inputGroupFile02">Upload Logo</label>
                 </div>
                 <div class="mb-3">
                     <label for="role" class="form-label">Role</label>

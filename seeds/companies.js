@@ -62,7 +62,39 @@ module.exports.url=[
 "https://res.cloudinary.com/djhcnbsvg/image/upload/v1637319016/Companies/logos/28_vdsijb.jpg",
 "https://res.cloudinary.com/djhcnbsvg/image/upload/v1637319016/Companies/logos/29_vfsb4o.jpg",
 "https://res.cloudinary.com/djhcnbsvg/image/upload/v1637319016/Companies/logos/30_hbdanf.jpg"
-]
+],
+module.exports.filename=[
+    "Companies/logos/1_zpgdiq.jpg",
+    "Companies/logos/2_k37doj.jpg",
+    "Companies/logos/3_xvy23s.jpg",
+    "Companies/logos/4_t3r3sf.jpg",
+    "Companies/logos/WhatsApp_Image_2021-11-19_at_4.31.29_PM_gn7pxi.jpg",
+    "Companies/logos/6_kyhvgu.jpg",
+    "Companies/logos/WhatsApp_Image_2021-11-19_at_4.32.31_PM_tg3fwn.jpg",
+    "Companies/logos/WhatsApp_Image_2021-11-19_at_4.33.15_PM_f326xc.jpg",
+    "Companies/logos/9_v3tqsg.jpg",
+    "Companies/logos/10_witsuc.jpg",
+    "Companies/logos/11_igbohi.jpg",
+    "Companies/logos/12_dl5btq.jpg",
+    "Companies/logos/13_izvq6o.jpg",
+    "Companies/logos/14_zt4ret.jpg",
+    "Companies/logos/15_iyn8gk.jpg",
+    "Companies/logos/16_vwkyfu.jpg",
+    "Companies/logos/WhatsApp_Image_2021-11-19_at_4.34.44_PM_qhn9kj.jpg",
+    "Companies/logos/18_vcnnbz.jpg",
+    "Companies/logos/WhatsApp_Image_2021-11-19_at_4.35.54_PM_sazu6o.jpg",
+    "Companies/logos/20_lgtvwx.jpg",
+    "Companies/logos/21_g5zahm.jpg",
+    "Companies/logos/22_rwsndt.jpg",
+    "Companies/logos/23_lmnsxn.jpg",
+    "Companies/logos/WhatsApp_Image_2021-11-19_at_4.37.15_PM_x9ocfw.jpg",
+    "Companies/logos/25_p16zhg.jpg",
+    "Companies/logos/26_tbynal.jpg",
+    "Companies/logos/27_atayfu.jpg",
+    "Companies/logos/28_vdsijb.jpg",
+    "Companies/logos/29_vfsb4o.jpg",
+    "Companies/logos/30_hbdanf.jpg"
+    ],
 module.exports.location = ["Delhi", "Mumbai", "Pune", "Banglore", "Hyderabad"];
 
 module.exports.branch = ["EXTC","ELECTRICAL","ELECTRONICS", "MECHANICAL", "CIVIL"];

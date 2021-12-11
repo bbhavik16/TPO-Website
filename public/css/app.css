@@ -82,26 +82,7 @@ td{
 }
   
    
-     
-header{
-    min-height: 15% !important;
-}
-@media only screen and (max-width : 1200px) {    
-    #marathi{
-        display : none;
-    }
-}
-@media only screen and (max-width : 460px) {
-  #english{
-    font-size : 80%;
-  }
-}
-
-@media only screen and (max-width : 360px) {
-  #english{
-    display:none;
-  }
-}
+  
 
 
 input {
