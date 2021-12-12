@@ -23,7 +23,7 @@ module.exports.isLoggedIn = (req, res, next) => {
 module.exports.isValidUser = (req, res, next) => {
     let s = req.body.email.slice(-14);
     let str = s.slice(1, 3);
-    if (str === 'ce' || str === 'it') {
+    if (str === 'ce' || str === 'it' || str === 'et' || str === 'el' || str === 'ee' || str === 'me' || str === 'ci' || str === 'pe' || str === 'tx') {
         if (!(s === `@${str}.vjti.ac.in`)) {
             req.flash('error', 'NOT A VALID VJTI STUDENT');
             res.redirect('/register');

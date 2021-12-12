@@ -22,7 +22,7 @@ router.get('/material', isLoggedIn, (req, res) => {
     res.render('students/material')
 })
 
-router.get('/transcripts', (req, res) => {
+router.get('/transcripts', isLoggedIn, (req, res) => {
     res.render('students/transcripts')
 })
 
