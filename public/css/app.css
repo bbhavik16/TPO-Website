@@ -71,6 +71,7 @@ td{
   }
 
   .carousel-inner>.carousel-item>img, .carousel-inner>.item>button>img {
+    background-color: none;
     display: block;
     position: absolute;
     height: 100%;
@@ -103,19 +104,20 @@ input {
     display: none;
   }
   
-  /* button {
-    background-color: #04AA6D;
+  button {
+    background-color: #05a067;
     color: #ffffff;
     border: none;
-    padding: 10px 20px;
-    font-size: 17px;
+    padding: 9px 18px;
+    font-size: 18px;
     font-family: Raleway;
     cursor: pointer;
+    border-radius: 10px;
   }
   
   button:hover {
-    opacity: 0.8;
-  } */
+    background-color: #048858;
+  }
   
   /* #prevBtn {
     background-color: #bbbbbb;
@@ -173,3 +175,14 @@ input {
   #rules {
     text-align: center;
   }
+
+  .a-design {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .a-design:hover {
+    color: inherit
+  }
+
+  

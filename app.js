@@ -120,7 +120,7 @@ var job = new CronJob('00 12 19 * * *', async function () {
 job.start();
 
 app.get('/', (req, res) => {
-    res.send("Hello")
+    res.render('index');
 })
 app.get('/students/material', (req, res) => {
     res.render('students/material/material')

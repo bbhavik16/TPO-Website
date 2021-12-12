@@ -72,7 +72,7 @@ router.put('/:id', isAdmin, catchAsync(async (req, res) => {
         description
     });
 
-    if(event.registeredUsers.length !== 0){
+    if(event.registeredUsers && event.registeredUsers.length !== 0){
         const allUsers = [];
         for (let userId of event.registeredUsers) {
             const user = await User.findById(userId);

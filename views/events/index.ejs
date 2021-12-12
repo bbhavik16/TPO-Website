@@ -19,6 +19,13 @@
             background-image: url("https://res.cloudinary.com/djhcnbsvg/image/upload/v1639242139/TPO-Website/EventsBg_l5iznc.jpg");
             background-repeat: repeat;
         }
+
+        @media only screen and (max-width : 466px) {
+            #calendar {
+               max-width: 100%;
+            }
+    
+        }
     </style>
     <script>
         const events =<%- JSON.stringify(events) %>;
