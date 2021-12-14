@@ -185,4 +185,12 @@ input {
     color: inherit
   }
 
+
+/* table */
+ 
+    @media only screen and (max-width : 480px) {
+        #t1 {
+            max-width: 75%;
+        }
+      }
   
