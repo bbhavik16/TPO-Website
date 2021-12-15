@@ -24,6 +24,7 @@ const myChart = new Chart(ctx, {
                 'rgba(255, 159, 64, 1)'
             ],
 
+
             borderWidth: 1
         }],
 
@@ -47,6 +48,7 @@ const myChart = new Chart(ctx, {
             title: {
                 display: true,
                 text: 'BRANCH-WISE PLACEMENT',
+                color: "black",
                 padding: {
                     top: 10,
                     bottom: 5
@@ -54,16 +56,20 @@ const myChart = new Chart(ctx, {
             },
             legend: {
                 labels: {
-                    boxWidth: 0
+                    boxWidth: 0,
+                    color: "black",
                 }
             }
         },
 
         scales: {
             y: {
-                beginAtZero: true
+                beginAtZero: true,
+                color: "black"
             }
+
         }
+
     }
 });
 

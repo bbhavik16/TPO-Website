@@ -1,144 +1,146 @@
 <% layout('layouts/boilerplate')%>
     <div class="container">
         <div class="row">
-            <div class="col col-12 col-xl-6 chartBox  mb-3 pr-4">
-                <canvas id="barchart"></canvas>
+            <div class="col col-md-6 mb-3">
+                <canvas id="barchart" style="height:400px;"></canvas>
             </div>
             <script>
                 const data = [9.5, 7.6, 6.1, 6.1, 4.9, 4.7, 4.9, 4.5, 3.2]
             </script>
             <script src="/javascripts/barchart.js"></script>
 
-            <div class="col-6 chartBox">
+            <div class="col col-md-6 mb-3">
                 <canvas id="PieChart"></canvas>
                 <script> const piedata = [65, 66, 61, 54, 63, 60, 33, 54, 19]</script>
                 <script src="/javascripts/piechart.js">
                 </script>
             </div>
         </div>
-        <div class="row justify-content-evenly mb-3">
-            <table class="table table-bordered table-striped">
-                <tr>
-                    <th>Sr.No</th>
-                    <th>Branch</th>
-                    <th>Enrolled to TPO</th>
-                    <th>Eligible</th>
-                    <th>Eligible Selected</th>
-                    <th>% Eligible Placed</th>
-                    <th>Total Students Placed (On+Off Campus)</th>
-                    <th>% Enrolled Placed</th>
-                    <th>Average CTC</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>COMPS</td>
-                    <td>75</td>
-                    <td>65</td>
-                    <td>65</td>
-                    <td>100</td>
-                    <td>75</td>
-                    <td>100.00</td>
-                    <td>9.5</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>IT</td>
-                    <td>79</td>
-                    <td>67</td>
-                    <td>66</td>
-                    <td>98.50</td>
-                    <td>79</td>
-                    <td>100.00</td>
-                    <td>7.6</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>EXTC</td>
-                    <td>75</td>
-                    <td>64</td>
-                    <td>61</td>
-                    <td>95.31</td>
-                    <td>75</td>
-                    <td>100.00</td>
-                    <td>6.1</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>EX</td>
-                    <td>75</td>
-                    <td>62</td>
-                    <td>54</td>
-                    <td>87.09</td>
-                    <td>75</td>
-                    <td>100.00</td>
-                    <td>6.1</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>ELECT</td>
-                    <td>76</td>
-                    <td>64</td>
-                    <td>63</td>
-                    <td>98.43</td>
-                    <td>76</td>
-                    <td>100.00</td>
-                    <td>4.9</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>MECH</td>
-                    <td>73</td>
-                    <td>65</td>
-                    <td>60</td>
-                    <td>92.30</td>
-                    <td>65</td>
-                    <td>89.04</td>
-                    <td>4.7</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>CIVIL</td>
-                    <td>70</td>
-                    <td>55</td>
-                    <td>33</td>
-                    <td>60</td>
-                    <td>50</td>
-                    <td>71.42</td>
-                    <td>4.9</td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>PROD</td>
-                    <td>75</td>
-                    <td>63</td>
-                    <td>54</td>
-                    <td>85.71</td>
-                    <td>69</td>
-                    <td>92.00</td>
-                    <td>4.5</td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>TEXT</td>
-                    <td>69</td>
-                    <td>39</td>
-                    <td>19</td>
-                    <td>48.71</td>
-                    <td>29</td>
-                    <td>42.03</td>
-                    <td>3.2</td>
-                </tr>
-                <tr>
-                    <td colspan="7"><strong>Overall Avg Placement %</strong></td>
-                    <td><strong>88.27</strong></td>
-                    <td><strong>5.722</strong></td>
-                </tr>
-            </table>
-        </div>
+    </div>
 
-        <h4><u>M-TECH &#38; MCA PLACEMENTS</u></h4>
-        <div class="row justify-content-evenly mb-3">
-            <table class="table table-bordered table-striped">
+    <div style="overflow-x:auto;">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>Sr.No</th>
+                <th>Branch</th>
+                <th>Enrolled to TPO</th>
+                <th>Eligible</th>
+                <th>Eligible Selected</th>
+                <th>% Eligible Placed</th>
+                <th>Total Students Placed (On+Off Campus)</th>
+                <th>% Enrolled Placed</th>
+                <th>Average CTC</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>COMPS</td>
+                <td>75</td>
+                <td>65</td>
+                <td>65</td>
+                <td>100</td>
+                <td>75</td>
+                <td>100.00</td>
+                <td>9.5</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>IT</td>
+                <td>79</td>
+                <td>67</td>
+                <td>66</td>
+                <td>98.50</td>
+                <td>79</td>
+                <td>100.00</td>
+                <td>7.6</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>EXTC</td>
+                <td>75</td>
+                <td>64</td>
+                <td>61</td>
+                <td>95.31</td>
+                <td>75</td>
+                <td>100.00</td>
+                <td>6.1</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>EX</td>
+                <td>75</td>
+                <td>62</td>
+                <td>54</td>
+                <td>87.09</td>
+                <td>75</td>
+                <td>100.00</td>
+                <td>6.1</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>ELECT</td>
+                <td>76</td>
+                <td>64</td>
+                <td>63</td>
+                <td>98.43</td>
+                <td>76</td>
+                <td>100.00</td>
+                <td>4.9</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>MECH</td>
+                <td>73</td>
+                <td>65</td>
+                <td>60</td>
+                <td>92.30</td>
+                <td>65</td>
+                <td>89.04</td>
+                <td>4.7</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>CIVIL</td>
+                <td>70</td>
+                <td>55</td>
+                <td>33</td>
+                <td>60</td>
+                <td>50</td>
+                <td>71.42</td>
+                <td>4.9</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>PROD</td>
+                <td>75</td>
+                <td>63</td>
+                <td>54</td>
+                <td>85.71</td>
+                <td>69</td>
+                <td>92.00</td>
+                <td>4.5</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>TEXT</td>
+                <td>69</td>
+                <td>39</td>
+                <td>19</td>
+                <td>48.71</td>
+                <td>29</td>
+                <td>42.03</td>
+                <td>3.2</td>
+            </tr>
+            <tr>
+                <td colspan="7"><strong>Overall Avg Placement %</strong></td>
+                <td><strong>88.27</strong></td>
+                <td><strong>5.722</strong></td>
+            </tr>
+        </table>
+    </div>
+
+    <h4><u>M-TECH &#38; MCA PLACEMENTS</u></h4>
+    <div style="overflow-x:auto;">
+        <table class="table table-bordered table-striped">
             <tr>
                 <th>Sr.No</th>
                 <th>Branch</th>
@@ -342,6 +344,5 @@
                 <td>69.23</td>
                 <td>6.06</td>
             </tr>
-            </table>
-      </div>
+        </table>
     </div>

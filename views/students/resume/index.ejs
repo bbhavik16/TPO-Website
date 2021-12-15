@@ -1,56 +1,92 @@
 <% layout('layouts/boilerplate')%>
+    <style>
+        main {
+            background-image: url(" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTffCsYV1IqQvzQe-y6ZHC9ZMXIh2YyuPZiiA&usqp=CAU");
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+    <script>
 
+        const main = document.getElementsByClassName("container mt-5");
+        main[0].setAttribute("class", "");
+    </script>
     <div class="container d-flex justify-content-center mt-4">
         <div class="row mb-3">
-            <div class="d-flex justify-content-center col-sm-12 offset-sm-0 col-md-12 offset-md-0 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2 " id="div1">
-                <div class="card mb-5 border-dark" >
+            <div class="d-flex justify-content-center col-sm-12 offset-sm-0 col-md-12 offset-md-0 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2 "
+                id="div1">
+                <div class="card mb-5 border-dark">
                     <div class="card-body">
                         <% if(currentUser.username){%>
                             <h4 class="card-title text-center">Hello, <%= currentUser.username%>
                             </h4>
-                        <%}%>
-                        <% if(currentUser.name){%>
-                            <h4 class="card-title text-center">Hello, <%=currentUser.name%></h4>
-                        <%}%>
-                        <p class="card-text text-center">Your first impression is often your RESUME.<br>
-                            Create your resume now...
-                        </p>
-                       <div class="d-flex justify-content-center">
-                            <a href="/students/resume/new" class="btn btn-primary  text-align-center mb-3 ">New Resume</a>
-                       </div>
+                            <%}%>
+                                <% if(currentUser.name){%>
+                                    <h4 class="card-title text-center">Hello, <%=currentUser.name%>
+                                    </h4>
+                                    <%}%>
+                                        <p class="card-text text-center">Your first impression is often your RESUME.<br>
+                                            Create your resume now...
+                                        </p>
+                                        <div class="d-flex justify-content-center">
+                                            <a href="/students/resume/new"
+                                                class="btn btn-primary  text-align-center mb-3 ">New Resume</a>
+                                        </div>
 
-                       <hr  class="bg-dark border-2 border-top border-dark">
-                       <h5 class="card-title text-center mt-3 mb-3">My Resumes</h5>
-                        <% i=1 %>
-                       <div class="mb-4">
-                        <ul class="list-group">
-                        <% for(let resume of resumes){%>
-                                <% if(currentUser && resume.author.equals(currentUser._id)){%>
-                                    <li class="list-group-item list-group-item-action list-group-item-light"><a class="a-design" style="color: black;" href="/students/resume/<%= resume._id %>">
-                                            Resume Version<%= i++%>
-                                        </a></li>
-                                <% } %>
-                        <% } %>
-                        </ul>
-                                <% if(i===1){%>
-                                    <div class="text-muted">
-                                        You don't have any resumes. Make one now!
-                                    </div>
-                                <% }%>
-                        </div>
+                                        <hr class="bg-dark border-2 border-top border-dark">
+                                        <h5 class="card-title text-center mt-3 mb-3">My Resumes</h5>
+                                        <% i=1 %>
+                                            <div class="mb-4">
+                                                <ul class="list-group">
+                                                    <% for(let resume of resumes){%>
+                                                        <% if(currentUser && resume.author.equals(currentUser._id)){%>
+                                                            <li
+                                                                class="list-group-item list-group-item-action list-group-item-light">
+                                                                <a class="a-design" style="color: black;"
+                                                                    href="/students/resume/<%= resume._id %>">
+                                                                    Resume Version<%= i++%>
+                                                                </a>
+                                                            </li>
+                                                            <% } %>
+                                                                <% } %>
+                                                </ul>
+                                                <% if(i===1){%>
+                                                    <div class="text-muted">
+                                                        You don't have any resumes. Make one now!
+                                                    </div>
+                                                    <% }%>
+                                            </div>
 
-                        <hr  class="bg-dark border-2 border-top border-dark">
-                        <h5 class="text-center">Some tips for making an impactful resume</h3>
-                        <div>
-                            <ul class="list-group">
-                                <li class="list-group-item list-group-item-action list-group-item-light">Keep it simple. Education, projects, positions of responsibility, technical skills. Bold whatever skill you feel should be highlighted(it will invite questions that you want to answer) eg. Your good pointer, the language/project you worked on in a project that you feel confident about, etc.</li>
-                                <li class="list-group-item list-group-item-action list-group-item-light">Mention the projects in decreasing order of importance. The project you want questions on/ your most interesting project should be at the top. But be prepared to answer questions on it. The questions maybe based on deployment, scaling, handling concurrency, the database structure, so be prepared. </li>
-                                <li class="list-group-item list-group-item-action list-group-item-light">They do not expect references in your resume at this stage since you're just starting out, so remove it.</li>
-                                <li class="list-group-item list-group-item-action list-group-item-light">Keep it down to ONE PAGE. Get rid of the stuff the company may not be interested in knowing.</li>
-                            </ul>
-                        </div>
+                                            <hr class="bg-dark border-2 border-top border-dark">
+                                            <h5 class="text-center">Some tips for making an impactful resume</h3>
+                                                <div>
+                                                    <ul class="list-group">
+                                                        <li
+                                                            class="list-group-item list-group-item-action list-group-item-light">
+                                                            Keep it simple. Education, projects, positions of
+                                                            responsibility, technical skills. Bold whatever skill you
+                                                            feel should be highlighted(it will invite questions that you
+                                                            want to answer) eg. Your good pointer, the language/project
+                                                            you worked on in a project that you feel confident about,
+                                                            etc.</li>
+                                                        <li
+                                                            class="list-group-item list-group-item-action list-group-item-light">
+                                                            Mention the projects in decreasing order of importance. The
+                                                            project you want questions on/ your most interesting project
+                                                            should be at the top. But be prepared to answer questions on
+                                                            it. The questions maybe based on deployment, scaling,
+                                                            handling concurrency, the database structure, so be
+                                                            prepared. </li>
+                                                        <li
+                                                            class="list-group-item list-group-item-action list-group-item-light">
+                                                            They do not expect references in your resume at this stage
+                                                            since you're just starting out, so remove it.</li>
+                                                        <li
+                                                            class="list-group-item list-group-item-action list-group-item-light">
+                                                            Keep it down to ONE PAGE. Get rid of the stuff the company
+                                                            may not be interested in knowing.</li>
+                                                    </ul>
+                                                </div>
                     </div>
                 </div>
             </div>
-
-            
