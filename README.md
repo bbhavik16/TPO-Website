@@ -50,4 +50,4 @@ Tools and technologies that we learnt and used in the project:
 * VJTI Location on Map
 
 ## Screenshots
-* Drive link: [Drive link here](https://drive.google.com/drive/u/0/folders/1uNGiNDW068sNQFOvrRn3tIToOXS8arjz)
+* Drive link: [Drive link here](https://drive.google.com/drive/u/1/folders/1wn_DjAUL4LQaKjYjPfloq5pJjEBjiAOJ)
