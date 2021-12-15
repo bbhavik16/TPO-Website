@@ -1,4 +1,16 @@
 <% layout('layouts/boilerplate')%>
+<style>
+    main {
+        background-image: url(" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTffCsYV1IqQvzQe-y6ZHC9ZMXIh2YyuPZiiA&usqp=CAU");
+        background-size: cover;
+        background-position: center;
+    }
+</style>
+<script>
+
+    const main = document.getElementsByClassName("container mt-5");
+    main[0].setAttribute("class", "px-3");
+</script>
     <script src="/javascripts/dynamic.js"></script>
     <script>
     const renderedSkills =<%- JSON.stringify(resume.skills) %>

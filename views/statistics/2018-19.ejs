@@ -1,22 +1,26 @@
 <% layout('layouts/boilerplate')%>
     <div class="container">
         <div class="row">
-            <div class="col col-12 col-xl-6 chartBox  mb-3 pr-4">
-                <canvas id="barchart"></canvas>
+            <div class="col col-md-6 mb-3">
+                <canvas id="barchart" style="height:400px;"></canvas>
             </div>
             <script>
                 const data = [11.28, 9.59, 7.37, 6.13, 6.33, 5.47, 5.69, 4.7, 4.17]
             </script>
             <script src="/javascripts/barchart.js"></script>
-    
-            <div class="col-6 chartBox mb-4">
+
+            <div class="col col-md-6  mb-4">
                 <canvas id="PieChart"></canvas>
-                <script> const piedata = [67, 60, 59, 51, 66, 66, 58, 37, 31]</script>
+                <script>const piedata = [67, 60, 59, 51, 66, 66, 58, 37, 31]</script>
                 <script src="/javascripts/piechart.js"></script>
             </div>
         </div>
-        <div class="row justify-content-evenly mb-3">
+    </div>
+
+
+    <div style="overflow-x:auto;" class="mt-3">
         <table class="table table-bordered table-striped">
+
             <tr>
                 <th>Sr.No</th>
                 <th>Branch</th>
@@ -135,9 +139,12 @@
         </table>
     </div>
 
+
+
+
     <h4><u>M-TECH &#38; MCA PLACEMENTS</u></h4>
-        <div class="row justify-content-evenly mb-3">
-            <table class="table table-bordered table-striped">
+    <div style="overflow-x:auto;">
+        <table class="table table-bordered table-striped">
             <tr>
                 <th>Sr.No</th>
                 <th>Branch</th>
@@ -341,6 +348,5 @@
                 <td>82.97</td>
                 <td>7.07</td>
             </tr>
-            </table>
-      </div>
+        </table>
     </div>

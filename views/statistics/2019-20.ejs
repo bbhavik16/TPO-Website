@@ -1,286 +1,311 @@
 <% layout('layouts/boilerplate')%>
+  <!-- <style>
+    main {
+      background-image: url("https://previews.123rf.com/images/onirb/onirb1411/onirb141100035/33343175-trendy-statistics-symbol-background-with-space-for-own-text.jpg");
+
+    }
+
+
+    td,
+    th,
+    tr:hover {
+      background-color: white;
+    }
+
+    #barchart:hover {
+      background-color: white;
+    }
+
+    #PieChart:hover {
+      background-color: white;
+    }
+  </style> -->
+  <script>
+    const main = document.getElementsByClassName("container mt-5");
+    main[0].setAttribute("class", "");
+  </script>
   <div class="container">
     <div class='row'>
-      <div class="col col-12 col-xl-6 chartBox  mb-3 pr-4">
-        <canvas id="barchart"></canvas>
+      <div class="col col-md-6 mb-3 mt-3">
+        <canvas id="barchart" style="height:400px;"></canvas>
       </div>
       <script>
         const data = [12.7, 12.1, 9.62, 7.64, 6.9, 6.2, 4.84, 6.2, 6.2]
       </script>
       <script src="/javascripts/barchart.js"></script>
-      <div class="col-6 chartBox mb-4">
+      <div class="col col-md-6 mb-3 mt-3">
         <canvas id="PieChart"></canvas>
         <script> const piedata = [69, 67, 59, 53, 51, 60, 31, 47, 19]</script>
         <script src="/javascripts/piechart.js"></script>
       </div>
     </div>
-    <div class="row justify-content-evenly mb-3" >
-      <table class="table table-bordered table-striped">
-        <tr>
-          <th>Sr.No</th>
-          <th>Branch</th>
-          <th>Enrolled to TPO</th>
-          <th>Eligible</th>
-          <th>Eligible Selected (On Campus)</th>
-          <th>% Eligible Placed</th>
-          <th>Total Students Selected (On+Off Campus)</th>
-          <th>% Enrolled Placed</th>
-          <th>Average CTC</th>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>COMPS</td>
-          <td>71</td>
-          <td>69</td>
-          <td>69</td>
-          <td>100</td>
-          <td>71</td>
-          <td>100</td>
-          <td>12.70</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>IT</td>
-          <td>71</td>
-          <td>67</td>
-          <td>67</td>
-          <td>100</td>
-          <td>68</td>
-          <td>95.8</td>
-          <td>12.1</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>EXTC</td>
-          <td>74</td>
-          <td>59</td>
-          <td>59</td>
-          <td>100</td>
-          <td>62</td>
-          <td>83.8</td>
-          <td>9.62</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>EX</td>
-          <td>72</td>
-          <td>53</td>
-          <td>53</td>
-          <td>100</td>
-          <td>55</td>
-          <td>76.4</td>
-          <td>7.64</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td>ELECT</td>
-          <td>74</td>
-          <td>55</td>
-          <td>51</td>
-          <td>92.7</td>
-          <td>52</td>
-          <td>70.3</td>
-          <td>6.9</td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td>MECH</td>
-          <td>74</td>
-          <td>60</td>
-          <td>60</td>
-          <td>100</td>
-          <td>64</td>
-          <td>86.5</td>
-          <td>6.2</td>
-        </tr>
-        <tr>
-          <td>7</td>
-          <td>CIVIL</td>
-          <td>73</td>
-          <td>55</td>
-          <td>31</td>
-          <td>82.5</td>
-          <td>32</td>
-          <td>44</td>
-          <td>4.84</td>
-        </tr>
-        <tr>
-          <td>8</td>
-          <td>PROD</td>
-          <td>74</td>
-          <td>57</td>
-          <td>47</td>
-          <td>56.3</td>
-          <td>50</td>
-          <td>67.6</td>
-          <td>6.2</td>
-        </tr>
-        <tr>
-          <td>9</td>
-          <td>TEXT</td>
-          <td>62</td>
-          <td>36</td>
-          <td>19</td>
-          <td>52.7</td>
-          <td>26</td>
-          <td>42</td>
-          <td>6.2</td>
-        </tr>
-        <tr>
-          <td colspan="7"><strong>Overall Avg Placement %</strong></td>
-          <td><strong>74.04</strong></td>
-          <td><strong>8.1</strong></td>
-        </tr>
-      </table>
-    </div>
+  </div>
+  <div style="overflow-x:auto;" class="mt-3">
+    <table class="table table-bordered table-striped">
+      <tr>
+        <th>Sr.No</th>
+        <th>Branch</th>
+        <th>Enrolled to TPO</th>
+        <th>Eligible</th>
+        <th>Eligible Selected (On Campus)</th>
+        <th>% Eligible Placed</th>
+        <th>Total Students Selected (On+Off Campus)</th>
+        <th>% Enrolled Placed</th>
+        <th>Average CTC</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>COMPS</td>
+        <td>71</td>
+        <td>69</td>
+        <td>69</td>
+        <td>100</td>
+        <td>71</td>
+        <td>100</td>
+        <td>12.70</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>IT</td>
+        <td>71</td>
+        <td>67</td>
+        <td>67</td>
+        <td>100</td>
+        <td>68</td>
+        <td>95.8</td>
+        <td>12.1</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>EXTC</td>
+        <td>74</td>
+        <td>59</td>
+        <td>59</td>
+        <td>100</td>
+        <td>62</td>
+        <td>83.8</td>
+        <td>9.62</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>EX</td>
+        <td>72</td>
+        <td>53</td>
+        <td>53</td>
+        <td>100</td>
+        <td>55</td>
+        <td>76.4</td>
+        <td>7.64</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>ELECT</td>
+        <td>74</td>
+        <td>55</td>
+        <td>51</td>
+        <td>92.7</td>
+        <td>52</td>
+        <td>70.3</td>
+        <td>6.9</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>MECH</td>
+        <td>74</td>
+        <td>60</td>
+        <td>60</td>
+        <td>100</td>
+        <td>64</td>
+        <td>86.5</td>
+        <td>6.2</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>CIVIL</td>
+        <td>73</td>
+        <td>55</td>
+        <td>31</td>
+        <td>82.5</td>
+        <td>32</td>
+        <td>44</td>
+        <td>4.84</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>PROD</td>
+        <td>74</td>
+        <td>57</td>
+        <td>47</td>
+        <td>56.3</td>
+        <td>50</td>
+        <td>67.6</td>
+        <td>6.2</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>TEXT</td>
+        <td>62</td>
+        <td>36</td>
+        <td>19</td>
+        <td>52.7</td>
+        <td>26</td>
+        <td>42</td>
+        <td>6.2</td>
+      </tr>
+      <tr>
+        <td colspan="7"><strong>Overall Avg Placement %</strong></td>
+        <td><strong>74.04</strong></td>
+        <td><strong>8.1</strong></td>
+      </tr>
+    </table>
+  </div>
 
-    <h4><u>M-TECH &#38; MCA PLACEMENTS</u></h4>
-    <div class="row justify-content-evenly mb-3">
-        <table class="table table-bordered table-striped">
-          <tr>
-            <th>Sr.No</th>
-            <th>Branch</th>
-            <th>Enrolled to TPO</th>
-            <th>Eligible</th>
-            <th>Eligible Selected</th>
-            <th>% Eligible Placed</th>
-            <th>Average CTC</th>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>M-TECH AUTO</td>
-            <td>22</td>
-            <td>22</td>
-            <td>0</td>
-            <td>0</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>M-TECH CAD/CAM</td>
-            <td>17</td>
-            <td>17</td>
-            <td>2</td>
-            <td>12</td>
-            <td>5</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>M-TECH COMPS</td>
-            <td>23</td>
-            <td>22</td>
-            <td>11</td>
-            <td>50</td>
-            <td>12.5</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>M-TECH Control</td>
-            <td>21</td>
-            <td>21</td>
-            <td>1</td>
-            <td>5</td>
-            <td>5</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>M-TECH EX</td>
-            <td>23</td>
-            <td>23</td>
-            <td>5</td>
-            <td>22</td>
-            <td>7.5</td>
-          </tr>
-          <tr>
-            <td>6</td>
-            <td>M-TECH EXTC</td>
-            <td>25</td>
-            <td>25</td>
-            <td>2</td>
-            <td>8</td>
-            <td>8.5</td>
-          </tr>
-          <tr>
-            <td>7</td>
-            <td>M-TECH M/D</td>
-            <td>23</td>
-            <td>23</td>
-            <td>5</td>
-            <td>22</td>
-            <td>7.5</td>
-          </tr>
-          <tr>
-            <td>8</td>
-            <td>M-TECH POWER</td>
-            <td>20</td>
-            <td>20</td>
-            <td>3</td>
-            <td>15</td>
-            <td>6.5</td>
-          </tr>
-          <tr>
-            <td>9</td>
-            <td>M-TECH PROD</td>
-            <td>18</td>
-            <td>18</td>
-            <td>0</td>
-            <td>0</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>10</td>
-            <td>M-TECH STRUCT</td>
-            <td>21</td>
-            <td>21</td>
-            <td>10</td>
-            <td>48</td>
-            <td>5.5</td>
-          </tr>
-          <tr>
-            <td>11</td>
-            <td>M-TECH Thermal</td>
-            <td>24</td>
-            <td>24</td>
-            <td>3</td>
-            <td>13</td>
-            <td>6</td>
-          </tr>
-          <tr>
-            <td>12</td>
-            <td>M-TECH PROJECT MGMT</td>
-            <td>29</td>
-            <td>29</td>
-            <td>5</td>
-            <td>18</td>
-            <td>5.5</td>
-          </tr>
-          <tr>
-            <td>13</td>
-            <td>M-TECH N.I.M.S</td>
-            <td>17</td>
-            <td>17</td>
-            <td>8</td>
-            <td>47</td>
-            <td>6</td>
-          </tr>
-          <tr>
-            <td>14</td>
-            <td>M-TECH SOFTWARE ENGG</td>
-            <td>21</td>
-            <td>21</td>
-            <td>9</td>
-            <td>43</td>
-            <td>13</td>
-          </tr>
-          <tr>
-            <td>15</td>
-            <td>MCA</td>
-            <td>48</td>
-            <td>48</td>
-            <td>30</td>
-            <td>62.5</td>
-            <td>7.5</td>
-          </tr>
-        </table>
-      </div>
-    </div>
+  <h4><u>M-TECH &#38; MCA PLACEMENTS</u></h4>
+  <div style="overflow-x:auto;" class="mt-3">
+    <table class="table table-bordered table-striped">
+      <tr>
+        <th>Sr.No</th>
+        <th>Branch</th>
+        <th>Enrolled to TPO</th>
+        <th>Eligible</th>
+        <th>Eligible Selected</th>
+        <th>% Eligible Placed</th>
+        <th>Average CTC</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>M-TECH AUTO</td>
+        <td>22</td>
+        <td>22</td>
+        <td>0</td>
+        <td>0</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>M-TECH CAD/CAM</td>
+        <td>17</td>
+        <td>17</td>
+        <td>2</td>
+        <td>12</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>M-TECH COMPS</td>
+        <td>23</td>
+        <td>22</td>
+        <td>11</td>
+        <td>50</td>
+        <td>12.5</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>M-TECH Control</td>
+        <td>21</td>
+        <td>21</td>
+        <td>1</td>
+        <td>5</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>M-TECH EX</td>
+        <td>23</td>
+        <td>23</td>
+        <td>5</td>
+        <td>22</td>
+        <td>7.5</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>M-TECH EXTC</td>
+        <td>25</td>
+        <td>25</td>
+        <td>2</td>
+        <td>8</td>
+        <td>8.5</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>M-TECH M/D</td>
+        <td>23</td>
+        <td>23</td>
+        <td>5</td>
+        <td>22</td>
+        <td>7.5</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>M-TECH POWER</td>
+        <td>20</td>
+        <td>20</td>
+        <td>3</td>
+        <td>15</td>
+        <td>6.5</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>M-TECH PROD</td>
+        <td>18</td>
+        <td>18</td>
+        <td>0</td>
+        <td>0</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>M-TECH STRUCT</td>
+        <td>21</td>
+        <td>21</td>
+        <td>10</td>
+        <td>48</td>
+        <td>5.5</td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>M-TECH Thermal</td>
+        <td>24</td>
+        <td>24</td>
+        <td>3</td>
+        <td>13</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>M-TECH PROJECT MGMT</td>
+        <td>29</td>
+        <td>29</td>
+        <td>5</td>
+        <td>18</td>
+        <td>5.5</td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td>M-TECH N.I.M.S</td>
+        <td>17</td>
+        <td>17</td>
+        <td>8</td>
+        <td>47</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td>M-TECH SOFTWARE ENGG</td>
+        <td>21</td>
+        <td>21</td>
+        <td>9</td>
+        <td>43</td>
+        <td>13</td>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td>MCA</td>
+        <td>48</td>
+        <td>48</td>
+        <td>30</td>
+        <td>62.5</td>
+        <td>7.5</td>
+      </tr>
+    </table>
+  </div>

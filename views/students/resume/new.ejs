@@ -1,4 +1,16 @@
 <% layout('layouts/boilerplate')%>
+    <style>
+        main {
+            background-image: url(" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTffCsYV1IqQvzQe-y6ZHC9ZMXIh2YyuPZiiA&usqp=CAU");
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+    <script>
+
+        const main = document.getElementsByClassName("container mt-5");
+        main[0].setAttribute("class", "px-3");
+    </script>
     <div class='row'>
         <h1 class="text-center mb-3">Create Resume</h1>
         <div class="col-12 ">
@@ -242,8 +254,8 @@
 
                 <div style="overflow:auto;">
                     <div class="d-flex justify-content-center">
-                      <button class="me-3" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                      <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                        <button class="me-3" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                        <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
                     </div>
                 </div>
 
