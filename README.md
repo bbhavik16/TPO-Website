@@ -21,12 +21,12 @@ The website focuses on internships and placements and is responsible for connect
 
 
 * GitHub repo link: [Link to repository](https://github.com/bbhavik16/TPO-Website)
-* Drive link: [Drive link here](https://drive.google.com/drive/folders/1JQmotPG7ITyEo4Vmhv_Fa6DmvM8bDBL7?usp=sharing)
+
 
 
 ## Technology stack
 
-Tools and technologies that you learnt and used in the project.
+Tools and technologies that we learnt and used in the project:
 
 * Languages
   * HTML
@@ -49,4 +49,5 @@ Tools and technologies that you learnt and used in the project.
 * Interview Transcripts & Interview Material
 * VJTI Location on Map
 
-
+## Screenshots
+* Drive link: [Drive link here](https://drive.google.com/drive/u/0/folders/1uNGiNDW068sNQFOvrRn3tIToOXS8arjz)
