@@ -6,7 +6,7 @@ module.exports.sendMail = async function(output,allUsers)
         service:"gmail",
         auth:{
           user:"tpowebsite2021@gmail.com",
-          pass:"Copiedyelp2021"
+          pass:process.env.TPO_PASSWORD
         }
       })
       
