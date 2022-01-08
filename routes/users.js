@@ -5,8 +5,6 @@ const passport = require('passport');
 const User = require("../models/user.js")
 const { isValidUser } = require('../middleware');
 
-let redirectHere;
-
 router.get('/register', (req, res) => {
     res.render('users/register');
 })
@@ -31,7 +29,7 @@ router.post('/register', isValidUser, catchAsync(async (req, res, next) => {
 }))
 
 router.get('/login', (req, res) => {
-    redirectHere = req.session.returnTo;
+    redirectHere = req.session.returnTo || "/home";
     res.render('users/login')
 })
 
