@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 const passportLocalMongoose = require('passport-local-mongoose');
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
+// const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const findOrCreate = require('mongoose-findorcreate');
 const UserSchema = new Schema({
     email: {
@@ -23,5 +23,4 @@ const UserSchema = new Schema({
 
 UserSchema.plugin(passportLocalMongoose);
 UserSchema.plugin(findOrCreate)
-
 module.exports = mongoose.model('User', UserSchema);

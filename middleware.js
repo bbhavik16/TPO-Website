@@ -23,6 +23,7 @@ module.exports.isLoggedIn = (req, res, next) => {
 module.exports.isValidUser = (req, res, next) => {
     let s = req.body.email.slice(-14);
     let str = s.slice(1, 3);
+    console.log(req.body.email);
     if (str === 'ce' || str === 'it' || str === 'et' || str === 'el' || str === 'ee' || str === 'me' || str === 'ci' || str === 'pe' || str === 'tx') {
         if (!(s === `@${str}.vjti.ac.in`)) {
             req.flash('error', 'NOT A VALID VJTI STUDENT');
@@ -63,9 +64,9 @@ module.exports.isAdmin = async (req, res, next) => {
     } else {
         req.flash('error', 'You are not an admin');
         const redirectUrl = req.session.returnTo;
-        if(redirectUrl[1]==="c"){
+        if (redirectUrl[1] === "c") {
             return res.redirect('/companies');
-        }else if(redirectUrl[1]==="e"){
+        } else if (redirectUrl[1] === "e") {
             return res.redirect("/events");
         }
     }

@@ -30,6 +30,7 @@ const Event = require('./models/events');
 const nodemailer = require('nodemailer');
 var CronJob = require('cron').CronJob;
 const mailIt = require('./public/javascripts/neweventmail')
+const mongoSanitize = require('express-mongo-sanitize');
 
 mongoose.connect('mongodb://localhost:27017/tpo-website', {
     useNewUrlParser: true,
@@ -45,10 +46,10 @@ db.once("open", () => {
 app.engine('ejs', ejsMate)
 app.set("views", path.join(__dirname, "views"))
 app.set("view engine", "ejs")
-
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride("_method"))                        //For overriding post with delete or edit request
 app.use(express.static(path.join(__dirname, "public")))
+app.use(mongoSanitize())
 
 const sessionConfig = {
     secret: "thisshouldbeabettersecret",
@@ -92,7 +93,6 @@ var job = new CronJob('00 12 19 * * *', async function () {
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = today.getFullYear();
-    console.log("hello")
     const events = await Event.find({});
     for (let event of events) {
         const output = await ejs.renderFile(__dirname + "/views/events/eventmail.ejs",
