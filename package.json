@@ -21,6 +21,7 @@
     "chart.js": "^3.6.0",
     "cloudinary": "^1.27.1",
     "connect-flash": "^0.1.1",
+    "connect-mongo": "^4.6.0",
     "cron": "^1.8.2",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
