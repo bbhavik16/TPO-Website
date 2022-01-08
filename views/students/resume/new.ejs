@@ -14,7 +14,7 @@
     <div class='row'>
         <h1 class="text-center mb-3">Create Resume</h1>
         <div class="col-12 ">
-            <form id="regForm" action="/students/resume" novalidate method="post" class="row g-3 validated-form">
+            <form id="regForm" action="/students/resume" method="post" class="row g-3 validated-form">
                 <div class="tab col-12">
 
                     <h5 class="d-flex justify-content-center text-muted">PERSONAL DETAILS</h5>
@@ -23,14 +23,14 @@
                             <div class="mb-3">
                                 <label for="firstName" class="form-label">First Name</label>
                                 <input type="text" class="form-control" id="firstName" placeholder="Enter first name"
-                                    name="personal[firstName]">
+                                    name="personal[firstName]" required>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="mb-3">
                                 <label for="lastName" class="form-label">Last Name</label>
                                 <input type="text" class="form-control" id="lastName" placeholder="Enter last name"
-                                    name="personal[lastName]">
+                                    name="personal[lastName]" required>
                             </div>
                         </div>
                     </div>
@@ -40,14 +40,14 @@
                             <div class="mb-3">
                                 <label for="mobile" class="form-label">Mobile No.</label>
                                 <input type="tel" class="form-control" id="mobile" placeholder="Enter mobile no"
-                                    name="personal[mobile]">
+                                    name="personal[mobile]" required>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="email" class="form-control" id="email" placeholder="Enter Email"
-                                    name="personal[email]">
+                                    name="personal[email]" required>
                             </div>
                         </div>
                     </div>
@@ -77,14 +77,14 @@
                             <div class="mb-3">
                                 <label for="degreeCollege" class="form-label">College Name</label>
                                 <input type="text" class="form-control" id="degreeCollege"
-                                    placeholder="Enter college name" name="degreeCollege[name]">
+                                    placeholder="Enter college name" name="degreeCollege[name]" required>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="mb-3">
                                 <label for="location" class="form-label">College Location</label>
                                 <input type="text" class="form-control" id="location"
-                                    placeholder="Enter college location" name="degreeCollege[location]">
+                                    placeholder="Enter college location" name="degreeCollege[location]" required>
                             </div>
                         </div>
                     </div>
@@ -94,14 +94,14 @@
                             <div class="mb-3">
                                 <label for="degree" class="form-label">Degree</label>
                                 <input type="text" class="form-control" id="degree" placeholder="Enter degree"
-                                    name="degreeCollege[degree]">
+                                    name="degreeCollege[degree]" required>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="mb-3">
                                 <label for="branch" class="form-label">Branch</label>
                                 <input type="text" class="form-control" id="branch" placeholder="Enter Branch"
-                                    name="degreeCollege[branch]">
+                                    name="degreeCollege[branch]" required>
                             </div>
                         </div>
                     </div>
@@ -111,14 +111,14 @@
                             <div class="mb-3">
                                 <label for="cgpa" class="form-label">Cgpa</label>
                                 <input type="number" class="form-control" id="cgpa" placeholder="Enter Cgpa"
-                                    name="degreeCollege[cgpa]">
+                                    name="degreeCollege[cgpa]" required>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="mb-3">
                                 <label for="year" class="form-label">Year</label>
                                 <input type="text" class="form-control" id="year" placeholder="Enter year"
-                                    name="degreeCollege[year]">
+                                    name="degreeCollege[year]" required>
                             </div>
                         </div>
                     </div>
@@ -132,14 +132,14 @@
                             <div class=" mb-3">
                                 <label for="juniorCollege" class="form-label">College Name</label>
                                 <input type="text" class="form-control" id="juniorCollege"
-                                    placeholder="Enter college name" name="juniorCollege[name]">
+                                    placeholder="Enter college name" name="juniorCollege[name]" required>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="mb-3">
                                 <label for="location" class="form-label">College Location</label>
                                 <input type="text" class="form-control" id="location"
-                                    placeholder="Enter college location" name="juniorCollege[location]">
+                                    placeholder="Enter college location" name="juniorCollege[location]" required>
                             </div>
                         </div>
                     </div>
@@ -150,21 +150,21 @@
                             <div class="mb-3">
                                 <label for="board" class="form-label">Board</label>
                                 <input type="text" class="form-control" id="board" placeholder="Enter board"
-                                    name="juniorCollege[board]">
+                                    name="juniorCollege[board]" required>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="mb-3">
                                 <label for="percentage" class="form-label">Percentage</label>
                                 <input type="number" class="form-control" id="percentage" placeholder="Enter Percentage"
-                                    name="juniorCollege[percentage]">
+                                    name="juniorCollege[percentage]" required>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="mb-3">
                                 <label for="year" class="form-label">Year</label>
                                 <input type="text" class="form-control" id="year" placeholder="Enter year"
-                                    name="juniorCollege[year]">
+                                    name="juniorCollege[year]" required>
                             </div>
                         </div>
                     </div>
@@ -194,14 +194,14 @@
                             <div class="mb-3">
                                 <label for="school" class="form-label">School Name</label>
                                 <input type="text" class="form-control" id="school" placeholder="Enter school name"
-                                    name="school[name]">
+                                    name="school[name]" required>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="mb-3">
                                 <label for="location" class="form-label">School Location</label>
                                 <input type="text" class="form-control" id="location"
-                                    placeholder="Enter School location" name="school[location]">
+                                    placeholder="Enter School location" name="school[location]" required>
                             </div>
                         </div>
                     </div>
@@ -211,7 +211,7 @@
                             <div class="mb-3">
                                 <label for="board" class="form-label">Board</label>
                                 <input type="text" class="form-control" id="board" placeholder="Enter board"
-                                    name="school[board]">
+                                    name="school[board]" required>
                             </div>
                         </div>
                         <div class="col-4">
@@ -219,14 +219,14 @@
                             <div class="mb-3">
                                 <label for="percentage" class="form-label">Percentage</label>
                                 <input type="number" class="form-control" id="percentage" placeholder="Enter Percentage"
-                                    name="school[percentage]">
+                                    name="school[percentage]" required>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="mb-3">
                                 <label for="year" class="form-label">Year</label>
                                 <input type="text" class="form-control" id="year" placeholder="Enter year"
-                                    name="school[year]">
+                                    name="school[year]" required>
                             </div>
                         </div>
                     </div>

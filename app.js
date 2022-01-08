@@ -31,8 +31,12 @@ const nodemailer = require('nodemailer');
 var CronJob = require('cron').CronJob;
 const mailIt = require('./public/javascripts/neweventmail')
 const mongoSanitize = require('express-mongo-sanitize');
+const MongoStore = require('connect-mongo')
 
-mongoose.connect('mongodb://localhost:27017/tpo-website', {
+const secret=process.env.SECRET || "thisshouldbesecret"
+const dbUrl = process.env.DB_URL ||'mongodb://localhost:27017/tpo-website'
+
+mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
@@ -49,10 +53,28 @@ app.set("view engine", "ejs")
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride("_method"))                        //For overriding post with delete or edit request
 app.use(express.static(path.join(__dirname, "public")))
-app.use(mongoSanitize())
+app.use(
+    mongoSanitize({
+        replaceWith: '_',
+    }),
+);
+const store = MongoStore.create({
+    mongoUrl: dbUrl,
+    crypto: {
+        secret
+    },
+    touchAfter: 24 * 60 * 60
+})
+
+
+store.on("error", function (e) {
+    console.log("SESSION STORE ERROR", e)
+})
 
 const sessionConfig = {
-    secret: "thisshouldbeabettersecret",
+    store,
+    name: 'session',
+    secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
