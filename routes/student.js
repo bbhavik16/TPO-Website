@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { isLoggedIn, isAuthor } = require('../middleware')
-const catchAsync = require('../utils/catchasync')
+const catchAsync = require('../utils/catchAsync')
 const User = require("../models/user.js")
 const Resume = require('../models/resume');
 const { validateResume } = require('../middleware.js')
