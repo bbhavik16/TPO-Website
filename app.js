@@ -34,7 +34,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const MongoStore = require('connect-mongo')
 
 const secret=process.env.SECRET || "thisshouldbesecret"
-const dbUrl = process.env.DB_URL ||'mongodb://localhost:27017/tpo-website'
+const dbUrl ='mongodb://localhost:27017/tpo-website'
 
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
