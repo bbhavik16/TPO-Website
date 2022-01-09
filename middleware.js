@@ -1,5 +1,5 @@
 const Resume = require('./models/resume');
-const ExpressError = require('./utils/expressError');
+const ExpressError = require('./utils/expresserror');
 const { companySchema, resumeSchema } = require('./schemas.js');
 
 module.exports.validateCompany = (req, res, next) => {

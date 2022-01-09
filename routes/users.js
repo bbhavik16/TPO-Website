@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const catchAsync = require('../utils/catchAsync');
+const catchAsync = require('../utils/catchasync');
 const passport = require('passport');
 const User = require("../models/user.js")
 const { isValidUser } = require('../middleware');
