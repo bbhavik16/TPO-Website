@@ -7,7 +7,7 @@ const ejsMate = require('ejs-mate');
 const methodOverride = require('method-override')
 const path = require('path');
 const Company = require('./models/company')
-const ExpressError = require('./utils/ExpressError');
+const ExpressError = require('./utils/expressError');
 const catchAsync = require('./utils/catchAsync')
 const { validateCompany, isAuthor, isLoggedIn, validateResume } = require('./middleware.js')
 const session = require('express-session');
@@ -34,7 +34,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const MongoStore = require('connect-mongo')
 
 const secret=process.env.SECRET || "thisshouldbesecret"
-const dbUrl = process.env.DB_URL ||'mongodb://localhost:27017/tpo-website'
+const dbUrl ='mongodb://localhost:27017/tpo-website'
 
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
@@ -165,7 +165,7 @@ app.use((err, req, res, next) => {
         err.message = "Oh No, Something went wrong!"
     res.status(statusCode).render('error', { err })
 })
-
-app.listen(3000, () => {
-    console.log("Listening on port 3000");
+const port=process.env.PORT || 3000
+app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
 })

@@ -4,7 +4,8 @@
   "description": "**This is a project on TPO Website.**\\\r We are going to have the following features in our website:\r 1. Companies details\r 2. Previous years statistics\r 3. Announcements and Rules\r 4. Interview schedules in calendar form\r 5. Resume templates\r 6. Events notifications through emails\r 7. Interview transcripts\r 8. Interview Material\r 9. Alumni Details\r 10. FAQs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
