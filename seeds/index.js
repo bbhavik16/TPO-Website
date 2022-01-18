@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Company = require('../models/company.js')
 const {name,location,branch,role,url,filename} = require('./companies.js');
-mongoose.connect('mongodb://localhost:27017/tpo-website', {
+mongoose.connect('mongodb+srv://COLTISGOD:Unmqw75g5oKMKre7@cluster0.xeeio.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
