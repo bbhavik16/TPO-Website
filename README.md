@@ -37,9 +37,7 @@ The website focuses on internships and placements and is responsible for connect
 </a> <a href="https://www.chartjs.org" target="_blank"> <img src="https://www.chartjs.org/media/logo-title.svg" alt="chartjs" width="40" height="40"/>
 <a href="https://www.mongodb.com/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/>
 <a href="http://www.passportjs.org/" target="_blank"> <img src="https://miro.medium.com/max/1400/1*B0ZueS6zQg_ZG2d-sxfVQA.jpeg" alt="mongodb" width="40" height="40"/>
-- Front-end - HTML, CSS, Javascript
-- Back-end - NodeJs, [Express](https://expressjs.com/) (Fast, unopinionated, minimalist web framework for Node.js.)
-- Mobile App - [Flutter](https://flutter.dev/)
+
 
 ## 🛠️ Project Setup
 
