@@ -99,4 +99,3 @@ nodemon app.js
 
 ## 🖼 Recording
 
-![Web App](https://drive.google.com/uc?export=view&id=1JNdp6u6c2waackYbFuUYu9wlTa3jJmhD)
