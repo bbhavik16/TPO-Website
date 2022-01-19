@@ -1,15 +1,15 @@
 var xValues = ['COMP', 'IT', 'EXTC', 'EX', 'ELECT', 'MECH', 'CIVIL', 'PROD', 'TEX'];
 var yValues = piedata;
 var barColors = [
-  "#b91d47",
-  "#00aba9",
-  "#2b5797",
-  "#e8c3b9",
-  "#1e7145",
-  "#FF00FF",
-  "#40E0D0",
-  "#ff7518",
-  "#50C878"
+    "#b91d47",
+    "#00aba9",
+    "#2b5797",
+    "#e8c3b9",
+    "#1e7145",
+    "#FF00FF",
+    "#40E0D0",
+    "#ff7518",
+    "#50C878"
 ];
 
 
@@ -19,17 +19,19 @@ new Chart("PieChart", {
     data: {
         labels: xValues,
         datasets: [{
-        backgroundColor: barColors,
-        data: yValues
+            backgroundColor: barColors,
+            data: yValues
         }]
     },
     options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        title: {
-        display: true,
-        text: "World Wide Wine Production 2018"
-        } ,
-        hoverOffset: 6
+        plugins: {
+            responsive: true,
+            maintainAspectRatio: false,
+            title: {
+                display: true,
+                text: "No Of Eligible Students Selected"
+            },
+            hoverOffset: 6
+        }
     }
 });
