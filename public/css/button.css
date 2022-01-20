@@ -104,4 +104,3 @@
   @supports (filter: url('#goo')) {
     transform: translateZ(0) scale(1.4);
   }
-  
